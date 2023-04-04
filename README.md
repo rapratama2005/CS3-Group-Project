@@ -10,3 +10,7 @@ Project Ideas:
 - Comp Sci, the game
 - AI Chat bot
 - AI Chat bot that talks with other AI chat bot
+- AI joke maker
+- D&D campaign maker
+- D&D Character generator
+- Something generator
