@@ -18,4 +18,4 @@ Project Ideas:
 - cacaa, bird simulator, bird identifier
 - Talking parrott - repeat
 - Simon says
-- 
+- Comp Sci Fighting Game R
