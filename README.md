@@ -16,3 +16,6 @@ Project Ideas:
 - Something generator
 - Dating simulator 
 - cacaa, bird simulator, bird identifier
+- Talking parrott - repeat
+- Simon says
+- 
