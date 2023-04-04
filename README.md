@@ -15,4 +15,6 @@ Project Ideas:
 - D&D Character generator
 - Something generator
 - cacaa, bird simulator, bird identifier
-- AAA
+- Talking parrott - repeat
+- Simon says
+- 
