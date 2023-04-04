@@ -14,3 +14,5 @@ Project Ideas:
 - D&D campaign maker
 - D&D Character generator
 - Something generator
+- cacaa, bird simulator, bird identifier
+- 
