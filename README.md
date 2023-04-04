@@ -10,3 +10,5 @@ Project Ideas:
 - Comp Sci, the game
 - AI Chat bot
 - AI Chat bot that talks with other AI chat bot
+- cacaa, bird simulator, bird identifier
+- 
