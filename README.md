@@ -21,7 +21,8 @@ Project Ideas:
 - Comp Sci Fighting Game R C
 - Card Game 
 Michelle Brockwoman 
-letap nahor (special "Whaaat!")
+Me special ("Attack Cheif D")
+letap nahor (special "Whaaat!") - Confuses the enemy, enemy loses 5 attack
 Nature Boy (Special "Ivy Talk") - If health is less than 5, they fail.
 Rizzler PanARABREAD (Special "Hard Carry") - Roll a dice, picks a random element and uses that attack
 Intellectual (Special "AP Research") - Evoles into Mrs. Kleiber, and attacks with "alright so" (stuns the enemy, enemy's strength is decreased until Mrs. Kleiber leaves the field) has 20 health.
