@@ -22,7 +22,7 @@ Project Ideas:
 - Card Game 
 Michelle Brockwoman 
 letap nahor (special "Whaaat!")
-annoying boy (Special "Ivy Talk") - If health is less than 5, they fail. (Stick Figure with spikey hair)
+Nature Boy (Special "Ivy Talk") - If health is less than 5, they fail.
 Rizzler PanARABREAD (Special "Hard Carry") - Roll a dice, picks a random element and uses that attack
 Intellectual (Special "AP Research") - Evoles into Mrs. Kleiber, and attacks with "alright so" (stuns the enemy, enemy's strength is decreased until Mrs. Kleiber leaves the field) has 20 health.
 Pokemon Comp Sci Game (2 player game)
@@ -38,6 +38,8 @@ Pokemon Comp Sci Game (2 player game)
 - 1-2 cards at a time. 
 - Some form of counterplay
 - 5 cards in their hand
+- People pick what cards go into their hands
+- 
 - Each turn they can play down one card/switch out a card.
 - 3 moves each, play, damage, use items
 - 
