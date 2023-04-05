@@ -25,8 +25,9 @@ Me special ("Attack Cheif D")
 letap nahor (special "Whaaat!") - Confuses the enemy, enemy loses 5 attack
 Nature Boy (Special "Ivy Talk") - If health is less than 5, they fail.
 Rizzler PanARABREAD (Special "Hard Carry") - Roll a dice, picks a random element and uses that attack
-Intellectual (Special "AP Research") - Evoles into Mrs. Kleiber, and attacks with "alright so" (stuns the enemy, enemy's strength is decreased until Mrs. Kleiber leaves the field) has 20 health.
-Pokemon Comp Sci Game (2 player game)
+Intellectual (Special "AP Research") - Evoles into Mrs. Kleiber, and attacks with special ability "alright so" (stuns the enemy, enemy's strength is decreased until Mrs. Kleiber leaves the field) has 20 health.  
+Pokemon Comp Sci Game (2 player game). 
+Mrs. Kleiber (Special "Alright so") - stuns the enemy, enemy's strength is decreased until Mrs. Kleiber leaves the field. 
 - Graphic Component (Paint) and Data Component
 - Deck Cards
 - Each Card has an ability
