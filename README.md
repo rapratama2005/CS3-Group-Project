@@ -18,4 +18,5 @@ Project Ideas:
 - cacaa, bird simulator, bird identifier C
 - Talking parrott - repeat
 - Simon says
-- Comp Sci Fighting Game R
+- Comp Sci Fighting Game R C
+- Card Game 
