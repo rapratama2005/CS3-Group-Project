@@ -20,11 +20,11 @@ Project Ideas:
 - Simon says
 - Comp Sci Fighting Game R C
 - Card Game 
-Michelle Brockwoman
+Michelle Brockwoman 
 letap nahor (special "Whaaat!")
 annoying boy (Special "Ivy Talk") - If health is less than 5, they fail. (Stick Figure with spikey hair)
 Rizzler PanARABREAD (Special "Hard Carry") - Roll a dice, picks a random element and uses that attack
-Minecrafter (Special "AP Research") - Summon Mrs. Kleiber, and attacks with "alright so" 
+Intellectual (Special "AP Research") - Evoles into Mrs. Kleiber, and attacks with "alright so" (stuns the enemy, enemy's strength is decreased until Mrs. Kleiber leaves the field) has 20 health.
 Pokemon Comp Sci Game (2 player game)
 - Graphic Component (Paint) and Data Component
 - Deck Cards
@@ -32,11 +32,12 @@ Pokemon Comp Sci Game (2 player game)
 - Graphics on Cards 
 - Person they represent
 - Normal
-- Elemental - Retaw, Htrae, Ria, Erif
+- Types- DPS, tank, support
 - Special move after they have charged up enough
 - Health (number/bar)
 - 1-2 cards at a time. 
 - Some form of counterplay
-
+- 5 cards in their hand
+- Each turn they can play down one card/switch out a card.
 - 3 moves each, play, damage, use items
 - 
