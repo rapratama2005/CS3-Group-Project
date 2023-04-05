@@ -20,3 +20,23 @@ Project Ideas:
 - Simon says
 - Comp Sci Fighting Game R C
 - Card Game 
+Michelle Brockwoman
+letap nahor (special "Whaaat!")
+annoying boy (Special "Ivy Talk") - If health is less than 5, they fail. (Stick Figure with spikey hair)
+Rizzler PanARABREAD (Special "Hard Carry") - Roll a dice, picks a random element and uses that attack
+Minecrafter (Special "AP Research") - Summon Mrs. Kleiber, and attacks with "alright so" 
+Pokemon Comp Sci Game (2 player game)
+- Graphic Component (Paint) and Data Component
+- Deck Cards
+- Each Card has an ability
+- Graphics on Cards 
+- Person they represent
+- Normal
+- Elemental - Retaw, Htrae, Ria, Erif
+- Special move after they have charged up enough
+- Health (number/bar)
+- 1-2 cards at a time. 
+- Some form of counterplay
+
+- 3 moves each, play, damage, use items
+- 
