@@ -2,7 +2,7 @@ import java.util.*;
 public abstract class DsuperCard {
     private int maxHealth,maxAtk,Health,atk;
     private String name, atkName, supName, bName;
-    //private ArrayList<Conditions> cond = new ArrayList<Conditions>();
+    private ArrayList<DCondition> cond = new ArrayList<DCondition>();
     public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN){
         maxHealth = mH;
         maxAtk = mA;
