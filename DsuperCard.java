@@ -1,6 +1,6 @@
 import java.util.*;
 public abstract class DsuperCard {
-    private int maxHealth,maxAtk,Health,atk;
+    private int maxHealth,maxAtk,Health,atk,boostHealth, boostAtk; //R 4/8: Added BoostHealth and BoostAtk, will be used for conditions  
     private String name, atkName, supName, bName;
     private ArrayList<DCondition> cond = new ArrayList<DCondition>();
     public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN){
@@ -38,8 +38,34 @@ public abstract class DsuperCard {
     public String getBName(){
         return bName;
     }
+    //Set functions
+    public int setMaxH(int mH){
+        maxHealth = mH;
+        return maxHealth;
+    }
+    public int setMaxA(int mA){
+        maxAtk = mA;
+        return maxAtk;
+    }
+    public int setHealth(int H){
+        Health = H;
+        return Health;
+    }
+    public int setAtk(int A){
+        atk = A;
+        return atk;
+    }
     //Abstract Func
     public abstract void atk();
     public abstract void bAtk();
     public abstract void sAtk();
+    //Essentials
+    public int heal(int H){
+        Health+=H;
+        return Health;
+    }
+    public int hurt(int H){
+        Health-=H;
+        return Health;
+    }
 }
