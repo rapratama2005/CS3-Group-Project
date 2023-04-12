@@ -6,8 +6,8 @@ letap nahor (special "Whaaat!") - Confuses(enemy cannot use super move) the enem
 - basic atk 
 - 10 hp
 - super charges in 3 hits
-- bMove atks with basic atk twice.
-Nature Boy (Special "Ivy") - If health is less than 12, fails.
+- bMove AIr attack
+Nature Boy (Special "Ivy Talk") - If health is less than 12, fails.
 - support
 - 10 health
 - atk 1

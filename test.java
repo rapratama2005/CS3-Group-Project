@@ -3,6 +3,6 @@ public class test{
         int x=2;
         while (x>0){
             System.out.println("oqwiehf");
-        }    
+        }
     }
 }
