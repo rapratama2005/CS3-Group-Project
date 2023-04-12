@@ -1,3 +1,5 @@
+import java.util.concurrent.locks.Condition;
+
 //kkkkkkkk
 public abstract class DCondition{
     private int duration;

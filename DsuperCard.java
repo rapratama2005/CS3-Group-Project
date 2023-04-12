@@ -55,6 +55,25 @@ public abstract class DsuperCard {
         atk = A;
         return atk;
     }
+<<<<<<< HEAD
+=======
+    public String setName(String N){
+        name = N;
+        return name;
+    }
+    public ArrayList<DCondition> addConditions(DCondition C){
+        cond.add(C);
+        return cond;
+    }
+    public double setBoostHealth(double bH){
+        boostHealth=bH;
+        return boostHealth;
+    }
+    public double setBoostAtk(double bAtk){
+        boostAtk=bAtk;
+        return boostAtk;
+    }
+>>>>>>> 8060d8e85523e3061a6da15048718ee780f063c0
     //Abstract Func
     public abstract void atk();
     public abstract void bAtk();
@@ -68,5 +87,27 @@ public abstract class DsuperCard {
         Health-=H;
         return Health;
     }
+<<<<<<< HEAD
     
+=======
+    public ArrayList<DCondition> checkConditions(){
+        for (int i = 0; i < cond.size(); i++){
+            cond.get(i).effect(this);
+            if(cond.get(i).getDuration()<=0){
+                cond.remove(i);
+                i--;
+            }
+        }
+        return cond;
+    }
+
+    //To Str ing for Test ing
+    public String toString(){
+        String string = "";
+        string += "Name: " + name + "\n";
+        string += "Health: " + getHealth() + "/" + getMaxH() + "\n";
+        string += "Condtions: " + cond.toString();
+        return string;
+    }
+>>>>>>> 8060d8e85523e3061a6da15048718ee780f063c0
 }
