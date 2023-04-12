@@ -44,4 +44,4 @@ Pokemon Comp Sci Game (2 player game).
 - Take 2 of the opponents' cards
 - Each turn they can play down one card/switch out a card.
 - 3 moves each, play, damage, use items
-- 
+- b attack costs super charge to use.
