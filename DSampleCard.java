@@ -2,7 +2,7 @@
 public class DSampleCard extends DsuperCard{
 
     public DSampleCard() {
-        super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack");
+        super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 10);
     }
 
     @Override
