@@ -1,7 +1,7 @@
 //R 4/11: Sample Card to test
 public class DSampleCard extends DsuperCard{
 
-    public DSampleCard(int mH, int mA, int H, int A, String na, String aN, String sN, String bN) {
+    public DSampleCard() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack");
     }
 
@@ -13,6 +13,8 @@ public class DSampleCard extends DsuperCard{
     @Override
     public void bAtk(DsuperCard target) {
         DConditionPoison samplePoison = new DConditionPoison(3, "Poison", 1);
+        target.addConditions(samplePoison);
+
     }
 
     @Override

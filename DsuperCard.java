@@ -70,6 +70,10 @@ public abstract class DsuperCard {
         atk = A;
         return atk;
     }
+    public String setName(String N){
+        name = N;
+        return name;
+    }
     public ArrayList<DCondition> addConditions(DCondition C){
         cond.add(C);
         return cond;
@@ -94,5 +98,24 @@ public abstract class DsuperCard {
     public int hurt(int H){
         Health-=H;
         return Health;
+    }
+    public ArrayList<DCondition> checkConditions(){
+        for (int i = 0; i < cond.size(); i++){
+            cond.get(i).effect(this);
+            if(cond.get(i).getDuration()<=0){
+                cond.remove(i);
+                i--;
+            }
+        }
+        return cond;
+    }
+
+    //To Str ing for Test ing
+    public String toString(){
+        String string = "";
+        string += "Name: " + name + "\n";
+        string += "Health: " + getHealth() + "/" + getMaxH() + "\n";
+        string += "Condtions: " + cond.toString();
+        return string;
     }
 }
