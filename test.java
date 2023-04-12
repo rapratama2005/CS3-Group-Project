@@ -1,7 +1,7 @@
 public class test{
     public static void main(String[] args){
         
-        /*
+        
 
         //R 4/12: Tested reg atk and b atk 
 
@@ -31,6 +31,6 @@ public class test{
         System.out.println("5");
         System.out.println(test1+"\n");
         System.out.println(test2+"\n");
-        */
+        
     }
 }

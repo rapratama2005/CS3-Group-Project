@@ -1,10 +1,10 @@
 import java.util.*;
 public abstract class DsuperCard {
-    private int maxHealth,maxAtk,Health,atk;
+    private int maxHealth,maxAtk,Health,atk, supAtkProg, supAtkProgMax;
     private String name, atkName, supName, bName;
     private ArrayList<DCondition> cond = new ArrayList<DCondition>();
-    private double boostHealth, boostAtk; //R 4/8: Added BoostHealth and BoostAtk, will be used for conditions  
-    public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN){
+    private int boostHealth, boostAtk; //R 4/8: Added BoostHealth and BoostAtk, will be used for conditions  
+    public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN, int sM){
         maxHealth = mH; // R 4/11: What range of HP and ATK do we want? Proposal: 15 HP for tanks, 8-10 HP for DPS/Support, 5-4 ATK for DPS, 1-3 for Tank, 1-2 for Support
         maxAtk = mA;
         Health = H;
@@ -13,11 +13,13 @@ public abstract class DsuperCard {
         atkName = aN;
         supName = sN;
         bName = bN;
+        supAtkProg = 0;
+        supAtkProgMax = sM;
 
         // R 4/11: boosts should start at 1x and can be modified to 
         // R 4/11: do we want boosts as additive (+1, +2, -1) or multiplicative (/2, *2, *1.5)?
-        boostHealth = 1.0;
-        boostAtk = 1.0;
+        boostHealth = 0;
+        boostAtk = 0;
     }
     //Get functions
     public int getMaxH(){
@@ -31,6 +33,12 @@ public abstract class DsuperCard {
     }
     public int getAtk(){
         return atk;
+    }
+    public int getSupAtkProg(){
+        return supAtkProg;
+    }
+    public int getSupAtkProgMax(){
+        return supAtkProgMax;
     }
     public String getName(){
         return name;
@@ -47,10 +55,10 @@ public abstract class DsuperCard {
     public ArrayList<DCondition> getConditions(){
         return cond;
     }
-    public double getBoostHealth(){
+    public int getBoostHealth(){
         return boostHealth;
     }
-    public double getBoostAtk(){
+    public int getBoostAtk(){
         return boostAtk;
     }
     //Set functions
@@ -70,6 +78,14 @@ public abstract class DsuperCard {
         atk = A;
         return atk;
     }
+    public int setSupAtkProg(int sA){
+        supAtkProg = sA;
+        return supAtkProg;
+    }
+    public int setSupAtkProgMax(int sM){
+        supAtkProgMax = sM;
+        return supAtkProgMax;
+    }
     public String setName(String N){
         name = N;
         return name;
@@ -78,11 +94,11 @@ public abstract class DsuperCard {
         cond.add(C);
         return cond;
     }
-    public double setBoostHealth(double bH){
+    public int setBoostHealth(int bH){
         boostHealth=bH;
         return boostHealth;
     }
-    public double setBoostAtk(double bAtk){
+    public int setBoostAtk(int bAtk){
         boostAtk=bAtk;
         return boostAtk;
     }
@@ -115,7 +131,8 @@ public abstract class DsuperCard {
         String string = "";
         string += "Name: " + name + "\n";
         string += "Health: " + getHealth() + "/" + getMaxH() + "\n";
-        string += "Condtions: " + cond.toString();
+        string += "Condtions: " + cond.toString() + "\n";
+        string += "Ultimate Progress: " + getSupAtkProg() + "/" + getSupAtkProgMax() + "\n";
         return string;
     }
 }
