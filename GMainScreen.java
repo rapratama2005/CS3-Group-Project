@@ -62,8 +62,6 @@ public class GMainScreen extends JFrame{
             remove(gUpper);
             remove(gLower);
             setLayout(new FlowLayout());
-            GBattleScreen batt = new GBattleScreen();
-            add(batt);
             revalidate();
             repaint();
         }
