@@ -50,6 +50,7 @@ public class GMainScreen extends JFrame{
 
         GLower() {
             super(WIDTH, HEIGHT / 2, 2, 1, Color.white);
+            setLayout(new FlowLayout());
             JButton start = new JButton("Start");
             start.setSize(200, 100);
             start.setForeground(Color.CYAN);
