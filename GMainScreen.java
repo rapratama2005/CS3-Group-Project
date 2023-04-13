@@ -7,8 +7,8 @@ public class GMainScreen extends JFrame{
     final int HEIGHT = 1080;
     private GUpper gUpper;
     private GLower gLower;
-    public static void main (String[] args){
-        JFrame main = new GMainScreen();
+    public static void main(String[] args){
+        JFrame mainy = new GMainScreen();
     }
 
     GMainScreen(){
