@@ -63,11 +63,11 @@ public abstract class DsuperCard {
         cond.add(C);
         return cond;
     }
-    public double setBoostHealth(double bH){
+    public int setBoostHealth(int bH){
         boostHealth=bH;
         return boostHealth;
     }
-    public double setBoostAtk(double bAtk){
+    public int setBoostAtk(int bAtk){
         boostAtk=bAtk;
         return boostAtk;
     }

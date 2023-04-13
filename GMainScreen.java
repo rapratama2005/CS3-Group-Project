@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -16,7 +18,7 @@ public class GMainScreen extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(WIDTH,HEIGHT);
         setTitle("COMP SCI, THE CARD GAME, presented by team (a)MiRiCa");
-        GridLayout jfLay = new GridLayout(2, 0);
+        GridLayout jfLay = new GridLayout(2, 1);
         setLayout(jfLay);
 
         gUpper = new GUpper();
@@ -29,32 +31,47 @@ public class GMainScreen extends JFrame{
         setVisible(true);
     }
 
+    /*private class RoundedBorder implements Border {
+        private int radius;
+        RoundedBorder(int radius) {
+            this.radius = radius;
+        }
+        public Insets getBorderInsets(Component c) {
+            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+        }
+        public boolean isBorderOpaque() {
+            return true;
+        }
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+        }
+    }/* */
     private class GUpper extends GPanel{
         GUpper() {
-            super(WIDTH, HEIGHT / 2, 1, 3, Color.gray);
+            super(WIDTH, HEIGHT / 2, 1, 1, Color.gray);
             JLabel fil = new JLabel();
             add(fil);
 
-            JLabel title = new JLabel("Comp Sci the Game");
+            JLabel title = new JLabel("Comp Sci The Game");
             title.setFont(new Font("Georgia", Font.BOLD, 25));
             title.setForeground(Color.green);
-            title.setAlignmentX(CENTER_ALIGNMENT);
             add(title);
 
             JLabel fil2 = new JLabel();
             add(fil2);
         }
     }
-
     private class GLower extends GPanel{
 
         GLower() {
             super(WIDTH, HEIGHT / 2, 2, 1, Color.white);
-            setLayout(new FlowLayout());
+            setLayout(null);
             JButton start = new JButton("Start");
-            start.setSize(200, 100);
+            start.setSize(500, 250);
+            start.setLocation(636-start.getWidth() / 2, 164-start.getHeight() / 2);
             start.setForeground(Color.CYAN);
             start.setBackground(Color.ORANGE);
+            start.setBorder(BorderFactory.createBevelBorder(1, Color.red, Color.red));
             start.addActionListener(new stGame());
             add(start);
         }
