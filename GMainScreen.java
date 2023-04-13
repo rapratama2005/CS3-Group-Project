@@ -50,6 +50,7 @@ public class GMainScreen extends JFrame{
 
         GLower() {
             super(WIDTH, HEIGHT / 2, 2, 1, Color.white);
+            setLayout(new FlowLayout());
             JButton start = new JButton("Start");
             start.setSize(200, 100);
             start.setForeground(Color.CYAN);
@@ -63,8 +64,6 @@ public class GMainScreen extends JFrame{
             remove(gUpper);
             remove(gLower);
             setLayout(new FlowLayout());
-            GBattleScreen batt = new GBattleScreen();
-            add(batt);
             revalidate();
             repaint();
         }
