@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class GBattleScreen extends Canvas implements KeyListener, Runnable {
+    private BufferedImage back;
     GBattleScreen(){
         setBackground(Color.black);
         this.addKeyListener(this);
@@ -42,5 +43,25 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable {
 		graphToBack.drawString("StarFighter ", 25, 50 );
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
+        twoDGraph.drawImage(back, null, 0, 0);
     }
+
+    public void keyPressed(KeyEvent e) {
+    }
+    public void keyReleased(KeyEvent e) {   
+    }
+    public void keyTyped(KeyEvent e) {
+        //no code needed here
+      }
+      public void run() {
+        try {
+            while(true) {
+               Thread.currentThread().sleep(5);
+             repaint();
+          }
+       }
+        catch(Exception e) {
+            
+        }
+        }
 }
