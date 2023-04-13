@@ -59,6 +59,23 @@ public class GMainScreen extends JFrame{
             add(start);
         }
     }
+
+    class RunBattle extends JFrame {
+        private static final int WIDTH = 800;
+        private static final int HEIGHT = 600;
+    
+        public RunBattle() {
+            super("Battling");
+            setSize(WIDTH,HEIGHT);
+    
+            GBattleScreen theGame = new GBattleScreen();
+            ((Component)theGame).setFocusable(true);
+    
+            getContentPane().add(theGame);
+            setVisible(true);
+        }
+    }
+
     class stGame implements ActionListener{
         public void actionPerformed(ActionEvent e){
             remove(gUpper);
@@ -66,6 +83,7 @@ public class GMainScreen extends JFrame{
             setLayout(new FlowLayout());
             revalidate();
             repaint();
+            RunBattle bat =  new RunBattle();
         }
     }
 }
