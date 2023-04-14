@@ -21,7 +21,7 @@ Intellectual (Special "AP Research") - Evoles into Mrs. Kleiber, and attacks wit
 - basic atk deals 4 dmg
 - 4 atk
 - b move is research - atk increases by 1, gains an extra turn. b move can be used once every 3 turns
-Mrs. Kleiber (Special "Alright so") - stuns the enemy, enemy's strength is decreased until Mrs. Kleiber leaves the field. 
+Teacher (Special "Alright so") - stuns the enemy, enemy's strength is decreased until Mrs. Kleiber leaves the field. 
 - tank
 - Super Charges in 4 hits
 - normal atk deals 2 damage and heals 2 health
