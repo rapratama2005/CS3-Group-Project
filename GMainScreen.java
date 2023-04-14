@@ -7,8 +7,8 @@ import java.awt.event.*;
 public class GMainScreen extends JFrame implements ActionListener{
     final int WIDTH = 1920;
     final int HEIGHT = 1080;
-    private GPanel gUpper;
-    private GPanel gLower;
+    private JPanel gUpper;
+    private JPanel gLower;
     public static void main(String[] args){
         JFrame mainy = new GMainScreen();
     }
@@ -18,23 +18,22 @@ public class GMainScreen extends JFrame implements ActionListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(WIDTH,HEIGHT);
         setTitle("COMP SCI, THE CARD GAME, presented by team (a)MiRiCa");
-        GridLayout jfLay = new GridLayout(2, 1);
-        setLayout(jfLay);
-
-        gUpper = new GPanel(WIDTH, HEIGHT / 2, 1, 1, Color.gray);
-        JLabel fil = new JLabel();
-        gUpper.add(fil);
-
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        gUpper = new JPanel();
+        gUpper.setLayout(new FlowLayout());
+        JLabel imageLabel = new JLabel();
+        imageLabel.setLayout(new BorderLayout());
+        ImageIcon imageIcon = new ImageIcon("photos/space.jpg");
+        imageLabel.setIcon(imageIcon);
+        gUpper.add(imageLabel);
         JLabel title = new JLabel("Comp Sci The Game");
         title.setFont(new Font("Georgia", Font.BOLD, 25));
         title.setForeground(Color.green);
+        title.setLocation(600, 500);
         gUpper.add(title);
-
-        JLabel fil2 = new JLabel();
-        gUpper.add(fil2);
         add(gUpper);
 
-        gLower = new GPanel(WIDTH, HEIGHT / 2, 2, 1, Color.white);
+        gLower = new JPanel();
         gLower.setLayout(null);
         JButton start = new JButton("Start");
         start.setSize(500, 250);
@@ -85,7 +84,7 @@ public class GMainScreen extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
         remove(gUpper);
         remove(gLower);
-        setLayout(new GridLayout(1,1));
+        
         GBattleScreen theGame = new GBattleScreen();
         ((Component)theGame).setFocusable(true);
         add(theGame);
