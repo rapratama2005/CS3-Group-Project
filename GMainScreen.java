@@ -18,18 +18,16 @@ public class GMainScreen extends JFrame implements ActionListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(WIDTH,HEIGHT);
         setTitle("COMP SCI, THE CARD GAME, presented by team (a)MiRiCa");
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setLayout(new GridLayout(2, 1));
         gUpper = new JPanel();
         gUpper.setLayout(new FlowLayout());
-        JLabel imageLabel = new JLabel();
-        imageLabel.setLayout(new BorderLayout());
-        ImageIcon imageIcon = new ImageIcon("photos/space.jpg");
-        imageLabel.setIcon(imageIcon);
-        gUpper.add(imageLabel);
+        gUpper.setOpaque(true);
+        gUpper.setBackground(Color.black);
         JLabel title = new JLabel("Comp Sci The Game");
         title.setFont(new Font("Georgia", Font.BOLD, 25));
         title.setForeground(Color.green);
-        title.setLocation(600, 500);
+        title.setAlignmentX(CENTER_ALIGNMENT);
+        title.setAlignmentY(CENTER_ALIGNMENT);
         gUpper.add(title);
         add(gUpper);
 
