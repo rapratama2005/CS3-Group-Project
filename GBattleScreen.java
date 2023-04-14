@@ -26,7 +26,12 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable {
         this.addKeyListener(this);
 		new Thread(this).start();
 		setVisible(true);
-        ivy = ImageIO.read(new File("Ivy.jpg"));
+        try {
+			ivy = ImageIO.read(new File("Ivy.jpg"));
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}    
     }
     
     public void update(Graphics window) {
@@ -50,7 +55,7 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable {
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
         
-        graphToBack.drawImage(ivy, 100, 200, null);
+        graphToBack.drawImage(ivy, 100, 200,100,100, null);
 
         twoDGraph.drawImage(back, null, 0, 0);
     }
