@@ -10,10 +10,11 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class GBattleScreen extends Canvas implements KeyListener, Runnable {
+public class GBattleScreen extends Canvas implements KeyListener, Runnable, ImageObserver {
     private BufferedImage back;
     GBattleScreen(){
         setBackground(Color.black);
@@ -43,6 +44,8 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable {
 		graphToBack.drawString("StarFighter ", 25, 50 );
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
+        graphToBack.drawImage("Ivy.jpg", 100, 200, this);
+
         twoDGraph.drawImage(back, null, 0, 0);
     }
 
