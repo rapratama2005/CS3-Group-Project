@@ -4,7 +4,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 
-public class GMainScreen extends JFrame{
+public class GMainScreen extends JFrame implements ActionListener{
     final int WIDTH = 1920;
     final int HEIGHT = 1080;
     private GUpper gUpper;
@@ -29,7 +29,7 @@ public class GMainScreen extends JFrame{
 
         //End
         setVisible(true);
-    }
+    }   
 
     /*private class RoundedBorder implements Border {
         private int radius;
@@ -72,7 +72,7 @@ public class GMainScreen extends JFrame{
             start.setForeground(Color.CYAN);
             start.setBackground(Color.ORANGE);
             start.setBorder(BorderFactory.createBevelBorder(1, Color.red, Color.red));
-            start.addActionListener(new stGame());
+            start.addActionListener(this());
             add(start);
         }
     }
@@ -93,14 +93,15 @@ public class GMainScreen extends JFrame{
         }
     }
 
-    class stGame implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-            remove(gUpper);
-            remove(gLower);
-            setLayout(new FlowLayout());
-            revalidate();
-            repaint();
-            RunBattle bat =  new RunBattle();
-        }
+    public void actionPerformed(ActionEvent e){
+        remove(gUpper);
+        remove(gLower);
+        
+        GBattleScreen theGame = new GBattleScreen();
+        ((Component)theGame).setFocusable(true);
+        add(theGame);
+
+        revalidate();
+        repaint();
     }
 }
