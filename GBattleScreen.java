@@ -13,15 +13,20 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.net.URL;
 
-public class GBattleScreen extends Canvas implements KeyListener, Runnable, ImageObserver {
+
+public class GBattleScreen extends Canvas implements KeyListener, Runnable {
     private BufferedImage back;
+    private Image ivy;
     GBattleScreen(){
         setBackground(Color.black);
         this.addKeyListener(this);
 		new Thread(this).start();
 		setVisible(true);
-
+        ivy = ImageIO.read(new File("Ivy.jpg"));
     }
     
     public void update(Graphics window) {
@@ -44,7 +49,8 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable, Imag
 		graphToBack.drawString("StarFighter ", 25, 50 );
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
-        graphToBack.drawImage("Ivy.jpg", 100, 200, this);
+        
+        graphToBack.drawImage(ivy, 100, 200, null);
 
         twoDGraph.drawImage(back, null, 0, 0);
     }
