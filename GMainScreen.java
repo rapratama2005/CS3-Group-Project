@@ -63,22 +63,6 @@ public class GMainScreen extends JFrame implements ActionListener{
         }
     }/* */
 
-    class RunBattle extends JFrame {
-        private static final int WIDTH = 800;
-        private static final int HEIGHT = 600;
-    
-        public RunBattle() {
-            super("Battling");
-            setSize(WIDTH,HEIGHT);
-    
-            GBattleScreen theGame = new GBattleScreen();
-            ((Component)theGame).setFocusable(true);
-    
-            getContentPane().add(theGame);
-            setVisible(true);
-        }
-    }
-
     public void actionPerformed(ActionEvent e){
         remove(gUpper);
         remove(gLower);
