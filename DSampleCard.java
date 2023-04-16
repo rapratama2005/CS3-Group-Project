@@ -6,19 +6,20 @@ public class DSampleCard extends DsuperCard{
     }
 
     @Override
-    public void atk(DsuperCard target) {
+    public String atk(DsuperCard target) {
         target.hurt(super.getAtk());
+        return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + "damage.");
     }
 
     @Override
-    public void bAtk(DsuperCard target) {
+    public String bAtk(DsuperCard target) {
         DConditionPoison samplePoison = new DConditionPoison(3, "Poison", 1);
         target.addConditions(samplePoison);
-
+        return (this.getName() + " used " + this.getBName() + " on " + target.getName() + ".");
     }
 
     @Override
-    public void sAtk(DsuperCard target) {
+    public String sAtk(DsuperCard target) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'sAtk'");
     }
