@@ -1,9 +1,9 @@
 public class test{
     public static void main(String[] args){
-        int x=2;
-        while (x>0){
-            System.out.println("oqwiehf");
-        }
+        // int x=2;
+        // while (x>0){
+        //     System.out.println("oqwiehf");
+        // }
         
         
 
@@ -17,8 +17,8 @@ public class test{
         System.out.println("1");
         System.out.println(test1+"\n");
         System.out.println(test2+"\n");
-        test1.atk(test2);
-        test2.bAtk(test1);
+        System.out.println(test1.atk(test2));
+        System.out.println(test2.bAtk(test1));
         test1.checkConditions();
         System.out.println("2");
         System.out.println(test1+"\n");

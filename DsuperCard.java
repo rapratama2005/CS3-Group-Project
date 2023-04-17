@@ -1,9 +1,11 @@
+import java.io.File;
 import java.util.*;
 public abstract class DsuperCard {
-    private int maxHealth,maxAtk,Health,atk,boostHealth, boostAtk; //R 4/8: Added BoostHealth and BoostAtk, will be used for conditions  
+    private int maxHealth,maxAtk,Health,atk,boostHealth, boostAtk, supReq, supProg; //R 4/8: Added BoostHealth and BoostAtk, will be used for conditions || R 4/15 Added supReq and supProg, will be used to determine when ultimate can be used
     private String name, atkName, supName, bName;
+    //private File image;
     private ArrayList<DCondition> cond = new ArrayList<DCondition>();
-    public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN){
+    public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN, int sR){
         maxHealth = mH;
         maxAtk = mA;
         Health = H;
@@ -12,6 +14,9 @@ public abstract class DsuperCard {
         atkName = aN;
         supName = sN;
         bName = bN;
+        supReq = sR;
+        supProg = 0;
+        //image = new File(imgSource);
     }
     //Get functions
     public int getMaxH(){
@@ -38,6 +43,18 @@ public abstract class DsuperCard {
     public String getBName(){
         return bName;
     }
+    public int getSupReq(){
+        return supReq;
+    }
+    public int getSupProg(){
+        return supProg;
+    }
+    /*
+    //when ready
+    public File getImage(){
+        return image;
+    }
+    */
     //Set functions
     public int setMaxH(int mH){
         maxHealth = mH;
@@ -71,18 +88,43 @@ public abstract class DsuperCard {
         boostAtk=bAtk;
         return boostAtk;
     }
+    public int setSupReq(int sR){
+        supReq = sR;
+        return supReq;
+    }
+    public int setSupProg(int sP){
+        supProg = sP;
+        return supProg;
+    }
     //Abstract Func
-    public abstract void atk();
-    public abstract void bAtk();
-    public abstract void sAtk();
+    public abstract String atk(DsuperCard target);
+    public abstract String bAtk(DsuperCard target);
+    public String sAtk(DsuperCard target){
+        if (!checkSup()){
+            return this.name + " invalid use " + this.supName + " on " + target.name;
+        } else {
+            supProg = 0;
+        return this.name + " used " + this.supName + " on " + target.name;
+        }
+    }
     //Essentials
     public int heal(int H){
         Health+=H;
         return Health;
     }
+
     public int hurt(int H){
         Health-=H;
         return Health;
+    }
+
+    public int sup(int P){
+        supProg+=P;
+        return supProg;
+    }
+
+    public boolean checkSup(){
+        return(supProg>=supReq);
     }
     
     public ArrayList<DCondition> checkConditions(){
@@ -94,6 +136,10 @@ public abstract class DsuperCard {
             }
         }
         return cond;
+    }
+
+    public boolean isDead(){ //R 4/15: May be necessary 
+        return (Health<=0);
     }
 
     //To Str ing for Test ing
