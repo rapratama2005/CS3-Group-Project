@@ -1,3 +1,56 @@
+/*
+ import javax.swing.*;
+import java.awt.*;
+
+public class GameGUI extends JFrame {
+    private JPanel topPanel;
+    private JPanel bottomPanel;
+    
+    public GameGUI() {
+        super("Comp Sci The Game");
+        setSize(400, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Create top panel with space-themed background and label centered
+        topPanel = new JPanel(new GridBagLayout()) {
+            @Override
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                ImageIcon icon = new ImageIcon("space.jpg"); // Replace with your own space-themed image
+                g.drawImage(icon.getImage(), 0, 0, null);
+            }
+        };
+        JLabel label = new JLabel("Comp Sci The Game", SwingConstants.CENTER);
+        label.setForeground(Color.WHITE);
+        topPanel.add(label);
+        
+        // Create bottom panel with space-themed background and button centered
+        bottomPanel = new JPanel(new GridBagLayout()) {
+            @Override
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                ImageIcon icon = new ImageIcon("space.jpg"); // Replace with your own space-themed image
+                g.drawImage(icon.getImage(), 0, 0, null);
+            }
+        };
+        JButton button = new JButton("Start");
+        button.setPreferredSize(new Dimension(80, 30));
+        button.setBorder(BorderFactory.createLineBorder(Color.RED));
+        bottomPanel.add(button);
+        
+        // Add top and bottom panels to frame
+        add(topPanel, BorderLayout.NORTH);
+        add(bottomPanel, BorderLayout.SOUTH);
+        
+        setVisible(true);
+    }
+    
+    public static void main(String[] args) {
+        new GameGUI();
+    }
+}
+
+ */
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -20,7 +73,7 @@ public class GMainScreen extends JFrame implements ActionListener{
         setTitle("COMP SCI, THE CARD GAME, presented by team (a)MiRiCa");
         setLayout(new GridLayout(2, 1));
         gUpper = new JPanel();
-        gUpper.setLayout(null);
+        gUpper.setLayout(new FlowLayout());
         gUpper.setOpaque(true);
         gUpper.setBackground(Color.black);
         JLabel title = new JLabel("Comp Sci The Game");
@@ -67,7 +120,6 @@ public class GMainScreen extends JFrame implements ActionListener{
         remove(gUpper);
         remove(gLower);
         
-        setLayout(new GridLayout(1,1));
         GBattleScreen theGame = new GBattleScreen();
         ((Component)theGame).setFocusable(true);
         add(theGame);
