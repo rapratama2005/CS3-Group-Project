@@ -20,7 +20,7 @@ public class GMainScreen extends JFrame implements ActionListener{
         setTitle("COMP SCI, THE CARD GAME, presented by team (a)MiRiCa");
         setLayout(new GridLayout(2, 1));
         gUpper = new JPanel();
-        gUpper.setLayout(new FlowLayout());
+        gUpper.setLayout(null);
         gUpper.setOpaque(true);
         gUpper.setBackground(Color.black);
         JLabel title = new JLabel("Comp Sci The Game");
