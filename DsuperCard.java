@@ -16,6 +16,8 @@ public abstract class DsuperCard {
         bName = bN;
         supReq = sR;
         supProg = 0;
+        boostHealth = 0;
+        boostAtk = 0;
         //image = new File(imgSource);
     }
     //Get functions
@@ -29,7 +31,7 @@ public abstract class DsuperCard {
         return Health;
     }
     public int getAtk(){
-        return atk;
+        return atk+boostAtk;
     }
     public String getName(){
         return name;
@@ -48,6 +50,16 @@ public abstract class DsuperCard {
     }
     public int getSupProg(){
         return supProg;
+    }
+    public int getBoostHealth(){
+        int b = boostHealth;
+        boostHealth = 0;
+        return b;
+    }
+    public int getBoostAtk(){
+        int b = boostAtk;
+        boostAtk = 0;
+        return b;
     }
     /*
     //when ready
