@@ -20,25 +20,27 @@ import java.net.URL;
 
 public class GBattleScreen extends Canvas implements KeyListener, Runnable {
     private BufferedImage back;
-    private Image ivy;
+    private ImageIcon ivy;
+    //private Image ivy2;
     GBattleScreen(){
-        setBackground(Color.black);
-        this.addKeyListener(this);
-		new Thread(this).start();
-		setVisible(true);
         try {
-			ivy = ImageIO.read(new File("Ivy.jpg"));
+			ivy = new ImageIcon("Ivy.jpg");
+            //ivy2 = ImageIO.read(new File("Ivy.jpg"));
 		}
 		catch(Exception e) {
 			System.out.println(e);
 		}    
+        setBackground(Color.black);
+        this.addKeyListener(this);
+		new Thread(this).start();
+        setVisible(true);
     }
     
     public void update(Graphics window) {
         paint(window); 
     }
 
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics window){
         Graphics2D twoDGraph = (Graphics2D)window;
 
 		//take a snap shop of the current screen and same it as an image
@@ -55,8 +57,7 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable {
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
         
-        graphToBack.drawImage(ivy, 100, 200,100,100, null);
-
+        graphToBack.drawImage(ivy.getImage(), 0, 0,100,100, null);
         twoDGraph.drawImage(back, null, 0, 0);
     }
 
