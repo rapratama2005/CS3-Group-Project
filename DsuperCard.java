@@ -2,11 +2,11 @@ import java.io.File;
 import java.util.*;
 public abstract class DsuperCard {
     private int maxHealth,maxAtk,Health,atk,boostHealth, boostAtk, supReq, supProg; //R 4/8: Added BoostHealth and BoostAtk, will be used for conditions || R 4/15 Added supReq and supProg, will be used to determine when ultimate can be used
-    private String name, atkName, supName, bName;
+    private String name, atkName, supName, bName, imgSource;
     private int applyAtk, applyBAtk, applySAtk; //applicability of attacks: 0 is self, 1 is enemy, 2 is allies, 3 is allies and self
     //private File image;
     private ArrayList<DCondition> cond = new ArrayList<DCondition>();
-    public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN, int sR, int aA, int aB, int aS){
+    public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN, int sR, int aA, int aB, int aS, String img){
         maxHealth = mH;
         maxAtk = mA;
         Health = H;
@@ -22,6 +22,7 @@ public abstract class DsuperCard {
         supProg = 0;
         boostHealth = 0;
         boostAtk = 0;
+        imgSource = img;
         //image = new File(imgSource);
     }
     //Get functions
@@ -65,6 +66,9 @@ public abstract class DsuperCard {
         boostAtk = 0;
         return b;
     }
+    public String getImgSource(){
+        return imgSource;
+    }
     /*
     //when ready
     public File getImage(){
@@ -92,6 +96,18 @@ public abstract class DsuperCard {
         name = N;
         return name;
     }
+    public String setAName(String aN){
+        atkName = aN;
+        return atkName;
+    }
+    public String setSName(String sN){
+        supName = sN;
+        return supName;
+    }
+    public String setBName(String bN){
+        bName = bN;
+        return bName;
+    }
     public ArrayList<DCondition> addConditions(DCondition C){
         cond.add(C);
         return cond;
@@ -111,6 +127,10 @@ public abstract class DsuperCard {
     public int setSupProg(int sP){
         supProg = sP;
         return supProg;
+    }
+    public String setImgSource(String i){
+        imgSource = i;
+        return imgSource;
     }
     //Abstract Func
     public String atk(DsuperCard target){

@@ -1,8 +1,25 @@
 //R 4/11: Sample Card to test
 public class DSampleCard2 extends DsuperCard{
+    String initName = "Sample Man 2";
+    int initHP = 10;
+    int initAtk = 2;
+    int initSup = 6;
+    String[] moveSet = {"Sample Attack","Sample Strength Boost", "Sample Super Attack"};
+    int[] applicability = {1, 3, 1};
+    String image = "Ivy.jpg";
 
     public DSampleCard2() {
-        super(10, 2, 10, 2, "Sample Man 2", "Sample Attack", "Sample Super Attack", "Sample Stregth Boost", 6, 1, 3, 1);
+        super(10, 2, 10, 2, "Sample Man 2", "Sample Attack", "Sample Super Attack", "Sample Stregth Boost", 6, 1, 3, 1, "Ivy.jpg");
+        super.setName(initName);
+        super.setHealth(initHP);
+        super.setMaxH(initHP);
+        super.setAtk(initAtk);
+        super.setMaxA(initAtk);
+        super.setAName(moveSet[0]);
+        super.setBName(moveSet[1]);
+        super.setSName(moveSet[2]);
+        super.setSupProg(initSup);
+        super.setImgSource(image);
     }
 
     @Override
@@ -31,5 +48,4 @@ public class DSampleCard2 extends DsuperCard{
             return(super.sAtk(target));
         }
     }
-    
 }

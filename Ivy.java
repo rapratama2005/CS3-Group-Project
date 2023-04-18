@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 public class Ivy extends DsuperCard{
     private Image image;
     public Ivy(){
-        super(2,3,4,5,"h","h","h","h",2);
+        super(2,3,4,5,"h","h","h","h",2, Health, Health, Health);
         try{
             image = ImageIO.read(new File("Ivy.jpg"));
         }
