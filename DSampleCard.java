@@ -2,12 +2,12 @@
 public class DSampleCard extends DsuperCard{
 
     public DSampleCard() {
-        super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6);
+        super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1);
     }
 
     @Override
     public String atk(DsuperCard target) {
-        target.hurt(super.getAtk()+getBoostAtk());
+        target.hurt(super.getAtk());
         progSup(super.getAtk());
         return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + " damage.");
     }

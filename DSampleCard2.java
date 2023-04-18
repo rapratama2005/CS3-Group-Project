@@ -2,7 +2,7 @@
 public class DSampleCard2 extends DsuperCard{
 
     public DSampleCard2() {
-        super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6);
+        super(10, 2, 10, 2, "Sample Man 2", "Sample Attack", "Sample Super Attack", "Sample Stregth Boost", 6, 1, 3, 1);
     }
 
     @Override
@@ -15,9 +15,9 @@ public class DSampleCard2 extends DsuperCard{
     @Override
     public String bAtk(DsuperCard target) {
         DConditionStrength sampleStrength = new DConditionStrength(2, "Strength", 1);
-        this.addConditions(sampleStrength);
+        target.addConditions(sampleStrength);
         progSup(5);
-        return (this.getName() + " used " + this.getBName() + ".");
+        return (this.getName() + " used " + this.getBName() + " on " + target.getName() + ".");
     }
 
     @Override

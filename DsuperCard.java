@@ -3,9 +3,10 @@ import java.util.*;
 public abstract class DsuperCard {
     private int maxHealth,maxAtk,Health,atk,boostHealth, boostAtk, supReq, supProg; //R 4/8: Added BoostHealth and BoostAtk, will be used for conditions || R 4/15 Added supReq and supProg, will be used to determine when ultimate can be used
     private String name, atkName, supName, bName;
+    private int applyAtk, applyBAtk, applySAtk; //applicability of attacks: 0 is self, 1 is enemy, 2 is allies, 3 is allies and self
     //private File image;
     private ArrayList<DCondition> cond = new ArrayList<DCondition>();
-    public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN, int sR){
+    public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN, int sR, int aA, int aB, int aS){
         maxHealth = mH;
         maxAtk = mA;
         Health = H;
@@ -15,6 +16,9 @@ public abstract class DsuperCard {
         supName = sN;
         bName = bN;
         supReq = sR;
+        applyAtk = aA;
+        applyBAtk = aB; 
+        applySAtk = aS;
         supProg = 0;
         boostHealth = 0;
         boostAtk = 0;
