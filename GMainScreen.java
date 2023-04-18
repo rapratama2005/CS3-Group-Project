@@ -1,19 +1,17 @@
-/*
- import javax.swing.*;
-import java.awt.*;
 
-public class GameGUI extends JFrame {
-    private JPanel topPanel;
-    private JPanel bottomPanel;
-    
-    public GameGUI() {
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class GMainScreen extends JFrame {
+    private JPanel upper;
+    private JPanel image;
+    private JPanel lower;
+    public GMainScreen() {
         super("Comp Sci The Game");
-        setSize(400, 400);
+        setSize(1010, 690);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
         // Create top panel with space-themed background and label centered
-        topPanel = new JPanel(new GridBagLayout()) {
-            @Override
+        upper = new JPanel(new GridBagLayout()) {
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 ImageIcon icon = new ImageIcon("space.jpg"); // Replace with your own space-themed image
@@ -22,11 +20,16 @@ public class GameGUI extends JFrame {
         };
         JLabel label = new JLabel("Comp Sci The Game", SwingConstants.CENTER);
         label.setForeground(Color.WHITE);
-        topPanel.add(label);
-        
+        upper.add(label);
+        image = new JPanel(new GridBagLayout()) {
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                ImageIcon icon = new ImageIcon("space.jpg"); // Replace with your own space-themed image
+                g.drawImage(icon.getImage(), 0, 0, null);
+            }
+        };
         // Create bottom panel with space-themed background and button centered
-        bottomPanel = new JPanel(new GridBagLayout()) {
-            @Override
+        lower = new JPanel(new GridBagLayout()) {
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 ImageIcon icon = new ImageIcon("space.jpg"); // Replace with your own space-themed image
@@ -35,22 +38,21 @@ public class GameGUI extends JFrame {
         };
         JButton button = new JButton("Start");
         button.setPreferredSize(new Dimension(80, 30));
+        button.setSize(500, 250);
+        button.setForeground(Color.CYAN);
+        button.setBackground(Color.ORANGE);
         button.setBorder(BorderFactory.createLineBorder(Color.RED));
-        bottomPanel.add(button);
-        
+        lower.add(button);
         // Add top and bottom panels to frame
-        add(topPanel, BorderLayout.NORTH);
-        add(bottomPanel, BorderLayout.SOUTH);
-        
+        add(upper, BorderLayout.NORTH);
+        add(image, BorderLayout.CENTER);
+        add(lower, BorderLayout.SOUTH);
         setVisible(true);
     }
-    
     public static void main(String[] args) {
-        new GameGUI();
+        new GMainScreen();
     }
-}
-
- */
+/*
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -114,11 +116,10 @@ public class GMainScreen extends JFrame implements ActionListener{
         public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
             g.drawRoundRect(x, y, width-1, height-1, radius, radius);
         }
-    }/* */
-
+    }*/
     public void actionPerformed(ActionEvent e){
-        remove(gUpper);
-        remove(gLower);
+        remove(upper);
+        remove(lower);
         
         setLayout(new GridLayout(1,1));
         GBattleScreen theGame = new GBattleScreen();
