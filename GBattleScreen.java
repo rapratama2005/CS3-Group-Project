@@ -16,34 +16,40 @@ import java.util.ArrayList;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.net.URL;
+import java.awt.Image;
 
-
-public class GBattleScreen extends Canvas implements KeyListener, Runnable {
+public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
     private BufferedImage back;
-    private ImageIcon ivy;
-    //private Image ivy2;
+    private Image deck;
+    private Ivy i;
     GBattleScreen(){
+        i = new Ivy();
         try {
-			ivy = new ImageIcon("Ivy.jpg");
-            //ivy2 = ImageIO.read(new File("Ivy.jpg"));
+            deck = ImageIO.read(new File("DeckPic.jpg"));
 		}
 		catch(Exception e) {
 			System.out.println(e);
-		}    
+		}  
+       
         setBackground(Color.black);
         this.addKeyListener(this);
+        this.addMouseListener(new click());
 		new Thread(this).start();
         setVisible(true);
     }
     
+    //650  -  1281, max height and width
     public void update(Graphics window) {
         paint(window); 
     }
 
-    public void paintComponent(Graphics window){
+    public void paint(Graphics window){
         Graphics2D twoDGraph = (Graphics2D)window;
-
-		//take a snap shop of the current screen and same it as an image
+        //height and width scale factors
+        //double h = getHeight()/650;
+        //double w = getWidth()/1281;
+		
+        //take a snap shop of the current screen and same it as an image
 		//that is the exact same width and height as the current screen
 		if(back==null)
 		   back = (BufferedImage)(createImage(getWidth(),getHeight()));
@@ -55,9 +61,15 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable {
 		graphToBack.setColor(Color.BLUE);
 		graphToBack.drawString("StarFighter ", 25, 50 );
 		graphToBack.setColor(Color.BLACK);
-		graphToBack.fillRect(0,0,800,600);
-        
-        graphToBack.drawImage(ivy.getImage(), 0, 0,100,100, null);
+		graphToBack.fillRect(0,0,1010,690);
+        i.draw(graphToBack);
+        graphToBack.drawImage(deck,20,0,20,20,null);
+        graphToBack.setColor(Color.green);
+        graphToBack.drawRect(400,20,200,200);
+        graphToBack.drawRect(661,20,200,200);
+        graphToBack.drawRect(400,260,200,200);
+        graphToBack.drawRect(661,260,200,200);
+
         twoDGraph.drawImage(back, null, 0, 0);
     }
 
@@ -68,6 +80,12 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable {
     public void keyTyped(KeyEvent e) {
         //no code needed here
       }
+    class click extends MouseAdapter{
+        public void mousePressed(MouseEvent m){
+            System.exit(0);
+        }
+    }
+    
       public void run() {
         try {
             while(true) {
@@ -79,4 +97,11 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable {
             
         }
         }
+    public static void main(String[] args){
+        JFrame hi = new JFrame();
+        GBattleScreen theGame = new GBattleScreen();
+        ((Component)theGame).setFocusable(true);
+        hi.add(theGame);
+        hi.setVisible(true);
+    }
 }
