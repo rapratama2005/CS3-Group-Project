@@ -23,14 +23,17 @@ public class test{
         System.out.println("2");
         System.out.println(test1+"\n");
         System.out.println(test2+"\n");
+        System.out.println(test2.sAtk(test1));
         test1.checkConditions();
         System.out.println("3");
         System.out.println(test1+"\n");
         System.out.println(test2+"\n");
+        System.out.println(test2.atk(test1));
         test1.checkConditions();
         System.out.println("4");
         System.out.println(test1+"\n");
         System.out.println(test2+"\n");
+        System.out.println(test2.sAtk(test1));
         test1.checkConditions();
         System.out.println("5");
         System.out.println(test1+"\n");

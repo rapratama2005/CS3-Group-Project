@@ -97,14 +97,20 @@ public abstract class DsuperCard {
         return supProg;
     }
     //Abstract Func
-    public abstract String atk(DsuperCard target);
-    public abstract String bAtk(DsuperCard target);
+    public String atk(DsuperCard target){
+
+        return (this.getName() + " used " + this.getAName() + " (main attack) on " + target.getName() + ".");
+    }
+    public String bAtk(DsuperCard target){
+        
+        return (this.getName() + " used " + this.getBName() + " (main attack) on " + target.getName() + ".");
+    }
     public String sAtk(DsuperCard target){
         if (!checkSup()){
-            return this.name + " invalid use " + this.supName + " on " + target.name;
+            return this.name + " invalid use " + this.supName + " (special attack) on " + target.name;
         } else {
             supProg = 0;
-        return this.name + " used " + this.supName + " on " + target.name;
+        return this.name + " used " + this.supName + " (special attack) on " + target.name;
         }
     }
     //Essentials
@@ -125,6 +131,11 @@ public abstract class DsuperCard {
 
     public boolean checkSup(){
         return(supProg>=supReq);
+    }
+
+    public int progSup(int pS){
+        supProg += pS;
+        return supProg;
     }
     
     public ArrayList<DCondition> checkConditions(){
@@ -147,6 +158,7 @@ public abstract class DsuperCard {
         String string = "";
         string += "Name: " + name + "\n";
         string += "Health: " + getHealth() + "/" + getMaxH() + "\n";
+        string += "Dead: " + isDead() + "\n";
         string += "Condtions: " + cond.toString();
         return string;
     }
