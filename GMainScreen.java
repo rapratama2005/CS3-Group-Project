@@ -1,8 +1,8 @@
 
 import javax.swing.*;
 import java.awt.*;
-
-public class GMainScreen extends JFrame {
+import java.awt.event.*;
+public class GMainScreen extends JFrame implements ActionListener{
     private JLabel titleLabel;
     private JButton startButton;
 
@@ -36,6 +36,7 @@ public class GMainScreen extends JFrame {
         startButton.setFont(new Font("Arial", Font.PLAIN, 18));
         startButton.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
         startButton.setBounds(350, 500, 100, 50);
+        startButton.addActionListener(this);
         bgLabel.add(startButton);
 
         setVisible(true);
@@ -166,12 +167,7 @@ public class GMainScreen extends JFrame implements ActionListener{
         }
     }
     public void actionPerformed(ActionEvent e){
-        remove(upper);
-        remove(lower);
-<<<<<<< HEAD
-=======
-        remove(image);
->>>>>>> 79706d76bb2e9afb9355225a3d4412bbbef6f483
+        remove(bgLabel);
         setLayout(new GridLayout(1,1));
         GBattleScreen theGame = new GBattleScreen();
         ((Component)theGame).setFocusable(true);
