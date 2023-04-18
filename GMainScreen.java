@@ -1,6 +1,51 @@
 
 import javax.swing.*;
 import java.awt.*;
+
+public class GMainScreen extends JFrame {
+    private JLabel titleLabel;
+    private JButton startButton;
+
+    public GMainScreen() {
+        // Set up the frame
+        setTitle("Comp Sci the Game");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        setSize(800, 600);
+        setLocationRelativeTo(null);
+        setLayout(null);
+
+        // Add the background image
+        ImageIcon bgImage = new ImageIcon("space.jpg");
+        JLabel bgLabel = new JLabel(bgImage);
+        bgLabel.setBounds(0, 0, 800, 600);
+        add(bgLabel);
+
+        // Add the title label
+        titleLabel = new JLabel("Comp Sci the Game");
+        titleLabel.setForeground(Color.GREEN);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        titleLabel.setBounds(250, 50, 300, 50);
+        bgLabel.add(titleLabel);
+
+        // Add the start button
+        startButton = new JButton("Start");
+        startButton.setForeground(Color.CYAN);
+        startButton.setOpaque(false);
+        startButton.setBackground(Color.orange);
+        startButton.setFont(new Font("Arial", Font.PLAIN, 18));
+        startButton.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+        startButton.setBounds(350, 500, 100, 50);
+        bgLabel.add(startButton);
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new GMainScreen();
+    }
+/*import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 public class GMainScreen extends JFrame {
     private JPanel upper;
@@ -19,7 +64,8 @@ public class GMainScreen extends JFrame {
             }
         };
         JLabel label = new JLabel("Comp Sci The Game", SwingConstants.CENTER);
-        label.setForeground(Color.WHITE);
+        label.setFont(new Font("Georgia", Font.BOLD, 96));
+        label.setForeground(Color.GREEN);
         upper.add(label);
         image = new JPanel(new GridBagLayout()) {
             public void paintComponent(Graphics g) {
@@ -37,8 +83,8 @@ public class GMainScreen extends JFrame {
             }
         };
         JButton button = new JButton("Start");
-        button.setPreferredSize(new Dimension(80, 30));
-        button.setSize(500, 250);
+        button.setPreferredSize(new Dimension(250, 100));
+        button.setSize(505, 345);
         button.setForeground(Color.CYAN);
         button.setBackground(Color.ORANGE);
         button.setBorder(BorderFactory.createLineBorder(Color.RED));
@@ -52,7 +98,7 @@ public class GMainScreen extends JFrame {
     public static void main(String[] args) {
         new GMainScreen();
     }
-/*
+*//*
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -116,17 +162,16 @@ public class GMainScreen extends JFrame implements ActionListener{
         public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
             g.drawRoundRect(x, y, width-1, height-1, radius, radius);
         }
-    }*/
+    }
     public void actionPerformed(ActionEvent e){
         remove(upper);
         remove(lower);
-        
         setLayout(new GridLayout(1,1));
         GBattleScreen theGame = new GBattleScreen();
         ((Component)theGame).setFocusable(true);
         add(theGame);
-
+    
         revalidate();
         repaint();
-    }
+    }*/
 }
