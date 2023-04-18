@@ -121,6 +121,7 @@ public class GMainScreen extends JFrame implements ActionListener{
         remove(upper);
         remove(lower);
         
+        setLayout(new GridLayout(1,1));
         GBattleScreen theGame = new GBattleScreen();
         ((Component)theGame).setFocusable(true);
         add(theGame);
