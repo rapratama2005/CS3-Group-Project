@@ -2,20 +2,21 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class GMainScreen extends JFrame {
+public class GMainScreen extends JFrame implements ActionListener{
     private JPanel upper;
     private JPanel image;
     private JPanel lower;
     public GMainScreen() {
         super("Comp Sci The Game");
-        setSize(1010, 690);
+        //setSize(1010, 690);
+        setSize(1281,650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Create top panel with space-themed background and label centered
         upper = new JPanel(new GridBagLayout()) {
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 ImageIcon icon = new ImageIcon("space.jpg"); // Replace with your own space-themed image
-                g.drawImage(icon.getImage(), 0, 0, null);
+                g.drawImage(icon.getImage(), 0, 0,1920,1080, null);
             }
         };
         JLabel label = new JLabel("Comp Sci The Game", SwingConstants.CENTER);
@@ -25,7 +26,7 @@ public class GMainScreen extends JFrame {
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 ImageIcon icon = new ImageIcon("space.jpg"); // Replace with your own space-themed image
-                g.drawImage(icon.getImage(), 0, 0, null);
+                g.drawImage(icon.getImage(), 0, 0,1920,1080, null);
             }
         };
         // Create bottom panel with space-themed background and button centered
@@ -33,7 +34,7 @@ public class GMainScreen extends JFrame {
             public void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 ImageIcon icon = new ImageIcon("space.jpg"); // Replace with your own space-themed image
-                g.drawImage(icon.getImage(), 0, 0, null);
+                g.drawImage(icon.getImage(), 0, 0,1920,1080, null);
             }
         };
         JButton button = new JButton("Start");
@@ -42,6 +43,7 @@ public class GMainScreen extends JFrame {
         button.setForeground(Color.CYAN);
         button.setBackground(Color.ORANGE);
         button.setBorder(BorderFactory.createLineBorder(Color.RED));
+        button.addActionListener(this);
         lower.add(button);
         // Add top and bottom panels to frame
         add(upper, BorderLayout.NORTH);
@@ -120,7 +122,7 @@ public class GMainScreen extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
         remove(upper);
         remove(lower);
-        
+        remove(image);
         setLayout(new GridLayout(1,1));
         GBattleScreen theGame = new GBattleScreen();
         ((Component)theGame).setFocusable(true);
