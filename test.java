@@ -9,11 +9,12 @@ public class test{
 
         //R 4/12: Tested reg atk and b atk 
 
-        DSampleCard test1 = new DSampleCard();
+        DSampleCard2 test1 = new DSampleCard2();
         test1.setName("test 1");
         DSampleCard test2 = new DSampleCard();
         test2.setName("test 2");
-
+        
+        test1.checkConditions();
         System.out.println("1");
         System.out.println(test1+"\n");
         System.out.println(test2+"\n");
@@ -23,11 +24,13 @@ public class test{
         System.out.println("2");
         System.out.println(test1+"\n");
         System.out.println(test2+"\n");
+        System.out.println(test1.bAtk(test2));
         System.out.println(test2.sAtk(test1));
         test1.checkConditions();
         System.out.println("3");
         System.out.println(test1+"\n");
         System.out.println(test2+"\n");
+        System.out.println(test1.atk(test2));
         System.out.println(test2.atk(test1));
         test1.checkConditions();
         System.out.println("4");
