@@ -29,7 +29,7 @@ public class GMainScreen extends JFrame implements ActionListener{
         bgLabel.add(titleLabel);
 
         // Add the start button
-        startButton = new JButton("Start");
+        startButton = new OvalButton("Start");
         startButton.setForeground(Color.CYAN);
         startButton.setOpaque(false);
         startButton.setBackground(Color.orange);
@@ -45,6 +45,30 @@ public class GMainScreen extends JFrame implements ActionListener{
     public static void main(String[] args) {
         new GMainScreen();
     }
+    public class OvalButton extends JButton {
+        public OvalButton(String text) {
+            super(text);
+            setOpaque(false);
+            setPreferredSize(new Dimension(100, 50));
+        }
+        public void paintComponent(Graphics g) {
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.setColor(getBackground());
+            g2.fillOval(0, 0, getWidth(), getHeight());
+            super.paintComponent(g);
+            g2.dispose();
+        }
+        public void paintBorder(Graphics g) {
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.setColor(getForeground());
+            g2.drawOval(0, 0, getWidth() - 1, getHeight() - 1);
+            g2.dispose();
+        }
+    }
+    
+    
 /*import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
