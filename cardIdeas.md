@@ -30,3 +30,13 @@ Teacher (Special "Alright so") - stuns the enemy, enemy's strength is decreased 
 - Begins with 1 super charge
 - b move is heal, can be used every 3 turns, heals 5 health of any unit
 Pokemon Comp Sci Game (2 player game). 
+picolas 
+my code isn't working
+shut up nicolas walla oh wait
+
+Mr. quach, no games, only legendary
+25 health
+10 atk, 
+no games - instantly wins, or something like that
+
+Mr. hudson
