@@ -37,7 +37,11 @@ public abstract class DsuperCard {
         return Health;
     }
     public int getAtk(){
-        return atk+boostAtk;
+        if (atk+boostAtk>0){
+            return atk+boostAtk;
+        } else {
+            return 0;
+        }
     }
     public int getRawAtk(){
         return atk;
