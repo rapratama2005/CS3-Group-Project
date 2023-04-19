@@ -2,7 +2,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class GMainScreen extends JFrame implements ActionListener{
+//implements actionlistener later
+public class GMainScreen extends JFrame {
     private JLabel titleLabel;
     private JButton startButton;
 
@@ -36,7 +37,7 @@ public class GMainScreen extends JFrame implements ActionListener{
         startButton.setFont(new Font("Arial", Font.PLAIN, 18));
         startButton.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
         startButton.setBounds(350, 500, 100, 50);
-        startButton.addActionListener(this);
+        //startButton.addActionListener(this);
         bgLabel.add(startButton);
 
         setVisible(true);
