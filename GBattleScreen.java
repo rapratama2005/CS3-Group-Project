@@ -1,22 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Canvas;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
 import static java.lang.Character.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
-import java.awt.event.ActionListener;
+import java.awt.image.*;
 import java.util.ArrayList;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.net.URL;
-import java.awt.Image;
 
 public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
     private BufferedImage back;
