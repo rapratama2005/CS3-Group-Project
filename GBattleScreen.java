@@ -23,7 +23,7 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
     private Image deck;
     private Ivy i;
     GBattleScreen(){
-        i = new Ivy();
+        //i = new Ivy();
         try {
             deck = ImageIO.read(new File("DeckPic.jpg"));
 		}
@@ -62,7 +62,7 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
 		graphToBack.drawString("StarFighter ", 25, 50 );
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,1010,690);
-        i.draw(graphToBack);
+        //i.draw(graphToBack);
         graphToBack.drawImage(deck,20,0,20,20,null);
         graphToBack.setColor(Color.green);
         graphToBack.drawRect(400,20,200,200);
