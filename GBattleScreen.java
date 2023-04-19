@@ -65,10 +65,10 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
         i.draw(graphToBack);
         graphToBack.drawImage(deck,20,0,20,20,null);
         graphToBack.setColor(Color.green);
-        graphToBack.drawRect(20,20,200,200);
-        graphToBack.drawRect(1061,20,200,200);
-        graphToBack.drawRect(20,260,200,200);
-        graphToBack.drawRect(1061,260,200,200);
+        graphToBack.drawRect(400,20,200,200);
+        graphToBack.drawRect(661,20,200,200);
+        graphToBack.drawRect(400,260,200,200);
+        graphToBack.drawRect(661,260,200,200);
 
         twoDGraph.drawImage(back, null, 0, 0);
     }
@@ -97,4 +97,11 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
             
         }
         }
+    public static void main(String[] args){
+        JFrame hi = new JFrame();
+        GBattleScreen theGame = new GBattleScreen();
+        ((Component)theGame).setFocusable(true);
+        hi.add(theGame);
+        hi.setVisible(true);
+    }
 }
