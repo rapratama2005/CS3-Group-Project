@@ -55,10 +55,11 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
         //i.draw(graphToBack);
         graphToBack.drawImage(deck,20,0,20,20,null);
         graphToBack.setColor(Color.green);
-        graphToBack.drawRect(400,20,200,200);
-        graphToBack.drawRect(661,20,200,200);
-        graphToBack.drawRect(400,260,200,200);
-        graphToBack.drawRect(661,260,200,200);
+        graphToBack.drawRect(250,25,330,250);
+        graphToBack.drawRect(700,25,330,250);
+        graphToBack.drawRect(250,335,330,250);
+        graphToBack.drawRect(700,335,330,250);
+        graphToBack.drawRect(590, 615, 100, 30);
 
         twoDGraph.drawImage(back, null, 0, 0);
     }
@@ -72,7 +73,7 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
       }
     class click extends MouseAdapter{
         public void mousePressed(MouseEvent m){
-            System.exit(0);
+           // System.exit(0);
         }
     }
     
