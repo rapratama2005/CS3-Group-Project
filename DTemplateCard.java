@@ -1,6 +1,6 @@
 //R 4/11: Sample Card to test
-public class DSampleCard extends DsuperCard{
-    String initName = "Sample Man";
+public class DTemplateCard extends DsuperCard{
+    String initName = "Template Man";
     int initHP = 10;
     int initAtk = 2;
     int initSup = 6;
@@ -9,7 +9,7 @@ public class DSampleCard extends DsuperCard{
     int[] applicability = {1, 1, 1};
     String image = "Ivy.jpg";
 
-    public DSampleCard() {
+    public DTemplateCard() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
         super.setName(initName);
         super.setHealth(initHP);
@@ -29,17 +29,18 @@ public class DSampleCard extends DsuperCard{
 
     @Override
     public String atk(DsuperCard target) {
-        target.hurt(super.getAtk());
+
         progSup(super.getAtk());
         return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + " damage.");
     }
 
     @Override
     public String bAtk(DsuperCard target) {
-        DConditionPoison samplePoison = new DConditionPoison(3, "Poison", 1);
-        target.addConditions(samplePoison);
-        progSup(5);
-        return (this.getName() + " used " + this.getBName() + " on " + target.getName() + ".");
+        if (!super.checkSup()){
+            return(super.bAtk(target));
+        } else {
+            return(super.bAtk(target));
+        }
     }
 
     @Override

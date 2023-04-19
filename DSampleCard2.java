@@ -4,12 +4,13 @@ public class DSampleCard2 extends DsuperCard{
     int initHP = 10;
     int initAtk = 2;
     int initSup = 6;
+    int initB = 2;
     String[] moveSet = {"Sample Attack","Sample Strength Boost", "Sample Super Attack"};
     int[] applicability = {1, 3, 1};
     String image = "Ivy.jpg";
 
     public DSampleCard2() {
-        super(10, 2, 10, 2, "Sample Man 2", "Sample Attack", "Sample Super Attack", "Sample Stregth Boost", 6, 1, 3, 1, "Ivy.jpg");
+        super(10, 2, 10, 2, "Sample Man 2", "Sample Attack", "Sample Super Attack", "Sample Stregth Boost", 6, 1, 3, 1, 2, "Ivy.jpg");
         super.setName(initName);
         super.setHealth(initHP);
         super.setMaxH(initHP);
@@ -18,8 +19,12 @@ public class DSampleCard2 extends DsuperCard{
         super.setAName(moveSet[0]);
         super.setBName(moveSet[1]);
         super.setSName(moveSet[2]);
-        super.setSupProg(initSup);
+        super.setSupReq(initSup);
+        super.setBReq(initB);
         super.setImgSource(image);
+        super.setAtkApplicability(applicability[0]);
+        super.setBAtkApplicability(applicability[1]);
+        super.setSAtkApplicability(applicability[2]);
     }
 
     @Override

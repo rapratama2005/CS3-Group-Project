@@ -7,7 +7,7 @@ public class DConditionStrength extends DCondition{
 
     @Override
     public void effect(DsuperCard card) {
-        card.setBoostAtk(boost);
+        card.setBoostAtk(card.getBoostAtk()+boost);
         super.effect(card);
     }
 

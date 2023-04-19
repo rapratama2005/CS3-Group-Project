@@ -1,12 +1,12 @@
 import java.io.File;
 import java.util.*;
 public abstract class DsuperCard {
-    private int maxHealth,maxAtk,Health,atk,boostHealth, boostAtk, supReq, supProg; //R 4/8: Added BoostHealth and BoostAtk, will be used for conditions || R 4/15 Added supReq and supProg, will be used to determine when ultimate can be used
+    private int maxHealth,maxAtk,Health,atk,boostHealth, boostAtk, supReq, supProg, bReq; //R 4/8: Added BoostHealth and BoostAtk, will be used for conditions || R 4/15 Added supReq and supProg, will be used to determine when ultimate can be used
     private String name, atkName, supName, bName, imgSource;
     private int applyAtk, applyBAtk, applySAtk; //applicability of attacks: 0 is self, 1 is enemy, 2 is allies, 3 is allies and self
     //private File image;
     private ArrayList<DCondition> cond = new ArrayList<DCondition>();
-    public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN, int sR, int aA, int aB, int aS, String img){
+    public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN, int bR, int sR, int aA, int aB, int aS, String img){
         maxHealth = mH;
         maxAtk = mA;
         Health = H;
@@ -16,6 +16,7 @@ public abstract class DsuperCard {
         supName = sN;
         bName = bN;
         supReq = sR;
+        bReq = bR;
         applyAtk = aA;
         applyBAtk = aB; 
         applySAtk = aS;
@@ -38,6 +39,9 @@ public abstract class DsuperCard {
     public int getAtk(){
         return atk+boostAtk;
     }
+    public int getRawAtk(){
+        return atk;
+    }
     public String getName(){
         return name;
     }
@@ -50,6 +54,9 @@ public abstract class DsuperCard {
     public String getBName(){
         return bName;
     }
+    public int getBReq(){
+        return bReq;
+    }
     public int getSupReq(){
         return supReq;
     }
@@ -58,16 +65,25 @@ public abstract class DsuperCard {
     }
     public int getBoostHealth(){
         int b = boostHealth;
-        boostHealth = 0;
+        //boostHealth = 0;
         return b;
     }
     public int getBoostAtk(){
         int b = boostAtk;
-        boostAtk = 0;
+        //boostAtk = 0;
         return b;
     }
     public String getImgSource(){
         return imgSource;
+    }
+    public int getAtkApplicability(){
+        return applyAtk;
+    }
+    public int getBAtkApplicability(){
+        return applyBAtk;
+    }
+    public int getSAtkApplicability(){
+        return applySAtk;
     }
     /*
     //when ready
@@ -124,6 +140,10 @@ public abstract class DsuperCard {
         supReq = sR;
         return supReq;
     }
+    public int setBReq(int bR){
+        bReq = bR;
+        return bReq;
+    }
     public int setSupProg(int sP){
         supProg = sP;
         return supProg;
@@ -132,21 +152,37 @@ public abstract class DsuperCard {
         imgSource = i;
         return imgSource;
     }
+    public int setAtkApplicability(int aA){
+        applyAtk=aA;
+        return applyAtk;
+    }
+    public int setBAtkApplicability(int aB){
+        applyBAtk = aB;
+        return applyBAtk;
+    }
+    public int setSAtkApplicability(int aS){
+        applySAtk = aS;
+        return applySAtk;
+    }
     //Abstract Func
     public String atk(DsuperCard target){
 
         return (this.getName() + " used " + this.getAName() + " (main attack) on " + target.getName() + ".");
     }
     public String bAtk(DsuperCard target){
-        
-        return (this.getName() + " used " + this.getBName() + " (main attack) on " + target.getName() + ".");
+        if(!checkB()){
+            return this.getName() + " invalid use " + this.getBName() + " (alternate attack) on " + target.getName() + ".";
+        } else {
+            supProg -= bReq;
+            return (this.getName() + " used " + this.getBName() + " (alternate attack) on " + target.getName() + ".");
+        }
     }
     public String sAtk(DsuperCard target){
         if (!checkSup()){
-            return this.name + " invalid use " + this.supName + " (special attack) on " + target.name;
+            return this.getName() + " invalid use " + this.getSName() + " (special attack) on " + target.getName();
         } else {
             supProg = 0;
-        return this.name + " used " + this.supName + " (special attack) on " + target.name;
+            return this.getName() + " used " + this.getSName() + " (special attack) on " + target.getName();
         }
     }
     //Essentials
@@ -156,7 +192,10 @@ public abstract class DsuperCard {
     }
 
     public int hurt(int H){
-        Health-=H;
+        H-=boostHealth;
+        if(H>0){
+            Health-=H;
+        }
         return Health;
     }
 
@@ -169,12 +208,19 @@ public abstract class DsuperCard {
         return(supProg>=supReq);
     }
 
+    public boolean checkB(){
+        return(supProg>=bReq);
+    }
+
     public int progSup(int pS){
         supProg += pS;
         return supProg;
     }
     
     public ArrayList<DCondition> checkConditions(){
+        //R 4/19: resets boosts so that conditions can take effect
+        boostHealth = 0;
+        boostAtk = 0;
         for (int i = 0; i < cond.size(); i++){
             cond.get(i).effect(this);
             if(cond.get(i).getDuration()<=0){
@@ -195,7 +241,8 @@ public abstract class DsuperCard {
         string += "Name: " + name + "\n";
         string += "Health: " + getHealth() + "/" + getMaxH() + "\n";
         string += "Dead: " + isDead() + "\n";
-        string += "Condtions: " + cond.toString();
+        string += "Condtions: " + cond.toString() + "\n";
+        string += "Ultimate Progress: " + supProg + "/" + supReq + "\n";
         return string;
     }
 }
