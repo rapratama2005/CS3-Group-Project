@@ -1,18 +1,23 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.*;
 
 public class GBattleScreen2 extends JFrame{
     private JPanel card1,card2,card3,card4,hand1,hand2;
     private JPanel card1P,card2P,card3P,card4P;
     private JTextArea D1,D2,D3,D4;
     private JPanel a1,a2,a3,a4;
+    private ArrayList<JButton> atks = new ArrayList<JButton>();
     private JButton at1,bat1,at2,bat2,at3,bat3,at4,bat4;
+    private JButton selected;
+    private JButton prevSel;
 
     GBattleScreen2(){
         super();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(2,2));
+        
         card1 = new JPanel();
         card1.setLayout(new GridLayout(1,2));
         //left side
@@ -27,10 +32,14 @@ public class GBattleScreen2 extends JFrame{
         //right side
         a1 = new JPanel();
         card1.add(a1);
-        at1 = new JButton("attack");
-        a1.add(at1);
-        bat1 = new JButton("bAttack");
-        a1.add(bat1);
+        //all of this needs to be copy pasted, formating is also necessary later
+        atks.add(new JButton("attack"));
+        a1.add(atks.get(0));
+        atks.get(0).addActionListener(new act());
+        atks.add(new JButton("bAttack"));
+        a1.add(atks.get(1));
+        atks.get(1).addActionListener(new act());
+        //end
         add(card1);
 
         card2 = new JPanel();
@@ -82,6 +91,18 @@ public class GBattleScreen2 extends JFrame{
         add(card4);
         
         setVisible(true);
+    }
+
+    class act implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            selected = (JButton)e.getSource();
+            int ind = atks.indexOf(selected);
+            atks.get(ind).setBackground(Color.green);
+            if (prevSel!=null&&prevSel!=selected){
+                atks.get(atks.indexOf(prevSel)).setBackground(Color.white);
+            }
+            prevSel = selected;
+        }
     }
 
     public static void main(String[] args){
