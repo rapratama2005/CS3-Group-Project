@@ -60,7 +60,7 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
         graphToBack.drawRect(250,335,330,250);
         graphToBack.drawRect(700,335,330,250);
         graphToBack.drawRect(590, 615, 100, 30);
-        graphToBack.drawString("Algeria","hello",0,0,20);
+        graphToBack.drawString("Algeria",0,0);
 
         twoDGraph.drawImage(back, null, 0, 0);
     }
