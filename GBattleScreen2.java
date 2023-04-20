@@ -27,9 +27,9 @@ public class GBattleScreen2 extends JFrame{
         card2.setLayout(new GridLayout(1,2));
         JPanel c2 = new JPanel();
         c2.setLayout(new GridLayout(2,1));
-        card2.add(c1);
-        card1P = new JPanel();
-        c1.add(card1P);
+        card2.add(c2);
+        card2P = new JPanel();
+        c2.add(card2P);
         D1 = new JTextArea(10,15);
         JScrollPane s1 = new JScrollPane(D1);
         c1.add(s1);
