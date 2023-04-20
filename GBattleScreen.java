@@ -60,7 +60,11 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
         graphToBack.drawRect(250,335,330,250);
         graphToBack.drawRect(700,335,330,250);
         graphToBack.drawRect(590, 615, 100, 30);
+<<<<<<< HEAD
         graphToBack.drawString("Algeria",0,0);
+=======
+        graphToBack.drawString("Ready",595,630);
+>>>>>>> a2c9c1c9aebc62c9ff7dc29022bcd8a39860e27e
 
         twoDGraph.drawImage(back, null, 0, 0);
     }
@@ -91,9 +95,12 @@ public class GBattleScreen extends Canvas implements KeyListener, Runnable  {
         }
     public static void main(String[] args){
         JFrame hi = new JFrame();
+        hi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         GBattleScreen theGame = new GBattleScreen();
         ((Component)theGame).setFocusable(true);
+        hi.setSize(1281,740);
         hi.add(theGame);
         hi.setVisible(true);
+        hi.setResizable(false);
     }
 }
