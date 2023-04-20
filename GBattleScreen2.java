@@ -8,6 +8,18 @@ public class GBattleScreen2 extends JFrame{
         super();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(2,2));
-        card1,card2,card3,card4 = new JPanel();
+        card1 = new JPanel();
+        card1.setLayout(new GridLayout(1,2));
+
+        card2 = new JPanel();
+        card2.setLayout(new GridLayout(1,2));
+
+        card3 = new JPanel();
+        card3.setLayout(new GridLayout(1,2));
+        
+        card4 = new JPanel();
+        card4.setLayout(new GridLayout(1,2));
+        
+        
     }
 }
