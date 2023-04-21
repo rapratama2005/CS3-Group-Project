@@ -5,7 +5,11 @@ import java.util.*;
 
 public class GBattleScreen2 extends JFrame{
     private JPanel card1,card2,card3,card4,hand1,hand2;
-    private JPanel card1P,card2P,card3P,card4P;
+    //left sides
+    private JPanel c1, c2, c3, c4;
+    //picture JPanels
+    private JPanel p1,p2,p3,p4;
+    private JLabel card1P,card2P,card3P,card4P;
     private JTextArea D1,D2,D3,D4;
     private JPanel a1,a2,a3,a4;
     private ArrayList<JButton> atks = new ArrayList<JButton>();
@@ -21,11 +25,14 @@ public class GBattleScreen2 extends JFrame{
         card1 = new JPanel();
         card1.setLayout(new GridLayout(1,2));
         //left side
-        JPanel c1 = new JPanel();
+        c1 = new JPanel();
         c1.setLayout(new GridLayout(2,1));
         card1.add(c1);
-        card1P = new JPanel();
-        c1.add(card1P);
+
+        p1 = new JPanel();
+        card1P = new JLabel();
+        p1.add(card1P);
+        c1.add(p1);
         D1 = new JTextArea(10,15);
         JScrollPane s1 = new JScrollPane(D1);
         c1.add(s1);
@@ -43,10 +50,11 @@ public class GBattleScreen2 extends JFrame{
         card2 = new JPanel();
         card2.setLayout(new GridLayout(1,2));
         //left side
-        JPanel c2 = new JPanel();
+        c2 = new JPanel();
         c2.setLayout(new GridLayout(2,1));
         card2.add(c2);
-        card2P = new JPanel();
+        
+        card2P = new JLabel();
         c2.add(card2P);
         D2 = new JTextArea(10,15);
         JScrollPane s2 = new JScrollPane(D2);
@@ -65,10 +73,10 @@ public class GBattleScreen2 extends JFrame{
         card3 = new JPanel();
         card3.setLayout(new GridLayout(1,2));
         //left side
-        JPanel c3 = new JPanel();
+        c3 = new JPanel();
         c3.setLayout(new GridLayout(2,1));
         card3.add(c3);
-        card3P = new JPanel();
+        card3P = new JLabel();
         c3.add(card3P);
         D3 = new JTextArea(10,15);
         JScrollPane s3 = new JScrollPane(D3);
@@ -87,10 +95,10 @@ public class GBattleScreen2 extends JFrame{
         card4 = new JPanel();
         card4.setLayout(new GridLayout(1,2));
         //left side
-        JPanel c4 = new JPanel();
+        c4 = new JPanel();
         c4.setLayout(new GridLayout(2,1));
         card4.add(c4);
-        card4P = new JPanel();
+        card4P = new JLabel();
         c4.add(card4P);
         D4 = new JTextArea(10,15);
         JScrollPane s4 = new JScrollPane(D4);
@@ -116,7 +124,35 @@ public class GBattleScreen2 extends JFrame{
             if (prevSel!=null&&prevSel!=selected){
                 atks.get(atks.indexOf(prevSel)).setBackground(Color.white);
             }
+            int h = ind/2;
+            if (h==0){
+                p1.remove(card1P);
+                ImageIcon a = new ImageIcon("space.jpg");
+                card1P = new JLabel(a);
+                p1.add(card1P);
+            }
+            else if (h==1){
+                ImageIcon a = new ImageIcon("space.jpg");
+                card2P = new JLabel(a);
+                card2P.setBounds(0, 0, 800, 600);
+                add(card2P);
+            }
+            else if (h==2){
+                ImageIcon a = new ImageIcon("space.jpg");
+                card2P = new JLabel(a);
+                card2P.setBounds(0, 0, 800, 600);
+                add(card2P);
+            }
+            else if (h==3){
+                ImageIcon a = new ImageIcon("space.jpg");
+                card2P = new JLabel(a);
+                card2P.setBounds(0, 0, 800, 600);
+                add(card2P);
+            }
+
             prevSel = selected;
+            revalidate();
+            repaint();
         }
     }
 
