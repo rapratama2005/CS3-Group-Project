@@ -54,8 +54,10 @@ public class GBattleScreen2 extends JFrame{
         c2.setLayout(new GridLayout(2,1));
         card2.add(c2);
         
+        p2 = new JPanel();
         card2P = new JLabel();
-        c2.add(card2P);
+        p2.add(card2P);
+        c2.add(p2);
         D2 = new JTextArea(10,15);
         JScrollPane s2 = new JScrollPane(D2);
         c2.add(s2);
@@ -76,8 +78,10 @@ public class GBattleScreen2 extends JFrame{
         c3 = new JPanel();
         c3.setLayout(new GridLayout(2,1));
         card3.add(c3);
+        p3 = new JPanel();
         card3P = new JLabel();
-        c3.add(card3P);
+        p3.add(card3P);
+        c3.add(p3);
         D3 = new JTextArea(10,15);
         JScrollPane s3 = new JScrollPane(D3);
         c3.add(s3);
@@ -98,8 +102,10 @@ public class GBattleScreen2 extends JFrame{
         c4 = new JPanel();
         c4.setLayout(new GridLayout(2,1));
         card4.add(c4);
+        p4 = new JPanel();
         card4P = new JLabel();
-        c4.add(card4P);
+        p4.add(card4P);
+        c4.add(p4);
         D4 = new JTextArea(10,15);
         JScrollPane s4 = new JScrollPane(D4);
         c4.add(s4);
@@ -132,24 +138,23 @@ public class GBattleScreen2 extends JFrame{
                 p1.add(card1P);
             }
             else if (h==1){
+                p2.remove(card2P);
                 ImageIcon a = new ImageIcon("space.jpg");
                 card2P = new JLabel(a);
-                card2P.setBounds(0, 0, 800, 600);
-                add(card2P);
+                p2.add(card2P);
             }
             else if (h==2){
+                p3.remove(card3P);
                 ImageIcon a = new ImageIcon("space.jpg");
-                card2P = new JLabel(a);
-                card2P.setBounds(0, 0, 800, 600);
-                add(card2P);
+                card3P = new JLabel(a);
+                p3.add(card3P);
             }
             else if (h==3){
+                p4.remove(card4P);
                 ImageIcon a = new ImageIcon("space.jpg");
-                card2P = new JLabel(a);
-                card2P.setBounds(0, 0, 800, 600);
-                add(card2P);
+                card4P = new JLabel(a);
+                p4.add(card4P);
             }
-
             prevSel = selected;
             revalidate();
             repaint();
