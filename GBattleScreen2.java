@@ -2,7 +2,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
-
+import java.util.Map;
+import java.util.TreeMap;
+//Line 139 is where we might need to change because atm, we are allowing there to be multiple confirm buttons which is not what we wants
+//Change image section needs to be altered once we can get risky to change up the card classes.
+//Giving players a hand is a lot to code so we are most likely not going to do that
+//right side buttons need to be formatted
+//super charge needs to be implemented and bAttacks need to be disabled or colored black if there is no super charge
+//card classes need to have a function to change the description whenever you press a button so that user can read the card's effects
 public class GBattleScreen2 extends JFrame{
     private JPanel card1,card2,card3,card4,hand1,hand2;
     //left sides
@@ -11,8 +18,10 @@ public class GBattleScreen2 extends JFrame{
     private JPanel p1,p2,p3,p4;
     private JLabel card1P,card2P,card3P,card4P;
     private JTextArea D1,D2,D3,D4;
+    //Right sides
     private JPanel a1,a2,a3,a4;
     private ArrayList<JButton> atks = new ArrayList<JButton>();
+    private Map<Integer,JButton> confirms = new TreeMap<Integer,JButton>();
     private JButton at1,bat1,at2,bat2,at3,bat3,at4,bat4;
     private JButton selected;
     private JButton prevSel;
@@ -53,7 +62,7 @@ public class GBattleScreen2 extends JFrame{
         c2 = new JPanel();
         c2.setLayout(new GridLayout(2,1));
         card2.add(c2);
-        
+
         p2 = new JPanel();
         card2P = new JLabel();
         p2.add(card2P);
@@ -130,37 +139,89 @@ public class GBattleScreen2 extends JFrame{
             if (prevSel!=null&&prevSel!=selected){
                 atks.get(atks.indexOf(prevSel)).setBackground(Color.white);
             }
+            // index/2 is one less than card number. Ex) index 0 and 1 are card 1.
             int h = ind/2;
-            if (h==0){
-                p1.remove(card1P);
-                ImageIcon a = new ImageIcon("space.jpg");
-                card1P = new JLabel(a);
-                p1.add(card1P);
+            if (h==0&&!confirms.containsKey(1)){
+                //Key number is the card number
+                confirms.put(1,new JButton("Confirm"));
+                a1.add(confirms.get(1));
+                confirms.get(1).addActionListener(new Confirms(1));
+                
             }
-            else if (h==1){
-                p2.remove(card2P);
-                ImageIcon a = new ImageIcon("space.jpg");
-                card2P = new JLabel(a);
-                p2.add(card2P);
+            else if (h==1&&!confirms.containsKey(2)){
+                confirms.put(2,new JButton("Confirm"));
+                a2.add(confirms.get(2));
+                confirms.get(2).addActionListener(new Confirms(2));
+
             }
-            else if (h==2){
-                p3.remove(card3P);
-                ImageIcon a = new ImageIcon("space.jpg");
-                card3P = new JLabel(a);
-                p3.add(card3P);
+            else if (h==2&&!confirms.containsKey(3)){
+                confirms.put(3,new JButton("Confirm"));
+                a3.add(confirms.get(3));
+                confirms.get(3).addActionListener(new Confirms(3));
+
             }
-            else if (h==3){
-                p4.remove(card4P);
-                ImageIcon a = new ImageIcon("space.jpg");
-                card4P = new JLabel(a);
-                p4.add(card4P);
+            else if (h==3&&!confirms.containsKey(4)){
+                confirms.put(4,new JButton("Confirm"));
+                a4.add(confirms.get(4));
+                confirms.get(4).addActionListener(new Confirms(4));
             }
             prevSel = selected;
             revalidate();
             repaint();
         }
     }
-
+    public void changeImage(int cardNum){
+        if (cardNum==1){
+            p1.remove(card1P);
+            ImageIcon a = new ImageIcon("space.jpg");
+            card1P = new JLabel(a);
+            p1.add(card1P);
+        }
+        else if (cardNum==2){
+            p2.remove(card2P);
+            ImageIcon a = new ImageIcon("space.jpg");
+            card2P = new JLabel(a);
+            p2.add(card2P);
+        }
+        else if (cardNum==3){
+            p3.remove(card3P);
+            ImageIcon a = new ImageIcon("space.jpg");
+            card3P = new JLabel(a);
+            p3.add(card3P);
+        }
+        else if (cardNum==4){
+            p4.remove(card4P);
+            ImageIcon a = new ImageIcon("space.jpg");
+            card4P = new JLabel(a);
+            p4.add(card4P);
+        }
+        revalidate();
+        repaint();
+    }
+    class Confirms implements ActionListener{
+        private int cardNum;
+        public Confirms(int cardNum){
+            this.cardNum = cardNum;
+        }
+        public void actionPerformed(ActionEvent e){
+            changeImage(cardNum);
+            if (cardNum==1){
+                a1.remove(confirms.get(cardNum));
+            }
+            else if (cardNum==2){
+                a2.remove(confirms.get(cardNum));
+            }
+            else if (cardNum==3){
+                a3.remove(confirms.get(cardNum));
+            }
+            else if (cardNum==4){
+                a4.remove(confirms.get(cardNum));
+            }
+            confirms.remove(cardNum);
+            revalidate();
+            repaint();
+        }
+    }
     public static void main(String[] args){
         GBattleScreen2 run = new GBattleScreen2();
     }
