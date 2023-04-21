@@ -32,14 +32,12 @@ public class GBattleScreen2 extends JFrame{
         //right side
         a1 = new JPanel();
         card1.add(a1);
-        //all of this needs to be copy pasted, formating is also necessary later
         atks.add(new JButton("attack"));
         a1.add(atks.get(0));
         atks.get(0).addActionListener(new act());
         atks.add(new JButton("bAttack"));
         a1.add(atks.get(1));
         atks.get(1).addActionListener(new act());
-        //end
         add(card1);
 
         card2 = new JPanel();
@@ -56,6 +54,12 @@ public class GBattleScreen2 extends JFrame{
         //right side
         a2 = new JPanel();
         card2.add(a2);
+        atks.add(new JButton("attack"));
+        a2.add(atks.get(2));
+        atks.get(2).addActionListener(new act());
+        atks.add(new JButton("bAttack"));
+        a2.add(atks.get(3));
+        atks.get(3).addActionListener(new act());
         add(card2);
 
         card3 = new JPanel();
@@ -72,6 +76,12 @@ public class GBattleScreen2 extends JFrame{
         //right side
         a3 = new JPanel();
         card3.add(a3);
+        atks.add(new JButton("attack"));
+        a3.add(atks.get(4));
+        atks.get(4).addActionListener(new act());
+        atks.add(new JButton("bAttack"));
+        a3.add(atks.get(5));
+        atks.get(5).addActionListener(new act());
         add(card3);
         
         card4 = new JPanel();
@@ -88,8 +98,13 @@ public class GBattleScreen2 extends JFrame{
         //right side
         a4 = new JPanel();
         card4.add(a4);
+        atks.add(new JButton("attack"));
+        a4.add(atks.get(6));
+        atks.get(6).addActionListener(new act());
+        atks.add(new JButton("bAttack"));
+        a4.add(atks.get(7));
+        atks.get(7).addActionListener(new act());
         add(card4);
-        
         setVisible(true);
     }
 
