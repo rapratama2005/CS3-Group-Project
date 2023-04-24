@@ -4,11 +4,14 @@ import javax.swing.*;
 import java.util.*;
 import java.util.Map;
 import java.util.TreeMap;
-//Line 139 is where we might need to change because atm, we are allowing there to be multiple confirm buttons which is not what we wants
+import javax.swing.border.*;
+//Line 139 is where we might need to change because atm, we are allowing there to be multiple confirm buttons which is not what we want
 //Change image section needs to be altered once we can get risky to change up the card classes.
 //Giving players a hand is a lot to code so we are most likely not going to do that
 //right side buttons need to be formatted
-//super charge needs to be implemented and bAttacks need to be disabled or colored black if there is no super charge
+//change fill bar and use bar function colors
+//bAttacks need to be disabled or colored black if there is no super charge
+//super charge is ready and can be altered once we implement risky's code
 //card classes need to have a function to change the description whenever you press a button so that user can read the card's effects
 public class GBattleScreen2 extends JFrame{
     private JPanel card1,card2,card3,card4,hand1,hand2;
@@ -20,6 +23,7 @@ public class GBattleScreen2 extends JFrame{
     private JTextArea D1,D2,D3,D4;
     //Right sides
     private JPanel a1,a2,a3,a4;
+    private superCharge supBar1,supBar2,supBar3,supBar4;
     private ArrayList<JButton> atks = new ArrayList<JButton>();
     private Map<Integer,JButton> confirms = new TreeMap<Integer,JButton>();
     private JButton at1,bat1,at2,bat2,at3,bat3,at4,bat4;
@@ -54,6 +58,8 @@ public class GBattleScreen2 extends JFrame{
         atks.add(new JButton("bAttack"));
         a1.add(atks.get(1));
         atks.get(1).addActionListener(new act());
+        supBar1 = new superCharge();
+        a1.add(supBar1);
         add(card1);
 
         card2 = new JPanel();
@@ -79,6 +85,8 @@ public class GBattleScreen2 extends JFrame{
         atks.add(new JButton("bAttack"));
         a2.add(atks.get(3));
         atks.get(3).addActionListener(new act());
+        supBar2 = new superCharge();
+        a2.add(supBar2);
         add(card2);
 
         card3 = new JPanel();
@@ -103,6 +111,8 @@ public class GBattleScreen2 extends JFrame{
         atks.add(new JButton("bAttack"));
         a3.add(atks.get(5));
         atks.get(5).addActionListener(new act());
+        supBar3 = new superCharge();
+        a3.add(supBar3);
         add(card3);
         
         card4 = new JPanel();
@@ -127,6 +137,8 @@ public class GBattleScreen2 extends JFrame{
         atks.add(new JButton("bAttack"));
         a4.add(atks.get(7));
         atks.get(7).addActionListener(new act());
+        supBar4 = new superCharge();
+        a4.add(supBar4);
         add(card4);
         setVisible(true);
     }
@@ -218,6 +230,85 @@ public class GBattleScreen2 extends JFrame{
                 a4.remove(confirms.get(cardNum));
             }
             confirms.remove(cardNum);
+            revalidate();
+            repaint();
+        }
+    }
+
+    class superCharge extends JPanel{
+        private JPanel bar1,bar2,bar3;
+        private int barCount = 0;
+        superCharge(){
+            super();
+            setLayout(new GridLayout(1,3));
+            Border border = new LineBorder(Color.black,3,true);
+            setBorder(border);
+            setPreferredSize(new Dimension(50,50));
+            setBackground(Color.black);
+            bar1 = new JPanel();
+            bar1.setBackground(Color.white);
+            add(bar1);
+
+            bar2 = new JPanel();
+            bar2.setBackground(Color.white);
+            add(bar2);
+
+            bar3 = new JPanel();
+            bar3.setBackground(Color.white);
+            add(bar3);
+        }
+
+        public void fillBar(){
+            if (barCount==0){
+                bar1.setBackground(Color.yellow);
+            }
+            else if (barCount==1){
+                bar1.setBackground(Color.orange);
+                bar2.setBackground(Color.orange);
+            }
+            else if (barCount==2){
+                bar1.setBackground(Color.red);
+                bar2.setBackground(Color.red);
+                bar3.setBackground(Color.red);
+            }
+            //barCount==3
+            else{
+                barCount--;
+            }
+            barCount++;
+            revalidate();
+            repaint();
+        }
+
+        public void useBar(String type){
+            if (type.equals("bAtk")){
+                if (barCount==1){
+                    bar1.setBackground(Color.white);
+                }
+                else if (barCount==2){
+                    bar1.setBackground(Color.yellow);
+                    bar2.setBackground(Color.white);
+                }
+                else if (barCount==3){
+                    bar1.setBackground(Color.orange);
+                    bar2.setBackground(Color.orange);
+                    bar3.setBackground(Color.white);
+                }
+                //for barCount==0
+                else{
+                    barCount++;
+                }
+                barCount--;
+            }
+            else if (type.equals("super")){
+                if (barCount==3){
+                    bar1.setBackground(Color.white);
+                    bar2.setBackground(Color.white);
+                    bar3.setBackground(Color.white);
+                    barCount=0;
+                    //add code for the super function
+                }
+            }
             revalidate();
             repaint();
         }
