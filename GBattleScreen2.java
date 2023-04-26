@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.border.*;
+// need a log that keeps track of the stats of all of the cards and what the cards are.
 //Line 139 is where we might need to change because atm, we are allowing there to be multiple confirm buttons which is not what we want
 //Change image section needs to be altered once we can get risky to change up the card classes.
 //Giving players a hand is a lot to code so we are most likely not going to do that
