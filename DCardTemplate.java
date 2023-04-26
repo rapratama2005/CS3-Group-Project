@@ -1,16 +1,16 @@
-//Drunken Sailor - Tank card
-public class DCardDrunkenSailor extends DsuperCard{
-    String initName = "Drunken Sailor";
-    int initHP = 15;
-    int initAtk = 3;
-    int initSup = 8;
-    int initB = 5;
-    String[] moveSet = {"Bottle","'Synchronized' Singing", "Alcoholic Resistance"};
-    int[] applicability = {1, 1, 0};
+//R 4/11: Sample Card to test
+public class DCardTemplate extends DsuperCard{
+    String initName = "Template Man";
+    int initHP = 10;
+    int initAtk = 2;
+    int initSup = 6;
+    int initB = 2;
+    String[] moveSet = {"Sample Attack","Sample Poison Attack", "Sample Super Attack"};
+    int[] applicability = {1, 1, 1};
     String image = "Ivy.jpg";
-    String[] desc = {"What do we do with the Drunken Sailor?", "A Simple Bottle Attack", "The... 'Quality' of the voice is effective in weakening your enemy for a period of time", "Years of drinking have strengthened your resolve"};
+    String[] desc = {"Character Desc", "Atk Desc", "B Atk Desc", "S Atk Desc"};
 
-    public DCardDrunkenSailor() {
+    public DCardTemplate() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
         super.setName(initName);
         super.setHealth(initHP);
@@ -33,7 +33,7 @@ public class DCardDrunkenSailor extends DsuperCard{
     public String atk(DsuperCard target) {
         /*
          * Attack Desc
-         * Simple Bottle Attack
+         * 
          */
         progSup(super.getAtk());
         return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + " damage.");
@@ -43,13 +43,11 @@ public class DCardDrunkenSailor extends DsuperCard{
     public String bAtk(DsuperCard target) {
         /*
          * B Attack Desc
-         * Inflicts a weakness effect on enemy
+         * 
          */
         if (!super.checkSup()){
             return(super.bAtk(target));
         } else {
-            DCondition s = new DConditionWeakness(3, "'Synchronized' Singing", 2);
-            target.addConditions(s);
             return(super.bAtk(target));
         }
     }
@@ -58,13 +56,12 @@ public class DCardDrunkenSailor extends DsuperCard{
     public String sAtk(DsuperCard target) {
         /*
          * S Attack Desc
-         * Alcoholic Resistance - thanks to years of drinking, your body is now stronger
+         * 
          */
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            DCondition s = new DConditionResistance(3, "Alcoholic Resistance", 3);
-            target.addConditions(s);
+            target.hurt(super.getAtk()*3);
             return(super.sAtk(target));
         }
     }

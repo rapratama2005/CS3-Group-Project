@@ -1,3 +1,18 @@
+Standard Cards
+DPS
+- 4-6 Atk
+- 8-10 HP
+- 16-18 to supercharge
+Tank
+- 2-3 ATK
+- 17-20 HP
+- 8-10 to supercharge
+Support
+- 2-3 ATK
+- 8-10 HP
+- 7-8 to supercharge
+
+
 Michelle Brockwoman 
 Me special ("Attack Cheif D")
 letap nahor (special "Whaaat!") - Confuses(enemy cannot use super move) the enemy for 1 turn.

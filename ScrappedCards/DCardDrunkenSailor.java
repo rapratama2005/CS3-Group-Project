@@ -1,15 +1,15 @@
 //R 4/11: Sample Card to test
-public class DTemplateCard extends DsuperCard{
-    String initName = "Template Man";
-    int initHP = 10;
+public class DCardDrunkenSailor extends DsuperCard{
+    String initName = "Drunken Sailor";
+    int initHP = 20;
     int initAtk = 2;
-    int initSup = 6;
+    int initSup = 10;
     int initB = 2;
-    String[] moveSet = {"Sample Attack","Sample Poison Attack", "Sample Super Attack"};
+    String[] moveSet = {"Wild Flail", "Pegleg", "Intoxication"};
     int[] applicability = {1, 1, 1};
     String image = "Ivy.jpg";
 
-    public DTemplateCard() {
+    public DCardDrunkenSailor() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
         super.setName(initName);
         super.setHealth(initHP);
