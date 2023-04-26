@@ -6,6 +6,7 @@ public abstract class DsuperCard {
     private int applyAtk, applyBAtk, applySAtk; //applicability of attacks: 0 is self, 1 is enemy, 2 is allies, 3 is allies and self
     //private File image;
     private ArrayList<DCondition> cond = new ArrayList<DCondition>();
+    private String[] desc = new String[4];
     public DsuperCard(int mH,int mA,int H,int A,String na,String aN,String sN,String bN, int bR, int sR, int aA, int aB, int aS, String img){
         maxHealth = mH;
         maxAtk = mA;
@@ -92,6 +93,12 @@ public abstract class DsuperCard {
     public ArrayList<DCondition> getConditions(){
         return cond;
     }
+    public String getDesc(int i){
+        return desc[i];
+    }
+    public String[] getAllDesc(){
+        return desc;
+    }
     /*
     //when ready
     public File getImage(){
@@ -170,6 +177,10 @@ public abstract class DsuperCard {
     public int setSAtkApplicability(int aS){
         applySAtk = aS;
         return applySAtk;
+    }
+    public String[] setDesc(String[] de){
+        desc = de;
+        return desc;
     }
     //Abstract Func
     public String atk(DsuperCard target){
