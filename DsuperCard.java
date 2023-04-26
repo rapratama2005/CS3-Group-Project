@@ -91,6 +91,9 @@ public abstract class DsuperCard {
     }
     /*
     //when ready
+    public Srting getImageSource(){
+        return fileName;
+    }
     public File getImage(){
         return image;
     }

@@ -5,6 +5,9 @@ import java.util.*;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.border.*;
+//Add a border and more space for each card
+//change button backgrounds
+// we need a dropdown box for choosing the cards.
 // need a log that keeps track of the stats of all of the cards and what the cards are.
 //Line 139 is where we might need to change because atm, we are allowing there to be multiple confirm buttons which is not what we want
 //Change image section needs to be altered once we can get risky to change up the card classes.
@@ -16,13 +19,16 @@ import javax.swing.border.*;
 //card classes need to have a function to change the description whenever you press a button so that user can read the card's effects
 public class GBattleScreen2 extends JFrame{
     private JPanel card1,card2,card3,card4,hand1,hand2;
-    //left sides
+    //Picure and description sides
     private JPanel c1, c2, c3, c4;
     //picture JPanels
     private JPanel p1,p2,p3,p4;
     private JLabel card1P,card2P,card3P,card4P;
     private JTextArea D1,D2,D3,D4;
-    //Right sides
+    //Attack function sides
+    private ArrayList<JLabel> currH = new ArrayList<JLabel>();
+    private ArrayList<JLabel> currA = new ArrayList<JLabel>();
+    //Current health and Current Atk are displayed
     private JPanel a1,a2,a3,a4;
     private superCharge supBar1,supBar2,supBar3,supBar4;
     private ArrayList<JButton> atks = new ArrayList<JButton>();
@@ -38,21 +44,28 @@ public class GBattleScreen2 extends JFrame{
         
         card1 = new JPanel();
         card1.setLayout(new GridLayout(1,2));
-        //left side
-        c1 = new JPanel();
-        c1.setLayout(new GridLayout(2,1));
-        card1.add(c1);
-
-        p1 = new JPanel();
-        card1P = new JLabel();
-        p1.add(card1P);
-        c1.add(p1);
-        D1 = new JTextArea(10,15);
-        JScrollPane s1 = new JScrollPane(D1);
-        c1.add(s1);
+        
         //right side
         a1 = new JPanel();
+        a1.setLayout(new GridLayout(5,1));
         card1.add(a1);
+        //Health and Attack
+        JPanel cont1 = new JPanel();
+        cont1.setLayout(new GridLayout(1,2));
+        currH.add(new JLabel("H"));
+        currA.add(new JLabel("A"));
+        cont1.add(currH.get(0));
+        cont1.add(currA.get(0));
+        currH.get(0).setHorizontalAlignment(JLabel.LEFT);
+        currH.get(0).setHorizontalTextPosition(JLabel.LEFT);
+        currH.get(0).setVerticalAlignment(JLabel.TOP);
+        currH.get(0).setVerticalTextPosition(JLabel.TOP);
+        currA.get(0).setHorizontalAlignment(JLabel.RIGHT);
+        currA.get(0).setHorizontalTextPosition(JLabel.RIGHT);
+        currA.get(0).setVerticalAlignment(JLabel.TOP);
+        currA.get(0).setVerticalTextPosition(JLabel.TOP);
+        a1.add(cont1);
+
         atks.add(new JButton("attack"));
         a1.add(atks.get(0));
         atks.get(0).addActionListener(new act());
@@ -61,7 +74,22 @@ public class GBattleScreen2 extends JFrame{
         atks.get(1).addActionListener(new act());
         supBar1 = new superCharge();
         a1.add(supBar1);
+        //left side
+        c1 = new JPanel();
+        c1.setLayout(new GridLayout(2,1));
+        card1.add(c1);
+
+        p1 = new JPanel();
+        card1P = new JLabel();
+        //add Dropdown boxes and a confirm button to the picture sides
+        
+        p1.add(card1P);
+        c1.add(p1);
+        D1 = new JTextArea(10,15);
+        JScrollPane s1 = new JScrollPane(D1);
+        c1.add(s1);
         add(card1);
+
 
         card2 = new JPanel();
         card2.setLayout(new GridLayout(1,2));
@@ -79,7 +107,25 @@ public class GBattleScreen2 extends JFrame{
         c2.add(s2);
         //right side
         a2 = new JPanel();
+        a2.setLayout(new GridLayout(5,1));
         card2.add(a2);
+        //Health and Attack
+        JPanel cont2 = new JPanel();
+        cont2.setLayout(new GridLayout(1,2));
+        currH.add(new JLabel("H"));
+        currA.add(new JLabel("A"));
+        cont2.add(currH.get(1));
+        cont2.add(currA.get(1));
+        a2.add(cont2);
+        currH.get(1).setHorizontalAlignment(JLabel.LEFT);
+        currH.get(1).setHorizontalTextPosition(JLabel.LEFT);
+        currH.get(1).setVerticalAlignment(JLabel.TOP);
+        currH.get(1).setVerticalTextPosition(JLabel.TOP);
+        currA.get(1).setHorizontalAlignment(JLabel.RIGHT);
+        currA.get(1).setHorizontalTextPosition(JLabel.RIGHT);
+        currA.get(1).setVerticalAlignment(JLabel.TOP);
+        currA.get(1).setVerticalTextPosition(JLabel.TOP);
+
         atks.add(new JButton("attack"));
         a2.add(atks.get(2));
         atks.get(2).addActionListener(new act());
@@ -92,6 +138,36 @@ public class GBattleScreen2 extends JFrame{
 
         card3 = new JPanel();
         card3.setLayout(new GridLayout(1,2));
+        //right side
+        a3 = new JPanel();
+        a3.setLayout(new GridLayout(5,1));
+        card3.add(a3);
+        //Health and Attack
+        JPanel cont3 = new JPanel();
+        cont3.setLayout(new GridLayout(1,2));
+        currH.add(new JLabel("H"));
+        currA.add(new JLabel("A"));
+        cont3.add(currH.get(2));
+        cont3.add(currA.get(2));
+        a3.add(cont3);
+        currH.get(2).setHorizontalAlignment(JLabel.LEFT);
+        currH.get(2).setHorizontalTextPosition(JLabel.LEFT);
+        currH.get(2).setVerticalAlignment(JLabel.TOP);
+        currH.get(2).setVerticalTextPosition(JLabel.TOP);
+        currA.get(2).setHorizontalAlignment(JLabel.RIGHT);
+        currA.get(2).setHorizontalTextPosition(JLabel.RIGHT);
+        currA.get(2).setVerticalAlignment(JLabel.TOP);
+        currA.get(2).setVerticalTextPosition(JLabel.TOP);
+
+        atks.add(new JButton("attack"));
+        a3.add(atks.get(4));
+        atks.get(4).addActionListener(new act());
+        atks.add(new JButton("bAttack"));
+        a3.add(atks.get(5));
+        atks.get(5).addActionListener(new act());
+        supBar3 = new superCharge();
+        a3.add(supBar3);
+
         //left side
         c3 = new JPanel();
         c3.setLayout(new GridLayout(2,1));
@@ -103,17 +179,6 @@ public class GBattleScreen2 extends JFrame{
         D3 = new JTextArea(10,15);
         JScrollPane s3 = new JScrollPane(D3);
         c3.add(s3);
-        //right side
-        a3 = new JPanel();
-        card3.add(a3);
-        atks.add(new JButton("attack"));
-        a3.add(atks.get(4));
-        atks.get(4).addActionListener(new act());
-        atks.add(new JButton("bAttack"));
-        a3.add(atks.get(5));
-        atks.get(5).addActionListener(new act());
-        supBar3 = new superCharge();
-        a3.add(supBar3);
         add(card3);
         
         card4 = new JPanel();
@@ -131,7 +196,25 @@ public class GBattleScreen2 extends JFrame{
         c4.add(s4);
         //right side
         a4 = new JPanel();
+        a4.setLayout(new GridLayout(5,1));
         card4.add(a4);
+        //Health and Attack
+        JPanel cont4 = new JPanel();
+        cont4.setLayout(new GridLayout(1,2));
+        currH.add(new JLabel("H"));
+        currA.add(new JLabel("A"));
+        cont4.add(currH.get(3));
+        cont4.add(currA.get(3));
+        a4.add(cont4);
+        currH.get(3).setHorizontalAlignment(JLabel.LEFT);
+        currH.get(3).setHorizontalTextPosition(JLabel.LEFT);
+        currH.get(3).setVerticalAlignment(JLabel.TOP);
+        currH.get(3).setVerticalTextPosition(JLabel.TOP);
+        currA.get(3).setHorizontalAlignment(JLabel.RIGHT);
+        currA.get(3).setHorizontalTextPosition(JLabel.RIGHT);
+        currA.get(3).setVerticalAlignment(JLabel.TOP);
+        currA.get(3).setVerticalTextPosition(JLabel.TOP);
+
         atks.add(new JButton("attack"));
         a4.add(atks.get(6));
         atks.get(6).addActionListener(new act());
