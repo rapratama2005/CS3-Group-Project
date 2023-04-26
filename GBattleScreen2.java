@@ -68,7 +68,7 @@ public class GBattleScreen2 extends JFrame{
         c2 = new JPanel();
         c2.setLayout(new GridLayout(2,1));
         card2.add(c2);
-
+        
         p2 = new JPanel();
         card2P = new JLabel();
         p2.add(card2P);
@@ -184,32 +184,32 @@ public class GBattleScreen2 extends JFrame{
     }
     public void changeImage(int cardNum){
         if (cardNum==1){
-            p1.remove(card1P);
-            ImageIcon a = new ImageIcon("space.jpg");
-            card1P = new JLabel(a);
-            p1.add(card1P);
-        }
+                p1.remove(card1P);
+                ImageIcon a = new ImageIcon("space.jpg");
+                card1P = new JLabel(a);
+                p1.add(card1P);
+            }
         else if (cardNum==2){
-            p2.remove(card2P);
-            ImageIcon a = new ImageIcon("space.jpg");
-            card2P = new JLabel(a);
-            p2.add(card2P);
-        }
+                p2.remove(card2P);
+                ImageIcon a = new ImageIcon("space.jpg");
+                card2P = new JLabel(a);
+                p2.add(card2P);
+            }
         else if (cardNum==3){
-            p3.remove(card3P);
-            ImageIcon a = new ImageIcon("space.jpg");
-            card3P = new JLabel(a);
-            p3.add(card3P);
-        }
+                p3.remove(card3P);
+                ImageIcon a = new ImageIcon("space.jpg");
+                card3P = new JLabel(a);
+                p3.add(card3P);
+            }
         else if (cardNum==4){
-            p4.remove(card4P);
-            ImageIcon a = new ImageIcon("space.jpg");
-            card4P = new JLabel(a);
-            p4.add(card4P);
+                p4.remove(card4P);
+                ImageIcon a = new ImageIcon("space.jpg");
+                card4P = new JLabel(a);
+                p4.add(card4P);
+            }
+            revalidate();
+            repaint();
         }
-        revalidate();
-        repaint();
-    }
     class Confirms implements ActionListener{
         private int cardNum;
         public Confirms(int cardNum){
