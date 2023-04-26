@@ -89,6 +89,9 @@ public abstract class DsuperCard {
     public int getSAtkApplicability(){
         return applySAtk;
     }
+    public ArrayList<DCondition> getConditions(){
+        return cond;
+    }
     /*
     //when ready
     public File getImage(){
