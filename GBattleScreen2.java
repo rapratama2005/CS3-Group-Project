@@ -82,7 +82,27 @@ public class GBattleScreen2 extends JFrame{
         p1 = new JPanel();
         card1P = new JLabel();
         //add Dropdown boxes and a confirm button to the picture sides
-        
+        /*
+        list = new JList(model);
+		JScrollPane scroll = new JScrollPane(list);
+		for (String str: col.getColors()) {
+			model.addElement(str);
+		}
+		list.setBackground(new Color((int)(Math.random()*255),(int)(Math.random()*255),100));
+		add(scroll);
+		list.addListSelectionListener(this);
+	}
+	
+	public void valueChanged(ListSelectionEvent evt) {
+		if (count == 0) {
+			ArrayList values = new ArrayList(list.getSelectedValuesList());
+			System.out.println(values);
+			count = 1;
+		}
+		else {
+			count = 0;
+		}
+	} */
         p1.add(card1P);
         c1.add(p1);
         D1 = new JTextArea(10,15);
