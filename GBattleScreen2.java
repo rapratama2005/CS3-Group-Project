@@ -25,6 +25,7 @@ public class GBattleScreen2 extends JFrame{
     private JPanel p1,p2,p3,p4;
     private JLabel card1P,card2P,card3P,card4P;
     private JTextArea D1,D2,D3,D4;
+    private JList list1, list2, list3, list4;
     //Attack function sides
     private ArrayList<JLabel> currH = new ArrayList<JLabel>();
     private ArrayList<JLabel> currA = new ArrayList<JLabel>();
@@ -81,28 +82,12 @@ public class GBattleScreen2 extends JFrame{
 
         p1 = new JPanel();
         card1P = new JLabel();
-        //add Dropdown boxes and a confirm button to the picture sides
-        /*
-        list = new JList(model);
-		JScrollPane scroll = new JScrollPane(list);
-		for (String str: col.getColors()) {
-			model.addElement(str);
-		}
-		list.setBackground(new Color((int)(Math.random()*255),(int)(Math.random()*255),100));
-		add(scroll);
-		list.addListSelectionListener(this);
-	}
-	
-	public void valueChanged(ListSelectionEvent evt) {
-		if (count == 0) {
-			ArrayList values = new ArrayList(list.getSelectedValuesList());
-			System.out.println(values);
-			count = 1;
-		}
-		else {
-			count = 0;
-		}
-	} */
+        DefaultListModel m1 = new DefaultListModel();
+        list1 = new JList(m1);
+		JScrollPane scroll1 = new JScrollPane(list1);
+        list1.setBackground(Color.green);
+        p1.add(scroll1);
+
         p1.add(card1P);
         c1.add(p1);
         D1 = new JTextArea(10,15);
@@ -338,6 +323,18 @@ public class GBattleScreen2 extends JFrame{
             repaint();
         }
     }
+
+    int count = 0;
+	public void valueChanged(ListSelectionEvent evt) {
+		if (count == 0) {
+			ArrayList values = new ArrayList(list.getSelectedValuesList());
+			System.out.println(values);
+			count = 1;
+		}
+		else {
+			count = 0;
+		}
+	} 
 
     class superCharge extends JPanel{
         private JPanel bar1,bar2,bar3;
