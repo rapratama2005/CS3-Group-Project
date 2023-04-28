@@ -5,6 +5,14 @@ import java.util.*;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.border.*;
+import javax.swing.event.*;
+// Dropdown box chooses card. It will give a description of the card and what it's attacks do
+// Confirm button changes all of the graphics, removes the dropdown and confirm button and 
+// add in the picture.
+// at the end of every turn, the descriptions are reset.
+// Pop up- how to do?
+// use a count method to determine which turn it is and which buttons work and do not work
+//Might use map of String card name, Card card; for the selection method
 //Add a border and more space for each card
 //change button backgrounds
 // we need a dropdown box for choosing the cards.
@@ -25,7 +33,9 @@ public class GBattleScreen2 extends JFrame{
     private JPanel p1,p2,p3,p4;
     private JLabel card1P,card2P,card3P,card4P;
     private JTextArea D1,D2,D3,D4;
-    private JList list1, list2, list3, list4;
+    private JComboBox box1, box2, box3, box4;
+    //private DefaultListModel mod1, mod2, mod3, mod4;
+    //private JList list1, list2, list3, list4;
     //Attack function sides
     private ArrayList<JLabel> currH = new ArrayList<JLabel>();
     private ArrayList<JLabel> currA = new ArrayList<JLabel>();
@@ -82,15 +92,37 @@ public class GBattleScreen2 extends JFrame{
 
         p1 = new JPanel();
         card1P = new JLabel();
-        DefaultListModel m1 = new DefaultListModel();
-        list1 = new JList(m1);
-		JScrollPane scroll1 = new JScrollPane(list1);
-        list1.setBackground(Color.green);
-        p1.add(scroll1);
-
+        box1 = new JComboBox();
+        box1.addItem("Hi");
+        box1.addItem("Wow");
+        box1.addActionListener(new boxes());
+        p1.add(box1);
+        /*
+        box = new JComboBox();
+		ArrayList<String> chosen = new ArrayList<String>();
+		for (String str: col.getColors()) {
+			if(Math.random()>0.8) {
+				chosen.add(str);
+			}
+		}
+		for (int i=0; i<10; i++) {
+			int index = (int)(Math.random()*chosen.size());
+			box.addItem(chosen.remove(index));
+		}
+		box.setBackground(new Color((int)(Math.random()*255),(int)(Math.random()*255),100));
+		add(box);
+		
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		String color = (String)box.getSelectedItem();
+		int[] rgb = col.getRGB(color);
+		setBackground(new Color(rgb[0],rgb[1],rgb[2]));
+	}*/
         p1.add(card1P);
         c1.add(p1);
         D1 = new JTextArea(10,15);
+        D1.setEditable(false);
         JScrollPane s1 = new JScrollPane(D1);
         c1.add(s1);
         add(card1);
@@ -108,6 +140,7 @@ public class GBattleScreen2 extends JFrame{
         p2.add(card2P);
         c2.add(p2);
         D2 = new JTextArea(10,15);
+        D2.setEditable(false);
         JScrollPane s2 = new JScrollPane(D2);
         c2.add(s2);
         //right side
@@ -182,6 +215,7 @@ public class GBattleScreen2 extends JFrame{
         p3.add(card3P);
         c3.add(p3);
         D3 = new JTextArea(10,15);
+        D3.setEditable(false);
         JScrollPane s3 = new JScrollPane(D3);
         c3.add(s3);
         add(card3);
@@ -197,6 +231,7 @@ public class GBattleScreen2 extends JFrame{
         p4.add(card4P);
         c4.add(p4);
         D4 = new JTextArea(10,15);
+        D4.setEditable(false);
         JScrollPane s4 = new JScrollPane(D4);
         c4.add(s4);
         //right side
@@ -299,6 +334,7 @@ public class GBattleScreen2 extends JFrame{
             revalidate();
             repaint();
         }
+
     class Confirms implements ActionListener{
         private int cardNum;
         public Confirms(int cardNum){
@@ -323,18 +359,6 @@ public class GBattleScreen2 extends JFrame{
             repaint();
         }
     }
-
-    int count = 0;
-	public void valueChanged(ListSelectionEvent evt) {
-		if (count == 0) {
-			ArrayList values = new ArrayList(list.getSelectedValuesList());
-			System.out.println(values);
-			count = 1;
-		}
-		else {
-			count = 0;
-		}
-	} 
 
     class superCharge extends JPanel{
         private JPanel bar1,bar2,bar3;
@@ -414,7 +438,29 @@ public class GBattleScreen2 extends JFrame{
             repaint();
         }
     }
+
+    class boxes implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            String selected = (String)((JComboBox)e.getSource()).getSelectedItem();
+            if (!confirms.containsKey(1)){
+                confirms.put(1,new JButton("Confirm"));
+                confirms.get(1).addActionListener(new confirmCard());
+                p1.add(confirms.get(1));
+            }
+            D1.setText("Hello, we want you to choose this card to get the hello image. Cool wowo, blah blah filler filler");
+        }
+    }
+
+    class confirmCard implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            p1.remove(confirms.get(1));
+            confirms.remove(1);
+            p1.remove(box1);
+            D1.setText("");
+            changeImage(1);
+        }
+    }
     public static void main(String[] args){
-        GBattleScreen2 run = new GBattleScreen2();
+        GBattleScreen2 running = new GBattleScreen2();
     }
 }
