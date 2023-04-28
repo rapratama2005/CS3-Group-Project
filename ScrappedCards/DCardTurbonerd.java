@@ -1,3 +1,7 @@
+import DConditionResistance;
+import DsuperCard;
+
+package ScrappedCards;
 //R 4/11: Sample Card to test
 //Turbonerd (Ken)
 //Tank
