@@ -1,14 +1,18 @@
 //Drunken Sailor - Tank card
 public class DCardDrunkenSailor extends DsuperCard{
     String initName = "Drunken Sailor";
-    int initHP = 15;
+    int initHP = 18;
     int initAtk = 3;
     int initSup = 8;
     int initB = 5;
     String[] moveSet = {"Bottle","'Synchronized' Singing", "Alcoholic Resistance"};
     int[] applicability = {1, 1, 0};
     String image = "Ivy.jpg";
-    String[] desc = {"What do we do with the Drunken Sailor?", "A Simple Bottle Attack", "The... 'Quality' of the voice is effective in weakening your enemy for a period of time", "Years of drinking have strengthened your resolve"};
+    String[] desc = {
+        "What do we do with the Drunken Sailor?", 
+        "A Simple Bottle Attack. Deals the base damage of " + initAtk + " on an enemy.", 
+        "The... 'Quality' of the voice is effective in weakening your enemy for a period of time. Inflicts a weakness effect with a duration of 3 and a magnitude of 2.", 
+        "Years of drinking have strengthened your resolve. Grants strength for a duration of 3 and a magnitude of 3."};
 
     public DCardDrunkenSailor() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");

@@ -1,21 +1,16 @@
-//R 4/11: Mad Scientist Card - DPS
-public class DCardMadScientist extends DsuperCard{
-    String initName = "Mad Scientist";
+//R 4/11: Moral Support Witch - Support
+public class DCardMoralSupportWitch extends DsuperCard{
+    String initName = "Moral Support Witch";
     int initHP = 10;
-    int initAtk = 5;
-    int initSup = 15;
-    int initB = 8;
-    String[] moveSet = {"Laser Gun", "Funny Chemicals", "Mutantinator 9001"};
-    int[] applicability = {1, 1, 0};
+    int initAtk = 2;
+    int initSup = 8;
+    int initB = 2;
+    String[] moveSet = {"Minor Electric Bolt","Thaumaturgical Support", "Fulfilling the Prophecy"};
+    int[] applicability = {1, 2, 3};
     String image = "Ivy.jpg";
-    String[] desc = {
-        "Don't let your lack of degree or ethics stop you from making scientific contributions", 
-        "Pew Pew Pew! Deals base damage.", 
-        "'I put colorful water into glass bottles!''why does this room smell weird'. Inflicts a random negative effect for a random duration and magnitude", 
-        "'Behold, the Mutantinator 9001!'' Grants a magnitude 8 resistance and a magnitude 5 strength for a duration of 2, but at a cost of reducing health to 1."
-    };
+    String[] desc = {"You can do it!", "Atk Desc", "B Atk Desc", "S Atk Desc"};
 
-    public DCardMadScientist() {
+    public DCardMoralSupportWitch() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
         super.setName(initName);
         super.setHealth(initHP);
@@ -38,7 +33,7 @@ public class DCardMadScientist extends DsuperCard{
     public String atk(DsuperCard target) {
         /*
          * Attack Desc
-         * Laser Gun
+         * 
          */
         progSup(super.getAtk());
         return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + " damage.");
@@ -48,20 +43,12 @@ public class DCardMadScientist extends DsuperCard{
     public String bAtk(DsuperCard target) {
         /*
          * B Attack Desc
-         * Inflicts a random, negative effect for random duration
+         * 
          */
         if (!super.checkSup()){
             return(super.bAtk(target));
         } else {
-            DCondition s;
-            int i = (int) Math.random()*4+2;
-            int d = (int) Math.random()*4+2;
-            int e = (int) Math.random()*2;
-            if (e==0){
-                s = new DConditionWeakness(i, "Funny Chemical (Weakness)", d);
-            } else {
-                s = new DConditionPoison(i, "Funny Chemical (Poison)", d);
-            }
+            DCondition s = new DConditionResistance(3, "Thaumaturgical Support", 2);
             target.addConditions(s);
             return(super.bAtk(target));
         }
@@ -76,11 +63,8 @@ public class DCardMadScientist extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            DCondition s = new DConditionResistance(2, "Mutant Resistance", 8);
-            DCondition s2 = new DConditionStrength(2, "Mutant Strength", 5);
-            target.setHealth(1);
+            DCondition s = new DConditionStrength(3, "Fulfilling the Prohpecy", 5);
             target.addConditions(s);
-            target.addConditions(s2);
             return(super.sAtk(target));
         }
     }
