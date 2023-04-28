@@ -1,3 +1,6 @@
+import DsuperCard;
+
+package ScrappedCards;
 //R 4/11: Sample Card to test
 public class DCardDrunkenSailor extends DsuperCard{
     String initName = "Drunken Sailor";

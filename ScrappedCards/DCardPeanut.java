@@ -1,3 +1,7 @@
+import DConditionWeakness;
+import DsuperCard;
+
+package ScrappedCards;
 //R 4/11: Sample Card to test
 //The Peanut
 //DPS

@@ -1,9 +1,12 @@
+package ScrappedCards;
 import java.io.File;
 import java.net.URL;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;
+
+import DsuperCard;
 public class DCardIvy extends DsuperCard{
     private Image image;
     public DCardIvy(){
