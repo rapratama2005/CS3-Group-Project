@@ -47,6 +47,8 @@ public class GBattleScreen2 extends JFrame{
     private JButton at1,bat1,at2,bat2,at3,bat3,at4,bat4;
     private JButton selected;
     private JButton prevSel;
+    // Cards
+    private ArrayList<DsuperCard> field = new ArrayList<DsuperCard>();
 
     GBattleScreen2(){
         super();
@@ -264,6 +266,13 @@ public class GBattleScreen2 extends JFrame{
         supBar4 = new superCharge();
         a4.add(supBar4);
         add(card4);
+
+        //Cards
+        field.add(new DCardDrunkenSailor());
+        field.add(new DCardMadScientist());
+        field.add(new DCardDrunkenSailor());
+        field.add(new DCardMadScientist());
+        changeImage(2,field.get(0).getImgSource());
         setVisible(true);
     }
 
@@ -306,28 +315,28 @@ public class GBattleScreen2 extends JFrame{
             repaint();
         }
     }
-    public void changeImage(int cardNum){
+    public void changeImage(int cardNum, String fileN){
         if (cardNum==1){
                 p1.remove(card1P);
-                ImageIcon a = new ImageIcon("space.jpg");
+                ImageIcon a = new ImageIcon(fileN);
                 card1P = new JLabel(a);
                 p1.add(card1P);
             }
         else if (cardNum==2){
                 p2.remove(card2P);
-                ImageIcon a = new ImageIcon("space.jpg");
+                ImageIcon a = new ImageIcon(fileN);
                 card2P = new JLabel(a);
                 p2.add(card2P);
             }
         else if (cardNum==3){
                 p3.remove(card3P);
-                ImageIcon a = new ImageIcon("space.jpg");
+                ImageIcon a = new ImageIcon(fileN);
                 card3P = new JLabel(a);
                 p3.add(card3P);
             }
         else if (cardNum==4){
                 p4.remove(card4P);
-                ImageIcon a = new ImageIcon("space.jpg");
+                ImageIcon a = new ImageIcon(fileN);
                 card4P = new JLabel(a);
                 p4.add(card4P);
             }
@@ -341,7 +350,7 @@ public class GBattleScreen2 extends JFrame{
             this.cardNum = cardNum;
         }
         public void actionPerformed(ActionEvent e){
-            changeImage(cardNum);
+            changeImage(cardNum,"Ivy.jpg");
             if (cardNum==1){
                 a1.remove(confirms.get(cardNum));
             }
@@ -457,7 +466,7 @@ public class GBattleScreen2 extends JFrame{
             confirms.remove(1);
             p1.remove(box1);
             D1.setText("");
-            changeImage(1);
+            changeImage(1,"space.jpg");
         }
     }
     public static void main(String[] args){
