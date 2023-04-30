@@ -4,6 +4,7 @@ public abstract class DsuperCard {
     private int maxHealth,maxAtk,Health,atk,boostHealth, boostAtk, supReq, supProg, bReq; //R 4/8: Added BoostHealth and BoostAtk, will be used for conditions || R 4/15 Added supReq and supProg, will be used to determine when ultimate can be used
     private String name, atkName, supName, bName, imgSource;
     private int applyAtk, applyBAtk, applySAtk; //applicability of attacks: 0 is self, 1 is enemy, 2 is allies, 3 is allies and self
+    private int[] applicabilityArray; //because we are forward thinking individuals
     //private File image;
     private ArrayList<DCondition> cond = new ArrayList<DCondition>();
     private String[] desc = new String[4];
@@ -93,6 +94,12 @@ public abstract class DsuperCard {
     public ArrayList<DCondition> getConditions(){
         return cond;
     }
+    public int[] getApplicabilityArray(){
+        return applicabilityArray;
+    }
+    public int getApplicability(int i){
+        return applicabilityArray[i];
+    }
     public String getDesc(int i){
         return desc[i];
     }
@@ -180,6 +187,10 @@ public abstract class DsuperCard {
     public int setSAtkApplicability(int aS){
         applySAtk = aS;
         return applySAtk;
+    }
+    public int[] setApplicabilityArray(int[] arr){
+        applicabilityArray = arr;
+        return applicabilityArray;
     }
     public String[] setDesc(String[] de){
         desc = de;

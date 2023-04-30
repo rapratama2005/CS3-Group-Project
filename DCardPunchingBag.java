@@ -1,16 +1,22 @@
-//R 4/11: Moral Support Witch - Support
-public class DCardMoralSupportWitch extends DsuperCard{
-    String initName = "Moral Support Witch";
-    int initHP = 10;
+//R 4/11: Punching Bag - Tank and test bot
+public class DCardPunchingBag extends DsuperCard{
+    String initName = "Punching Bag";
+    int initHP = 20;
     int initAtk = 2;
-    int initSup = 8;
+    int initSup = 4;
     int initB = 2;
-    String[] moveSet = {"Minor Electric Bolt","Thaumaturgical Support", "Fulfilling the Prophecy"};
-    int[] applicability = {1, 2, 3};
+    int lastHit;
+    int absorbedDamage = 0;
+    String[] moveSet = {"Light Jab","Absorb Hit", "Equal and Opposite Reaction"};
+    int[] applicability = {1, 0, 1};
     String image = "Ivy.jpg";
-    String[] desc = {"You can do it!", "Atk Desc", "B Atk Desc", "S Atk Desc"};
+    String[] desc = {
+        "Is it a bag FOR punching or a bag THAT punches?", 
+        "Don't ask me how. Deals base damage.", 
+        "Adds the amount of damage from the last hit to a Super Attack", 
+        "Thanks, Newton! Deals stored damage from 'Absorb Hit'"};
 
-    public DCardMoralSupportWitch() {
+    public DCardPunchingBag() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
         super.setName(initName);
         super.setHealth(initHP);
@@ -36,6 +42,7 @@ public class DCardMoralSupportWitch extends DsuperCard{
          * Attack Desc
          * 
          */
+        target.hurt(super.getAtk());
         progSup(super.getAtk());
         return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + " damage.");
     }
@@ -49,8 +56,7 @@ public class DCardMoralSupportWitch extends DsuperCard{
         if (!super.checkSup()){
             return(super.bAtk(target));
         } else {
-            DCondition s = new DConditionResistance(3, "Thaumaturgical Support", 2);
-            target.addConditions(s);
+            absorbedDamage = lastHit;
             return(super.bAtk(target));
         }
     }
@@ -64,10 +70,16 @@ public class DCardMoralSupportWitch extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            DCondition s = new DConditionStrength(3, "Fulfilling the Prohpecy", 5);
-            target.addConditions(s);
+            target.hurt(absorbedDamage);
             return(super.sAtk(target));
         }
+    }
+
+    @Override
+    public int hurt(int damage){
+        lastHit = damage;
+        super.hurt(damage);
+        return(damage);
     }
     
 }

@@ -31,6 +31,7 @@ public class DCardDrunkenSailor extends DsuperCard{
         super.setAtkApplicability(applicability[0]);
         super.setBAtkApplicability(applicability[1]);
         super.setSAtkApplicability(applicability[2]);
+        super.setApplicabilityArray(applicability);
         super.setDesc(desc);
     }
 
