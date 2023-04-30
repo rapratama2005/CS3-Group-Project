@@ -45,7 +45,7 @@ public class DCardTemplate extends DsuperCard{
          * B Attack Desc
          * 
          */
-        if (!super.checkSup()){
+        if (!super.checkB()){
             return(super.bAtk(target));
         } else {
             return(super.bAtk(target));

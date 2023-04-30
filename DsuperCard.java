@@ -149,6 +149,8 @@ public abstract class DsuperCard {
         return bName;
     }
     public ArrayList<DCondition> addConditions(DCondition C){
+        C.setDuration(C.getDuration()+1);
+        C.effect(this);
         cond.add(C);
         return cond;
     }
@@ -198,7 +200,6 @@ public abstract class DsuperCard {
     }
     //Abstract Func
     public String atk(DsuperCard target){
-
         return (this.getName() + " used " + this.getAName() + " (main attack) on " + target.getName() + ".");
     }
     public String bAtk(DsuperCard target){
@@ -261,6 +262,13 @@ public abstract class DsuperCard {
             }
         }
         return cond;
+    }
+
+    public DCondition inflictCondition(DsuperCard target, DCondition c){
+        c.setDuration(c.getDuration()+1);
+        c.effect(target);
+        target.addConditions(c);
+        return c;
     }
 
     public boolean isDead(){ //R 4/15: May be necessary 

@@ -41,6 +41,7 @@ public class DCardDrunkenSailor extends DsuperCard{
          * Attack Desc
          * Simple Bottle Attack
          */
+        target.hurt(super.getAtk());
         progSup(super.getAtk());
         return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + " damage.");
     }
@@ -51,11 +52,11 @@ public class DCardDrunkenSailor extends DsuperCard{
          * B Attack Desc
          * Inflicts a weakness effect on enemy
          */
-        if (!super.checkSup()){
+        if (!super.checkB()){
             return(super.bAtk(target));
         } else {
-            DCondition s = new DConditionWeakness(3, "'Synchronized' Singing", 2);
-            target.addConditions(s);
+            DCondition s = new DConditionWeakness(3, "Synchronized Singing", 2);
+            inflictCondition(target, s);
             return(super.bAtk(target));
         }
     }
@@ -70,7 +71,7 @@ public class DCardDrunkenSailor extends DsuperCard{
             return(super.sAtk(target));
         } else {
             DCondition s = new DConditionResistance(3, "Alcoholic Resistance", 3);
-            target.addConditions(s);
+            inflictCondition(target, s);
             return(super.sAtk(target));
         }
     }

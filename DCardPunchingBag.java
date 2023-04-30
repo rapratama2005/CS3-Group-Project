@@ -53,7 +53,7 @@ public class DCardPunchingBag extends DsuperCard{
          * B Attack Desc
          * 
          */
-        if (!super.checkSup()){
+        if (!super.checkB()){
             return(super.bAtk(target));
         } else {
             absorbedDamage = lastHit;

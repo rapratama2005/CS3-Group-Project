@@ -46,7 +46,7 @@ public class DCardMoralSupportWitch extends DsuperCard{
          * B Attack Desc
          * 
          */
-        if (!super.checkSup()){
+        if (!super.checkB()){
             return(super.bAtk(target));
         } else {
             DCondition s = new DConditionResistance(3, "Thaumaturgical Support", 2);

@@ -16,12 +16,12 @@ public class DTestingCards {
         allied.setName("Allied 1");
         allied.heal(30);
 
-        DsuperCard toTest = new DCardPunchingBag();
+        DsuperCard toTest = new DCardPeanut();
         /* TESTING AGENDA
-         * Punching Bag
-         * Drunken Sailor
-         * Mad Scientist
-         * Moral Support Witch
+         * Punching Bag X
+         * Drunken Sailor X
+         * Mad Scientist X
+         * Moral Support Witch X
          * Peanut
          */
 
@@ -38,8 +38,14 @@ public class DTestingCards {
         turn++;
         for (int i = 0; i < 3; i++){
             field.get(i).checkConditions();
-            if((turn == 1 || turn == 4 || turn == 6 || turn == 8)&&i==0){
+            if((t(turn))&&i==0){
                 a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
             }
             a += "\n"+ field.get(i).toString() + "\n";
         }
@@ -54,8 +60,14 @@ public class DTestingCards {
          turn++;
         for (int i = 0; i < 3; i++){
             field.get(i).checkConditions();
-            if((turn == 4 || turn == 6 || turn == 8)&&i==0){
+            if((t(turn))&&i==0){
                 a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
             }
             a += "\n"+ field.get(i).toString() + "\n";
         }
@@ -70,8 +82,14 @@ public class DTestingCards {
          turn++;
         for (int i = 0; i < 3; i++){
             field.get(i).checkConditions();
-            if((turn == 4 || turn == 6 || turn == 8)&&i==0){
+            if((t(turn))&&i==0){
                 a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
             }
             a += "\n"+ field.get(i).toString() + "\n";
         }
@@ -86,8 +104,14 @@ public class DTestingCards {
          turn++;
         for (int i = 0; i < 3; i++){
             field.get(i).checkConditions();
-            if((turn == 4 || turn == 6 || turn == 8)&&i==0){
+            if((t(turn))&&i==0){
                 a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
             }
             a += "\n"+ field.get(i).toString() + "\n";
         }
@@ -102,8 +126,14 @@ public class DTestingCards {
          turn++;
         for (int i = 0; i < 3; i++){
             field.get(i).checkConditions();
-            if((turn == 4 || turn == 6 || turn == 8)&&i==0){
+            if((t(turn))&&i==0){
                 a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
             }
             a += "\n"+ field.get(i).toString() + "\n";
         }
@@ -118,8 +148,14 @@ public class DTestingCards {
          turn++;
         for (int i = 0; i < 3; i++){
             field.get(i).checkConditions();
-            if((turn == 4 || turn == 6 || turn == 8)&&i==0){
+            if((t(turn))&&i==0){
                 a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
             }
             a += "\n"+ field.get(i).toString() + "\n";
         }
@@ -134,8 +170,14 @@ public class DTestingCards {
          turn++;
         for (int i = 0; i < 3; i++){
             field.get(i).checkConditions();
-            if((turn == 4 || turn == 6 || turn == 8)&&i==0){
+            if((t(turn))&&i==0){
                 a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
             }
             a += "\n"+ field.get(i).toString() + "\n";
         }
@@ -150,8 +192,14 @@ public class DTestingCards {
          turn++;
         for (int i = 0; i < 3; i++){
             field.get(i).checkConditions();
-            if((turn == 4 || turn == 6 || turn == 8)&&i==0){
+            if((t(turn))&&i==0){
                 a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
             }
             a += "\n"+ field.get(i).toString() + "\n";
         }
@@ -166,8 +214,14 @@ public class DTestingCards {
          turn++;
         for (int i = 0; i < 3; i++){
             field.get(i).checkConditions();
-            if((turn == 4 || turn == 6 || turn == 8)&&i==0){
+            if((t(turn))&&i==0){
                 a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
             }
             a += "\n"+ field.get(i).toString() + "\n";
         }
@@ -182,8 +236,14 @@ public class DTestingCards {
          turn++;
         for (int i = 0; i < 3; i++){
             field.get(i).checkConditions();
-            if((turn == 4 || turn == 6 || turn == 8)&&i==0){
+            if((t(turn))&&i==0){
                 a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
             }
             a += "\n"+ field.get(i).toString() + "\n";
         }
@@ -192,9 +252,53 @@ public class DTestingCards {
         tar = targetCheck(field.get(3), 2);
         a += field.get(3).sAtk(field.get(tar)) + "\n";
         a += "\n" + field.get(3).toString() + "\n";
-        
-        //Turn 11 - Conclusion
-        a += "\nTurn 11 - Conclusion\n";
+
+        //Turn 11 - Main Attack
+        a += "\nTurn 11 - Main Attack\n";
+        turn++;
+       for (int i = 0; i < 3; i++){
+           field.get(i).checkConditions();
+           if((t(turn))&&i==0){
+                a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
+            }
+           a += "\n"+ field.get(i).toString() + "\n";
+       }
+       field.get(3).checkConditions();
+       //put toTest action here
+       tar = targetCheck(field.get(3), 0);
+       a += field.get(3).atk(field.get(tar)) + "\n";
+       a += "\n" + field.get(3).toString() + "\n";
+       
+        //Turn 12 - Main Attack
+        a += "\nTurn 12 - Main Attack\n";
+        turn++;
+       for (int i = 0; i < 3; i++){
+           field.get(i).checkConditions();
+           if((t(turn))&&i==0){
+                a += field.get(0).atk(field.get(3)) + "\n";
+            }
+            if((t(turn))&&i==1){
+                a += field.get(1).atk(field.get(2)) + "\n";
+            }
+            if((t(turn))&&i==2){
+                a += field.get(2).atk(field.get(1)) + "\n";
+            }
+           a += "\n"+ field.get(i).toString() + "\n";
+       }
+       field.get(3).checkConditions();
+       //put toTest action here
+       tar = targetCheck(field.get(3), 0);
+       a += field.get(3).atk(field.get(tar)) + "\n";
+       a += "\n" + field.get(3).toString() + "\n";
+       
+        //Turn 13 - Conclusion
+        a += "\nTurn 13 - Conclusion\n";
         for (int i = 0; i < 4; i++){
             field.get(i).checkConditions();
             a += "\n"+ field.get(i).toString() + "\n";
@@ -212,5 +316,15 @@ public class DTestingCards {
         } else {
             return 2;
         }
+    }
+
+    public static boolean t(int i){
+        int[] x = {1, 4, 6, 8, 11, 12};
+        for(int z: x){
+            if (z == i){
+                return true;
+            }
+        }
+        return false;
     }
 }

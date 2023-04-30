@@ -41,6 +41,7 @@ public class DCardMadScientist extends DsuperCard{
          * Attack Desc
          * Laser Gun
          */
+        target.hurt(super.getAtk());
         progSup(super.getAtk());
         return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + " damage.");
     }
@@ -51,7 +52,7 @@ public class DCardMadScientist extends DsuperCard{
          * B Attack Desc
          * Inflicts a random, negative effect for random duration
          */
-        if (!super.checkSup()){
+        if (!super.checkB()){
             return(super.bAtk(target));
         } else {
             DCondition s;
@@ -63,7 +64,7 @@ public class DCardMadScientist extends DsuperCard{
             } else {
                 s = new DConditionPoison(i, "Funny Chemical (Poison)", d);
             }
-            target.addConditions(s);
+            inflictCondition(target, s);
             return(super.bAtk(target));
         }
     }
@@ -77,11 +78,11 @@ public class DCardMadScientist extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            DCondition s = new DConditionResistance(2, "Mutant Resistance", 8);
-            DCondition s2 = new DConditionStrength(2, "Mutant Strength", 5);
+            DCondition s = new DConditionResistance(3, "Mutant Resistance", 8);
+            DCondition s2 = new DConditionStrength(3, "Mutant Strength", 5);
             target.setHealth(1);
-            target.addConditions(s);
-            target.addConditions(s2);
+            inflictCondition(target, s);
+            inflictCondition(target, s2);
             return(super.sAtk(target));
         }
     }
