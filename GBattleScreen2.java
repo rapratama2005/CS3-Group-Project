@@ -49,13 +49,14 @@ public class GBattleScreen2 extends JFrame{
     private JButton prevSel;
     // Cards
     private ArrayList<DsuperCard> field = new ArrayList<DsuperCard>();
+    private DDeck deck = new DDeck();
     // Turn number
 
     GBattleScreen2(){
         super();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(2,2));
-        
+
         card1 = new JPanel();
         card1.setLayout(new GridLayout(1,2));
         
@@ -95,13 +96,18 @@ public class GBattleScreen2 extends JFrame{
         c1.setLayout(new GridLayout(2,1));
         card1.add(c1);
 
+        
+
         p1 = new JPanel();
         card1P = new JLabel();
         box1 = new JComboBox();
-        box1.addItem("Hi");
-        box1.addItem("Wow");
-        box1.addActionListener(new boxes());
+        box1.addItem(deck.draw().getName());
+        box1.addItem(deck.draw().getName());
+        box1.addItem(deck.draw().getName());
+        box1.addItem(deck.draw().getName());
+        box1.addActionListener(new boxes(1));
         p1.add(box1);
+        deck = new DDeck();
         /*
         box = new JComboBox();
 		ArrayList<String> chosen = new ArrayList<String>();
@@ -143,9 +149,12 @@ public class GBattleScreen2 extends JFrame{
         p2 = new JPanel();
         card2P = new JLabel();
         box2 = new JComboBox();
-        box2.addItem("Hi");
-        box2.addItem("Wow");
-        box2.addActionListener(new boxes());
+        box2.addItem(deck.draw().getName());
+        box2.addItem(deck.draw().getName());
+        box2.addItem(deck.draw().getName());
+        box2.addItem(deck.draw().getName());
+        box2.addActionListener(new boxes(2));
+        deck = new DDeck();
         p2.add(box2);
         p2.add(card2P);
         c2.add(p2);
@@ -227,9 +236,12 @@ public class GBattleScreen2 extends JFrame{
         p3 = new JPanel();
         card3P = new JLabel();
         box3 = new JComboBox();
-        box3.addItem("Hi");
-        box3.addItem("Wow");
-        box3.addActionListener(new boxes());
+        box3.addItem(deck.draw().getName());
+        box3.addItem(deck.draw().getName());
+        box3.addItem(deck.draw().getName());
+        box3.addItem(deck.draw().getName());
+        box3.addActionListener(new boxes(3));
+        deck = new DDeck();
         p3.add(box3);
         p3.add(card3P);
         c3.add(p3);
@@ -248,9 +260,12 @@ public class GBattleScreen2 extends JFrame{
         p4 = new JPanel();
         card4P = new JLabel();
         box4 = new JComboBox();
-        box4.addItem("Hi");
-        box4.addItem("Wow");
-        box4.addActionListener(new boxes());
+        box4.addItem(deck.draw().getName());
+        box4.addItem(deck.draw().getName());
+        box4.addItem(deck.draw().getName());
+        box4.addItem(deck.draw().getName());
+        box4.addActionListener(new boxes(4));
+        deck = new DDeck();
         p4.add(box4);
         p4.add(card4P);
         c4.add(p4);
@@ -291,12 +306,6 @@ public class GBattleScreen2 extends JFrame{
         a4.add(supBar4);
         add(card4);
 
-        //Cards
-        field.add(new DCardDrunkenSailor());
-        field.add(new DCardMadScientist());
-        field.add(new DCardDrunkenSailor());
-        field.add(new DCardMadScientist());
-        changeImage(2,field.get(0).getImgSource());
         setVisible(true);
     }
 
@@ -477,14 +486,37 @@ public class GBattleScreen2 extends JFrame{
     }
 
     class boxes implements ActionListener{
+        private int cN;
+        public boxes(int num){
+            cN=num;
+        }
         public void actionPerformed(ActionEvent e){
             String selected = (String)((JComboBox)e.getSource()).getSelectedItem();
-            if (!confirms.containsKey(1)){
+            if (cN==1&&!confirms.containsKey(1)){
                 confirms.put(1,new JButton("Confirm"));
                 confirms.get(1).setBackground(Color.white);
                 confirms.get(1).addActionListener(new confirmCard());
                 p1.add(confirms.get(1));
             }
+            if (cN==2&&!confirms.containsKey(2)){
+                confirms.put(2,new JButton("Confirm"));
+                confirms.get(2).setBackground(Color.white);
+                confirms.get(2).addActionListener(new confirmCard());
+                p1.add(confirms.get(2));
+            }
+            if (cN==3&&!confirms.containsKey(3)){
+                confirms.put(3,new JButton("Confirm"));
+                confirms.get(3).setBackground(Color.white);
+                confirms.get(3).addActionListener(new confirmCard());
+                p1.add(confirms.get(3));
+            }
+            if (cN==4&&!confirms.containsKey(4)){
+                confirms.put(4,new JButton("Confirm"));
+                confirms.get(4).setBackground(Color.white);
+                confirms.get(4).addActionListener(new confirmCard());
+                p1.add(confirms.get(4));
+            }
+            field.add()
             D1.setText("");
         }
     }
