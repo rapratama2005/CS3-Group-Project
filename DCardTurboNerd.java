@@ -1,18 +1,18 @@
-//R 4/11: Turbo Nerd - Tank or DPS
+//R 4/11: Turbo Nerd - Tank
 public class DCardTurboNerd extends DsuperCard{
     String initName = "Turbo Nerd";
-    int initHP = 10;
+    int initHP = 20;
     int initAtk = 2;
-    int initSup = 6;
+    int initSup = 8;
     int initB = 2;
     String[] moveSet = {"Umm Ackshually","The Quadratic Equation", "The power of GOD and ANIME on my side"};
-    int[] applicability = {1, 1, 1};
+    int[] applicability = {1, 0, 0};
     String image = "Ivy.jpg";
     String[] desc = {
-        "Character Desc", 
-        "Atk Desc", 
-        "B Atk Desc", 
-        "S Atk Desc"
+        "Be careful who you make fun of in school. Actually, don't. It's way funnier this way.",
+        "*insert nerdy rant here*. Deals base damage.", 
+        "'Negative B plus or minus the square root of B squared minus 4 A C all over 2 A'. Grants a resistance effect of duration 3 and magnitude 3", 
+        "*I don't watch anime, pretend there's a cool catchphrase here*. Grants a regeneration effect of duration 2 and magnitude 5."
     };
 
     public DCardTurboNerd() {
@@ -32,6 +32,7 @@ public class DCardTurboNerd extends DsuperCard{
         super.setBAtkApplicability(applicability[1]);
         super.setSAtkApplicability(applicability[2]);
         super.setDesc(desc);
+        super.setApplicabilityArray(applicability);
     }
 
     @Override
@@ -54,6 +55,8 @@ public class DCardTurboNerd extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
+            DCondition s = new DConditionResistance(3, "Quadratic Equation", 3);
+            target.addConditions(s);
             return(super.bAtk(target));
         }
     }
@@ -67,7 +70,8 @@ public class DCardTurboNerd extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            target.hurt(super.getAtk()*3);
+            DCondition s = new DConditionRegen(2, "The Power of GOD and ANIME", 5);
+            target.addConditions(s);
             return(super.sAtk(target));
         }
     }

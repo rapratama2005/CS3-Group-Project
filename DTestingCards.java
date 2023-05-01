@@ -16,13 +16,14 @@ public class DTestingCards {
         allied.setName("Allied 1");
         allied.heal(30);
 
-        DsuperCard toTest = new DCardPeanut();
+        DsuperCard toTest = new DCardTurboNerd();
         /* TESTING AGENDA
          * Punching Bag X
          * Drunken Sailor X
          * Mad Scientist X
          * Moral Support Witch X
          * Peanut X
+         * Turbo Nerd X
          */
 
          ArrayList<DsuperCard> field = new ArrayList<>();

@@ -32,6 +32,7 @@ public class DCardTemplate extends DsuperCard{
         super.setBAtkApplicability(applicability[1]);
         super.setSAtkApplicability(applicability[2]);
         super.setDesc(desc);
+        super.setApplicabilityArray(applicability);
     }
 
     @Override
