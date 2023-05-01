@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Collections;
 
 public class DDeck {
     ArrayList<DsuperCard> deck = new ArrayList<>();
@@ -13,6 +14,7 @@ public class DDeck {
         deck.add(MoralSupportWitch);
         deck.add(Peanut);
         deck.add(PunchingBag);
+        Collections.shuffle(deck);
     }
     
     public DsuperCard draw(){

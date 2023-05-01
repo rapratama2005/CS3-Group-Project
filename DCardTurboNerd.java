@@ -1,11 +1,11 @@
-//R 4/11: Sample Card to test
-public class DCardTemplate extends DsuperCard{
-    String initName = "Template Man";
+//R 4/11: Turbo Nerd - Tank or DPS
+public class DCardTurboNerd extends DsuperCard{
+    String initName = "Turbo Nerd";
     int initHP = 10;
     int initAtk = 2;
     int initSup = 6;
     int initB = 2;
-    String[] moveSet = {"Sample Attack","Sample Poison Attack", "Sample Super Attack"};
+    String[] moveSet = {"Umm Ackshually","The Quadratic Equation", "The power of GOD and ANIME on my side"};
     int[] applicability = {1, 1, 1};
     String image = "Ivy.jpg";
     String[] desc = {
@@ -15,7 +15,7 @@ public class DCardTemplate extends DsuperCard{
         "S Atk Desc"
     };
 
-    public DCardTemplate() {
+    public DCardTurboNerd() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
         super.setName(initName);
         super.setHealth(initHP);
