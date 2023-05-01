@@ -8,7 +8,11 @@ public class DCardTemplate extends DsuperCard{
     String[] moveSet = {"Sample Attack","Sample Poison Attack", "Sample Super Attack"};
     int[] applicability = {1, 1, 1};
     String image = "Ivy.jpg";
-    String[] desc = {"Character Desc", "Atk Desc", "B Atk Desc", "S Atk Desc"};
+    String[] desc = {
+        "Character Desc", 
+        "Atk Desc", 
+        "B Atk Desc", 
+        "S Atk Desc"};
 
     public DCardTemplate() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
@@ -35,6 +39,7 @@ public class DCardTemplate extends DsuperCard{
          * Attack Desc
          * 
          */
+        target.hurt(super.getAtk());
         progSup(super.getAtk());
         return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + " damage.");
     }

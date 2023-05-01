@@ -8,7 +8,11 @@ public class DCardMoralSupportWitch extends DsuperCard{
     String[] moveSet = {"Minor Electric Bolt","Thaumaturgical Support", "Fulfilling the Prophecy"};
     int[] applicability = {1, 2, 3};
     String image = "Ivy.jpg";
-    String[] desc = {"You can do it!", "Atk Desc", "B Atk Desc", "S Atk Desc"};
+    String[] desc = {
+        "You can do it!", 
+        "A SHOCKING revelation! Deals base damage.", 
+        "Keep Going! Grants a magnitude 2 resistance effect for duration 3.", 
+        "Sending you my energy! Grants an ally a magnitude 5 strength effect for duration 3."};
 
     public DCardMoralSupportWitch() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
@@ -36,6 +40,7 @@ public class DCardMoralSupportWitch extends DsuperCard{
          * Attack Desc
          * 
          */
+        target.hurt(super.getAtk());
         progSup(super.getAtk());
         return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + " damage.");
     }
