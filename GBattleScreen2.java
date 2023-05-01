@@ -49,6 +49,7 @@ public class GBattleScreen2 extends JFrame{
     private JButton prevSel;
     // Cards
     private ArrayList<DsuperCard> field = new ArrayList<DsuperCard>();
+    // Turn number
 
     GBattleScreen2(){
         super();
@@ -81,9 +82,11 @@ public class GBattleScreen2 extends JFrame{
 
         atks.add(new JButton("attack"));
         a1.add(atks.get(0));
+        atks.get(0).setBackground(Color.white);
         atks.get(0).addActionListener(new act());
         atks.add(new JButton("bAttack"));
         a1.add(atks.get(1));
+        atks.get(1).setBackground(Color.white);
         atks.get(1).addActionListener(new act());
         supBar1 = new superCharge();
         a1.add(supBar1);
@@ -139,6 +142,11 @@ public class GBattleScreen2 extends JFrame{
         
         p2 = new JPanel();
         card2P = new JLabel();
+        box2 = new JComboBox();
+        box2.addItem("Hi");
+        box2.addItem("Wow");
+        box2.addActionListener(new boxes());
+        p2.add(box2);
         p2.add(card2P);
         c2.add(p2);
         D2 = new JTextArea(10,15);
@@ -168,9 +176,11 @@ public class GBattleScreen2 extends JFrame{
 
         atks.add(new JButton("attack"));
         a2.add(atks.get(2));
+        atks.get(2).setBackground(Color.white);
         atks.get(2).addActionListener(new act());
         atks.add(new JButton("bAttack"));
         a2.add(atks.get(3));
+        atks.get(3).setBackground(Color.white);
         atks.get(3).addActionListener(new act());
         supBar2 = new superCharge();
         a2.add(supBar2);
@@ -201,9 +211,11 @@ public class GBattleScreen2 extends JFrame{
 
         atks.add(new JButton("attack"));
         a3.add(atks.get(4));
+        atks.get(4).setBackground(Color.white);
         atks.get(4).addActionListener(new act());
         atks.add(new JButton("bAttack"));
         a3.add(atks.get(5));
+        atks.get(5).setBackground(Color.white);
         atks.get(5).addActionListener(new act());
         supBar3 = new superCharge();
         a3.add(supBar3);
@@ -214,6 +226,11 @@ public class GBattleScreen2 extends JFrame{
         card3.add(c3);
         p3 = new JPanel();
         card3P = new JLabel();
+        box3 = new JComboBox();
+        box3.addItem("Hi");
+        box3.addItem("Wow");
+        box3.addActionListener(new boxes());
+        p3.add(box3);
         p3.add(card3P);
         c3.add(p3);
         D3 = new JTextArea(10,15);
@@ -230,6 +247,11 @@ public class GBattleScreen2 extends JFrame{
         card4.add(c4);
         p4 = new JPanel();
         card4P = new JLabel();
+        box4 = new JComboBox();
+        box4.addItem("Hi");
+        box4.addItem("Wow");
+        box4.addActionListener(new boxes());
+        p4.add(box4);
         p4.add(card4P);
         c4.add(p4);
         D4 = new JTextArea(10,15);
@@ -259,9 +281,11 @@ public class GBattleScreen2 extends JFrame{
 
         atks.add(new JButton("attack"));
         a4.add(atks.get(6));
+        atks.get(6).setBackground(Color.white);
         atks.get(6).addActionListener(new act());
         atks.add(new JButton("bAttack"));
         a4.add(atks.get(7));
+        atks.get(7).setBackground(Color.white);
         atks.get(7).addActionListener(new act());
         supBar4 = new superCharge();
         a4.add(supBar4);
@@ -290,24 +314,28 @@ public class GBattleScreen2 extends JFrame{
                 //Key number is the card number
                 confirms.put(1,new JButton("Confirm"));
                 a1.add(confirms.get(1));
+                confirms.get(1).setBackground(Color.white);
                 confirms.get(1).addActionListener(new Confirms(1));
                 
             }
             else if (h==1&&!confirms.containsKey(2)){
                 confirms.put(2,new JButton("Confirm"));
                 a2.add(confirms.get(2));
+                confirms.get(2).setBackground(Color.white);
                 confirms.get(2).addActionListener(new Confirms(2));
 
             }
             else if (h==2&&!confirms.containsKey(3)){
                 confirms.put(3,new JButton("Confirm"));
                 a3.add(confirms.get(3));
+                confirms.get(3).setBackground(Color.white);
                 confirms.get(3).addActionListener(new Confirms(3));
 
             }
             else if (h==3&&!confirms.containsKey(4)){
                 confirms.put(4,new JButton("Confirm"));
                 a4.add(confirms.get(4));
+                confirms.get(4).setBackground(Color.white);
                 confirms.get(4).addActionListener(new Confirms(4));
             }
             prevSel = selected;
@@ -453,10 +481,11 @@ public class GBattleScreen2 extends JFrame{
             String selected = (String)((JComboBox)e.getSource()).getSelectedItem();
             if (!confirms.containsKey(1)){
                 confirms.put(1,new JButton("Confirm"));
+                confirms.get(1).setBackground(Color.white);
                 confirms.get(1).addActionListener(new confirmCard());
                 p1.add(confirms.get(1));
             }
-            D1.setText("Hello, we want you to choose this card to get the hello image. Cool wowo, blah blah filler filler");
+            D1.setText("");
         }
     }
 
