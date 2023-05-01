@@ -18,7 +18,7 @@ public class DTestingCards {
 
         DsuperCard toTest = new DCardTurboNerd();
         /* TESTING AGENDA
-         * Punching Bag X
+         * Punching Ba g X
          * Drunken Sailor X
          * Mad Scientist X
          * Moral Support Witch X
