@@ -1,7 +1,9 @@
 import java.util.*;
+import java.util.Collections;
 
 public class DDeck {
     ArrayList<DsuperCard> deck = new ArrayList<>();
+    TreeMap<String, DsuperCard> cardID = new TreeMap<>();
     DsuperCard DrunkenSailor = new DCardDrunkenSailor();
     DsuperCard MadScientist = new DCardMadScientist();
     DsuperCard MoralSupportWitch = new DCardMoralSupportWitch();
@@ -13,9 +15,19 @@ public class DDeck {
         deck.add(MoralSupportWitch);
         deck.add(Peanut);
         deck.add(PunchingBag);
+
+        for(DsuperCard x: deck){
+            cardID.put(x.getName(), x);
+        }
     }
     
     public DsuperCard draw(){
-        return deck.remove(0);
+        int r = (int) Math.random()*deck.size();
+        return deck.remove(r);
     }
+
+    public DsuperCard cardID (String i){
+        return cardID(i);
+    }
+
 }

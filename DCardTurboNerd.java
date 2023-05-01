@@ -1,21 +1,21 @@
-//R 4/11: Sample Card to test
-public class DCardTemplate extends DsuperCard{
-    String initName = "Template Man";
-    int initHP = 10;
+//R 4/11: Turbo Nerd - Tank
+public class DCardTurboNerd extends DsuperCard{
+    String initName = "Turbo Nerd";
+    int initHP = 20;
     int initAtk = 2;
-    int initSup = 6;
+    int initSup = 8;
     int initB = 2;
-    String[] moveSet = {"Sample Attack","Sample Poison Attack", "Sample Super Attack"};
-    int[] applicability = {1, 1, 1};
+    String[] moveSet = {"Umm Ackshually","The Quadratic Equation", "The power of GOD and ANIME on my side"};
+    int[] applicability = {1, 0, 0};
     String image = "Ivy.jpg";
     String[] desc = {
-        "Character Desc", 
-        "Atk Desc", 
-        "B Atk Desc", 
-        "S Atk Desc"
+        "Be careful who you make fun of in school. Actually, don't. It's way funnier this way.",
+        "*insert nerdy rant here*. Deals base damage.", 
+        "'Negative B plus or minus the square root of B squared minus 4 A C all over 2 A'. Grants a resistance effect of duration 3 and magnitude 3", 
+        "*I don't watch anime, pretend there's a cool catchphrase here*. Grants a regeneration effect of duration 2 and magnitude 5."
     };
 
-    public DCardTemplate() {
+    public DCardTurboNerd() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
         super.setName(initName);
         super.setHealth(initHP);
@@ -55,6 +55,8 @@ public class DCardTemplate extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
+            DCondition s = new DConditionResistance(3, "Quadratic Equation", 3);
+            target.addConditions(s);
             return(super.bAtk(target));
         }
     }
@@ -68,7 +70,8 @@ public class DCardTemplate extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            target.hurt(super.getAtk()*3);
+            DCondition s = new DConditionRegen(2, "The Power of GOD and ANIME", 5);
+            target.addConditions(s);
             return(super.sAtk(target));
         }
     }
