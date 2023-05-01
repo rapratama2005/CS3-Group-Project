@@ -516,13 +516,15 @@ public class GBattleScreen2 extends JFrame{
                 confirms.get(4).addActionListener(new confirmCard());
                 p1.add(confirms.get(4));
             }
-            field.add()
+            field.add(deck.cardID(selected));
+            System.out.println(field);
             D1.setText("");
         }
     }
 
     class confirmCard implements ActionListener{
         public void actionPerformed(ActionEvent e){
+            
             p1.remove(confirms.get(1));
             confirms.remove(1);
             p1.remove(box1);
