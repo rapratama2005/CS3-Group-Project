@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class DDeck {
     ArrayList<DsuperCard> deck = new ArrayList<>();
-    TreeMap<String, DsuperCard> cardID = new TreeMap<>();
+    TreeMap<String, DsuperCard> cardIDs = new TreeMap<>();
     DsuperCard DrunkenSailor = new DCardDrunkenSailor();
     DsuperCard MadScientist = new DCardMadScientist();
     DsuperCard MoralSupportWitch = new DCardMoralSupportWitch();
@@ -17,7 +17,7 @@ public class DDeck {
         deck.add(PunchingBag);
 
         for(DsuperCard x: deck){
-            cardID.put(x.getName(), x);
+            cardIDs.put(x.getName(), x);
         }
     }
     
@@ -27,7 +27,7 @@ public class DDeck {
     }
 
     public DsuperCard cardID (String i){
-        return cardID(i);
+        return cardIDs.get(i);
     }
 
 }
