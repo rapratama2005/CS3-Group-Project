@@ -49,6 +49,7 @@ public class GBattleScreen2 extends JFrame{
     private JButton prevSel;
     // Cards
     private ArrayList<DsuperCard> field = new ArrayList<DsuperCard>();
+    // Turn number
 
     GBattleScreen2(){
         super();
@@ -290,24 +291,28 @@ public class GBattleScreen2 extends JFrame{
                 //Key number is the card number
                 confirms.put(1,new JButton("Confirm"));
                 a1.add(confirms.get(1));
+                confirms.get(1).setBackground(Color.white);
                 confirms.get(1).addActionListener(new Confirms(1));
                 
             }
             else if (h==1&&!confirms.containsKey(2)){
                 confirms.put(2,new JButton("Confirm"));
                 a2.add(confirms.get(2));
+                confirms.get(2).setBackground(Color.white);
                 confirms.get(2).addActionListener(new Confirms(2));
 
             }
             else if (h==2&&!confirms.containsKey(3)){
                 confirms.put(3,new JButton("Confirm"));
                 a3.add(confirms.get(3));
+                confirms.get(3).setBackground(Color.white);
                 confirms.get(3).addActionListener(new Confirms(3));
 
             }
             else if (h==3&&!confirms.containsKey(4)){
                 confirms.put(4,new JButton("Confirm"));
                 a4.add(confirms.get(4));
+                confirms.get(4).setBackground(Color.white);
                 confirms.get(4).addActionListener(new Confirms(4));
             }
             prevSel = selected;
@@ -453,10 +458,11 @@ public class GBattleScreen2 extends JFrame{
             String selected = (String)((JComboBox)e.getSource()).getSelectedItem();
             if (!confirms.containsKey(1)){
                 confirms.put(1,new JButton("Confirm"));
+                confirms.get(1).setBackground(Color.white);
                 confirms.get(1).addActionListener(new confirmCard());
                 p1.add(confirms.get(1));
             }
-            D1.setText("Hello, we want you to choose this card to get the hello image. Cool wowo, blah blah filler filler");
+            D1.setText("");
         }
     }
 
