@@ -502,24 +502,30 @@ public class GBattleScreen2 extends JFrame{
                 D1.setText(deck.cardID(selected).getDesc(0));
             }
             if (cN==2&&!confirms.containsKey(2)){
-                confirms.put(2,new JButton("Confirm"));
-                confirms.get(2).setBackground(Color.white);
-                confirms.get(2).addActionListener(new confirmCard(selected,2));
-                p2.add(confirms.get(2));
+                if (!confirms.containsKey(2)){
+                    confirms.put(2,new JButton("Confirm"));
+                    confirms.get(2).setBackground(Color.white);
+                    confirms.get(2).addActionListener(new confirmCard(selected,2));
+                    p2.add(confirms.get(2));
+                }
                 D2.setText(deck.cardID(selected).getDesc(0));
             }
             if (cN==3&&!confirms.containsKey(3)){
-                confirms.put(3,new JButton("Confirm"));
-                confirms.get(3).setBackground(Color.white);
-                confirms.get(3).addActionListener(new confirmCard(selected,3));
-                p3.add(confirms.get(3));
+                if (!confirms.containsKey(3)){
+                    confirms.put(3,new JButton("Confirm"));
+                    confirms.get(3).setBackground(Color.white);
+                    confirms.get(3).addActionListener(new confirmCard(selected,3));
+                    p3.add(confirms.get(3));
+                }
                 D3.setText(deck.cardID(selected).getDesc(0));
             }
             if (cN==4&&!confirms.containsKey(4)){
-                confirms.put(4,new JButton("Confirm"));
-                confirms.get(4).setBackground(Color.white);
-                confirms.get(4).addActionListener(new confirmCard(selected,4));
-                p4.add(confirms.get(4));
+                if (!confirms.containsKey(4)){
+                    confirms.put(4,new JButton("Confirm"));
+                    confirms.get(4).setBackground(Color.white);
+                    confirms.get(4).addActionListener(new confirmCard(selected,4));
+                    p4.add(confirms.get(4));
+                }
                 D4.setText(deck.cardID(selected).getDesc(0));
             }
             
