@@ -492,44 +492,77 @@ public class GBattleScreen2 extends JFrame{
         }
         public void actionPerformed(ActionEvent e){
             String selected = (String)((JComboBox)e.getSource()).getSelectedItem();
-            if (cN==1&&!confirms.containsKey(1)){
-                confirms.put(1,new JButton("Confirm"));
-                confirms.get(1).setBackground(Color.white);
-                confirms.get(1).addActionListener(new confirmCard());
-                p1.add(confirms.get(1));
+            if (cN==1){
+                if (!confirms.containsKey(1)){
+                    confirms.put(1,new JButton("Confirm"));
+                    confirms.get(1).setBackground(Color.white);
+                    confirms.get(1).addActionListener(new confirmCard(selected,1));
+                    p1.add(confirms.get(1));
+                }
+                D1.setText(deck.cardID(selected).getDesc(0));
             }
             if (cN==2&&!confirms.containsKey(2)){
                 confirms.put(2,new JButton("Confirm"));
                 confirms.get(2).setBackground(Color.white);
-                confirms.get(2).addActionListener(new confirmCard());
-                p1.add(confirms.get(2));
+                confirms.get(2).addActionListener(new confirmCard(selected,2));
+                p2.add(confirms.get(2));
+                D2.setText(deck.cardID(selected).getDesc(0));
             }
             if (cN==3&&!confirms.containsKey(3)){
                 confirms.put(3,new JButton("Confirm"));
                 confirms.get(3).setBackground(Color.white);
-                confirms.get(3).addActionListener(new confirmCard());
-                p1.add(confirms.get(3));
+                confirms.get(3).addActionListener(new confirmCard(selected,3));
+                p3.add(confirms.get(3));
+                D3.setText(deck.cardID(selected).getDesc(0));
             }
             if (cN==4&&!confirms.containsKey(4)){
                 confirms.put(4,new JButton("Confirm"));
                 confirms.get(4).setBackground(Color.white);
-                confirms.get(4).addActionListener(new confirmCard());
-                p1.add(confirms.get(4));
+                confirms.get(4).addActionListener(new confirmCard(selected,4));
+                p4.add(confirms.get(4));
+                D4.setText(deck.cardID(selected).getDesc(0));
             }
-            field.add(deck.cardID(selected));
-            System.out.println(field);
-            D1.setText("");
+            
         }
     }
 
     class confirmCard implements ActionListener{
+        private String sel;
+        private int i;
+        public confirmCard(String s, int num){
+            sel=s;
+            i = num;
+        }
         public void actionPerformed(ActionEvent e){
-            
-            p1.remove(confirms.get(1));
-            confirms.remove(1);
-            p1.remove(box1);
-            D1.setText("");
-            changeImage(1,"space.jpg");
+            field.add(deck.cardID(sel));
+            if (i==1){
+                p1.remove(confirms.get(1));
+                confirms.remove(1);
+                p1.remove(box1);
+                D1.setText("");
+                changeImage(1,"space.jpg");
+            }
+            else if(i==2){
+                p2.remove(confirms.get(2));
+                confirms.remove(2);
+                p2.remove(box2);
+                D2.setText("");
+                changeImage(2,"space.jpg");
+            }
+            else if (i==3){
+                p3.remove(confirms.get(3));
+                confirms.remove(3);
+                p3.remove(box3);
+                D3.setText("");
+                changeImage(3,"space.jpg");
+            }
+            else if (i==4){
+                p4.remove(confirms.get(4));
+                confirms.remove(4);
+                p4.remove(box4);
+                D4.setText("");
+                changeImage(4,"space.jpg");
+            }
         }
     }
     public static void main(String[] args){
