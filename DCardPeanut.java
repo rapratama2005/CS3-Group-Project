@@ -36,6 +36,7 @@ public class DCardPeanut extends DsuperCard{
          * Attack Desc
          * Tap on the shoulder
          */
+        target.hurt(super.getAtk());
         progSup(super.getAtk());
         return (this.getName() + " used " + this.getAName() + " on " + target.getName() + " for " + this.getAtk() + " damage.");
     }

@@ -2,11 +2,17 @@ import java.util.*;
 
 public class DDeck {
     ArrayList<DsuperCard> deck = new ArrayList<>();
-    DSampleCard sample1 = new DSampleCard();
-    DSampleCard2 sample2 = new DSampleCard2();
+    DsuperCard DrunkenSailor = new DCardDrunkenSailor();
+    DsuperCard MadScientist = new DCardMadScientist();
+    DsuperCard MoralSupportWitch = new DCardMoralSupportWitch();
+    DsuperCard Peanut = new DCardPeanut();
+    DsuperCard PunchingBag = new DCardPunchingBag();
     public DDeck (){
-        deck.add(sample1);
-        deck.add(sample2);
+        deck.add(DrunkenSailor);
+        deck.add(MadScientist);
+        deck.add(MoralSupportWitch);
+        deck.add(Peanut);
+        deck.add(PunchingBag);
     }
     
     public DsuperCard draw(){
