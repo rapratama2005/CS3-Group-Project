@@ -22,7 +22,7 @@ public class DTestingCards {
          * Drunken Sailor X
          * Mad Scientist X
          * Moral Support Witch X
-         * Peanut
+         * Peanut X
          */
 
          ArrayList<DsuperCard> field = new ArrayList<>();
