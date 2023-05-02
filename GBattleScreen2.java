@@ -44,14 +44,13 @@ public class GBattleScreen2 extends JFrame{
     private superCharge supBar1,supBar2,supBar3,supBar4;
     private ArrayList<JButton> atks = new ArrayList<JButton>();
     private Map<Integer,JButton> confirms = new TreeMap<Integer,JButton>();
-    private JButton at1,bat1,at2,bat2,at3,bat3,at4,bat4;
     private JButton selected;
     private JButton prevSel;
     // Cards
     private ArrayList<DsuperCard> field = new ArrayList<DsuperCard>();
     private DDeck deck = new DDeck();
     // Turn number
-
+    private int turn = 1;
     GBattleScreen2(){
         super();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,12 +72,12 @@ public class GBattleScreen2 extends JFrame{
         cont1.add(currA.get(0));
         currH.get(0).setHorizontalAlignment(JLabel.LEFT);
         currH.get(0).setHorizontalTextPosition(JLabel.LEFT);
-        currH.get(0).setVerticalAlignment(JLabel.TOP);
-        currH.get(0).setVerticalTextPosition(JLabel.TOP);
+        //currH.get(0).setVerticalAlignment(JLabel.TOP);
+        //currH.get(0).setVerticalTextPosition(JLabel.TOP);
         currA.get(0).setHorizontalAlignment(JLabel.RIGHT);
         currA.get(0).setHorizontalTextPosition(JLabel.RIGHT);
-        currA.get(0).setVerticalAlignment(JLabel.TOP);
-        currA.get(0).setVerticalTextPosition(JLabel.TOP);
+        //currA.get(0).setVerticalAlignment(JLabel.TOP);
+        //currA.get(0).setVerticalTextPosition(JLabel.TOP);
         a1.add(cont1);
 
         atks.add(new JButton("attack"));
@@ -89,7 +88,7 @@ public class GBattleScreen2 extends JFrame{
         a1.add(atks.get(1));
         atks.get(1).setBackground(Color.white);
         atks.get(1).addActionListener(new act());
-        supBar1 = new superCharge();
+        supBar1 = new superCharge(4);
         a1.add(supBar1);
         //left side
         c1 = new JPanel();
@@ -176,12 +175,12 @@ public class GBattleScreen2 extends JFrame{
         a2.add(cont2);
         currH.get(1).setHorizontalAlignment(JLabel.LEFT);
         currH.get(1).setHorizontalTextPosition(JLabel.LEFT);
-        currH.get(1).setVerticalAlignment(JLabel.TOP);
-        currH.get(1).setVerticalTextPosition(JLabel.TOP);
+        //currH.get(1).setVerticalAlignment(JLabel.TOP);
+        //currH.get(1).setVerticalTextPosition(JLabel.TOP);
         currA.get(1).setHorizontalAlignment(JLabel.RIGHT);
         currA.get(1).setHorizontalTextPosition(JLabel.RIGHT);
-        currA.get(1).setVerticalAlignment(JLabel.TOP);
-        currA.get(1).setVerticalTextPosition(JLabel.TOP);
+        //currA.get(1).setVerticalAlignment(JLabel.TOP);
+        //currA.get(1).setVerticalTextPosition(JLabel.TOP);
 
         atks.add(new JButton("attack"));
         a2.add(atks.get(2));
@@ -191,7 +190,7 @@ public class GBattleScreen2 extends JFrame{
         a2.add(atks.get(3));
         atks.get(3).setBackground(Color.white);
         atks.get(3).addActionListener(new act());
-        supBar2 = new superCharge();
+        supBar2 = new superCharge(4);
         a2.add(supBar2);
         add(card2);
 
@@ -211,12 +210,12 @@ public class GBattleScreen2 extends JFrame{
         a3.add(cont3);
         currH.get(2).setHorizontalAlignment(JLabel.LEFT);
         currH.get(2).setHorizontalTextPosition(JLabel.LEFT);
-        currH.get(2).setVerticalAlignment(JLabel.TOP);
-        currH.get(2).setVerticalTextPosition(JLabel.TOP);
+        //currH.get(2).setVerticalAlignment(JLabel.TOP);
+        //currH.get(2).setVerticalTextPosition(JLabel.TOP);
         currA.get(2).setHorizontalAlignment(JLabel.RIGHT);
         currA.get(2).setHorizontalTextPosition(JLabel.RIGHT);
-        currA.get(2).setVerticalAlignment(JLabel.TOP);
-        currA.get(2).setVerticalTextPosition(JLabel.TOP);
+        //currA.get(2).setVerticalAlignment(JLabel.TOP);
+        //currA.get(2).setVerticalTextPosition(JLabel.TOP);
 
         atks.add(new JButton("attack"));
         a3.add(atks.get(4));
@@ -226,7 +225,7 @@ public class GBattleScreen2 extends JFrame{
         a3.add(atks.get(5));
         atks.get(5).setBackground(Color.white);
         atks.get(5).addActionListener(new act());
-        supBar3 = new superCharge();
+        supBar3 = new superCharge(2);
         a3.add(supBar3);
 
         //left side
@@ -287,12 +286,12 @@ public class GBattleScreen2 extends JFrame{
         a4.add(cont4);
         currH.get(3).setHorizontalAlignment(JLabel.LEFT);
         currH.get(3).setHorizontalTextPosition(JLabel.LEFT);
-        currH.get(3).setVerticalAlignment(JLabel.TOP);
-        currH.get(3).setVerticalTextPosition(JLabel.TOP);
+        //currH.get(3).setVerticalAlignment(JLabel.TOP);
+        //currH.get(3).setVerticalTextPosition(JLabel.TOP);
         currA.get(3).setHorizontalAlignment(JLabel.RIGHT);
         currA.get(3).setHorizontalTextPosition(JLabel.RIGHT);
-        currA.get(3).setVerticalAlignment(JLabel.TOP);
-        currA.get(3).setVerticalTextPosition(JLabel.TOP);
+        //currA.get(3).setVerticalAlignment(JLabel.TOP);
+        //currA.get(3).setVerticalTextPosition(JLabel.TOP);
 
         atks.add(new JButton("attack"));
         a4.add(atks.get(6));
@@ -302,54 +301,84 @@ public class GBattleScreen2 extends JFrame{
         a4.add(atks.get(7));
         atks.get(7).setBackground(Color.white);
         atks.get(7).addActionListener(new act());
-        supBar4 = new superCharge();
+        supBar4 = new superCharge(1);
         a4.add(supBar4);
         add(card4);
 
         setVisible(true);
     }
 
-    class act implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-            selected = (JButton)e.getSource();
-            int ind = atks.indexOf(selected);
-            atks.get(ind).setBackground(Color.green);
+    public void selColor(int ind, int h){
+        int type = ind-h*2+1;
+        atks.get(ind).setBackground(Color.green);
             if (prevSel!=null&&prevSel!=selected){
                 atks.get(atks.indexOf(prevSel)).setBackground(Color.white);
             }
             // index/2 is one less than card number. Ex) index 0 and 1 are card 1.
-            int h = ind/2;
             if (h==0&&!confirms.containsKey(1)){
                 //Key number is the card number
                 confirms.put(1,new JButton("Confirm"));
                 a1.add(confirms.get(1));
                 confirms.get(1).setBackground(Color.white);
-                confirms.get(1).addActionListener(new Confirms(1));
+                confirms.get(1).addActionListener(new Confirms(1,type));
                 
             }
             else if (h==1&&!confirms.containsKey(2)){
                 confirms.put(2,new JButton("Confirm"));
                 a2.add(confirms.get(2));
                 confirms.get(2).setBackground(Color.white);
-                confirms.get(2).addActionListener(new Confirms(2));
+                confirms.get(2).addActionListener(new Confirms(2,type));
 
             }
             else if (h==2&&!confirms.containsKey(3)){
                 confirms.put(3,new JButton("Confirm"));
                 a3.add(confirms.get(3));
                 confirms.get(3).setBackground(Color.white);
-                confirms.get(3).addActionListener(new Confirms(3));
+                confirms.get(3).addActionListener(new Confirms(3,type));
 
             }
             else if (h==3&&!confirms.containsKey(4)){
                 confirms.put(4,new JButton("Confirm"));
                 a4.add(confirms.get(4));
                 confirms.get(4).setBackground(Color.white);
-                confirms.get(4).addActionListener(new Confirms(4));
+                confirms.get(4).addActionListener(new Confirms(4,type));
             }
             prevSel = selected;
             revalidate();
             repaint();
+    }
+    class act implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            selected = (JButton)e.getSource();
+            int ind = atks.indexOf(selected);
+            int h = ind/2;
+            if (h==0&&turn>4){
+                if (turn%4==1){
+                    selColor(ind,h);
+                }
+                D1.setText(field.get(0).getDesc(ind-h*2+1));
+            }
+            else if (h==1&&turn>4){
+                if (turn%4==2){
+                    selColor(ind,h);
+                }
+                D2.setText(field.get(0).getDesc(ind-h*2+1));
+            }
+            else if (h==2&&turn>4){
+                if (turn%4==3){
+                    selColor(ind,h);
+                }
+                D3.setText(field.get(0).getDesc(ind-h*2+1));
+            }
+            else if (h==3&&turn>4){
+                if (turn%4==0){
+                    selColor(ind,h);
+                }
+                D4.setText(field.get(0).getDesc(ind-h*2+1));
+            }
+            else{
+                selected = prevSel;
+            }            
         }
     }
     public void changeImage(int cardNum, String fileN){
@@ -383,64 +412,91 @@ public class GBattleScreen2 extends JFrame{
 
     class Confirms implements ActionListener{
         private int cardNum;
-        public Confirms(int cardNum){
+        private int t;
+        public Confirms(int cardNum, int type){
             this.cardNum = cardNum;
+            t = type;
         }
         public void actionPerformed(ActionEvent e){
-            changeImage(cardNum,"Ivy.jpg");
             if (cardNum==1){
                 a1.remove(confirms.get(cardNum));
+                if (t==1){
+                    supBar1.fillBar();
+                }
+                else if (t==2){
+                    supBar1.useBar(1);
+                }
             }
             else if (cardNum==2){
                 a2.remove(confirms.get(cardNum));
+                if (t==1){
+                    supBar2.fillBar();
+                }
+                else if (t==2){
+                    supBar2.useBar(1);
+                }
             }
             else if (cardNum==3){
                 a3.remove(confirms.get(cardNum));
+                if (t==1){
+                    supBar3.fillBar();
+                }
+                else if (t==2){
+                    supBar3.useBar(1);
+                }
             }
             else if (cardNum==4){
                 a4.remove(confirms.get(cardNum));
+                if (t==1){
+                    supBar4.fillBar();
+                }
+                else if (t==2){
+                    supBar4.useBar(1);
+                }
             }
+            D1.setText("");
+            D2.setText("");
+            D3.setText("");
+            D4.setText("");
             confirms.remove(cardNum);
             revalidate();
             repaint();
+            turn++;
         }
     }
 
     class superCharge extends JPanel{
-        private JPanel bar1,bar2,bar3;
+        private ArrayList<JPanel> panels = new ArrayList<>();
         private int barCount = 0;
-        superCharge(){
+        private int maxBars;
+        superCharge(int ba){
             super();
+            maxBars = ba;
             setLayout(new GridLayout(1,3));
             Border border = new LineBorder(Color.black,3,true);
             setBorder(border);
             setPreferredSize(new Dimension(50,50));
             setBackground(Color.black);
-            bar1 = new JPanel();
-            bar1.setBackground(Color.white);
-            add(bar1);
+            
+            for (int i=0; i<ba; i++){
+                panels.add(new JPanel());
+                panels.get(i).setBackground(Color.white);
+                add(panels.get(i));
+            }
 
-            bar2 = new JPanel();
-            bar2.setBackground(Color.white);
-            add(bar2);
-
-            bar3 = new JPanel();
-            bar3.setBackground(Color.white);
-            add(bar3);
+            addMouseListener(new click());
         }
 
         public void fillBar(){
-            if (barCount==0){
-                bar1.setBackground(Color.yellow);
+            if (barCount==maxBars-1){
+                for (int i=0; i<barCount+1; i++){
+                    panels.get(i).setBackground(Color.red);
+                }
             }
-            else if (barCount==1){
-                bar1.setBackground(Color.orange);
-                bar2.setBackground(Color.orange);
-            }
-            else if (barCount==2){
-                bar1.setBackground(Color.red);
-                bar2.setBackground(Color.red);
-                bar3.setBackground(Color.red);
+            else if (barCount<maxBars){
+                for (int i=0; i<barCount+1; i++){
+                    panels.get(i).setBackground(Color.orange);
+                }
             }
             //barCount==3
             else{
@@ -451,37 +507,36 @@ public class GBattleScreen2 extends JFrame{
             repaint();
         }
 
-        public void useBar(String type){
-            if (type.equals("bAtk")){
-                if (barCount==1){
-                    bar1.setBackground(Color.white);
-                }
-                else if (barCount==2){
-                    bar1.setBackground(Color.yellow);
-                    bar2.setBackground(Color.white);
-                }
-                else if (barCount==3){
-                    bar1.setBackground(Color.orange);
-                    bar2.setBackground(Color.orange);
-                    bar3.setBackground(Color.white);
-                }
-                //for barCount==0
-                else{
+        public void useBar(int type){
+            //change out numbers in accordance to risky code
+            if (type==1){ 
+                if (barCount==0){
                     barCount++;
+                }
+                else{
+                    for (int i = maxBars-1; i>barCount-2; i--){
+                        panels.get(i).setBackground(Color.white);
+                    }
                 }
                 barCount--;
             }
-            else if (type.equals("super")){
+            else if (type==2){
                 if (barCount==3){
-                    bar1.setBackground(Color.white);
-                    bar2.setBackground(Color.white);
-                    bar3.setBackground(Color.white);
+                    for (int i=0; i<maxBars; i++){
+                        panels.get(i).setBackground(Color.white);
+                    }
                     barCount=0;
                     //add code for the super function
                 }
             }
             revalidate();
             repaint();
+        }
+
+        class click extends MouseAdapter{
+            public void mousePressed(MouseEvent m) {
+                System.out.println("hi");
+            }
         }
     }
 
@@ -492,7 +547,7 @@ public class GBattleScreen2 extends JFrame{
         }
         public void actionPerformed(ActionEvent e){
             String selected = (String)((JComboBox)e.getSource()).getSelectedItem();
-            if (cN==1){
+            if (cN==1&&turn==1){
                 if (!confirms.containsKey(1)){
                     confirms.put(1,new JButton("Confirm"));
                     confirms.get(1).setBackground(Color.white);
@@ -502,7 +557,7 @@ public class GBattleScreen2 extends JFrame{
                 confirms.get(1).getActionListeners()[0] = new confirmCard(selected,1);
                 D1.setText(deck.cardID(selected).getDesc(0));
             }
-            if (cN==2){
+            if (cN==2&&turn==2){
                 if (!confirms.containsKey(2)){
                     confirms.put(2,new JButton("Confirm"));
                     confirms.get(2).setBackground(Color.white);
@@ -512,7 +567,7 @@ public class GBattleScreen2 extends JFrame{
                 confirms.get(2).getActionListeners()[0] = new confirmCard(selected,2);
                 D2.setText(deck.cardID(selected).getDesc(0));
             }
-            if (cN==3){
+            if (cN==3&&turn==3){
                 if (!confirms.containsKey(3)){
                     confirms.put(3,new JButton("Confirm"));
                     confirms.get(3).setBackground(Color.white);
@@ -522,7 +577,7 @@ public class GBattleScreen2 extends JFrame{
                 confirms.get(3).getActionListeners()[0] = new confirmCard(selected,3);
                 D3.setText(deck.cardID(selected).getDesc(0));
             }
-            if (cN==4){
+            if (cN==4&&turn==4){
                 if (!confirms.containsKey(4)){
                     confirms.put(4,new JButton("Confirm"));
                     confirms.get(4).setBackground(Color.white);
@@ -547,35 +602,53 @@ public class GBattleScreen2 extends JFrame{
             sel = s;
         }
         public void actionPerformed(ActionEvent e){
-            field.add(deck.cardID(sel));
+            DsuperCard car = deck.cardID(sel);
+            field.add(car);
             if (i==1){
                 p1.remove(confirms.get(1));
                 confirms.remove(1);
                 p1.remove(box1);
                 D1.setText("");
-                changeImage(1,deck.cardID(sel).getImgSource());
+                changeImage(1,car.getImgSource());
+                atks.get(0).setText(car.getAName());
+                atks.get(1).setText(car.getBName());
+                currH.get(0).setText("  "+car.getHealth());
+                currA.get(0).setText(""+car.getAtk()+"  ");
             }
             else if(i==2){
                 p2.remove(confirms.get(2));
                 confirms.remove(2);
                 p2.remove(box2);
                 D2.setText("");
-                changeImage(2,deck.cardID(sel).getImgSource());
+                changeImage(2,car.getImgSource());
+                atks.get(2).setText(car.getAName());
+                atks.get(3).setText(car.getBName());
+                currH.get(1).setText("  "+car.getHealth());
+                currA.get(1).setText(""+car.getAtk()+"  ");
             }
             else if (i==3){
                 p3.remove(confirms.get(3));
                 confirms.remove(3);
                 p3.remove(box3);
                 D3.setText("");
-                changeImage(3,deck.cardID(sel).getImgSource());
+                changeImage(3,car.getImgSource());
+                atks.get(4).setText(car.getAName());
+                atks.get(5).setText(car.getBName());
+                currH.get(2).setText("  "+car.getHealth());
+                currA.get(2).setText(""+car.getAtk()+"  ");
             }
             else if (i==4){
                 p4.remove(confirms.get(4));
                 confirms.remove(4);
                 p4.remove(box4);
                 D4.setText("");
-                changeImage(4,deck.cardID(sel).getImgSource());
+                changeImage(4,car.getImgSource());
+                atks.get(6).setText(car.getAName());
+                atks.get(7).setText(car.getBName());
+                currH.get(3).setText("  "+car.getHealth());
+                currA.get(3).setText(""+car.getAtk()+"  ");
             }
+            turn++;
             System.out.println(field);
         }
     }
