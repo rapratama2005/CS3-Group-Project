@@ -88,7 +88,7 @@ public class GBattleScreen2 extends JFrame{
         a1.add(atks.get(1));
         atks.get(1).setBackground(Color.white);
         atks.get(1).addActionListener(new act());
-        supBar1 = new superCharge(4);
+        supBar1 = new superCharge(3,1);
         a1.add(supBar1);
         //left side
         c1 = new JPanel();
@@ -190,7 +190,7 @@ public class GBattleScreen2 extends JFrame{
         a2.add(atks.get(3));
         atks.get(3).setBackground(Color.white);
         atks.get(3).addActionListener(new act());
-        supBar2 = new superCharge(4);
+        supBar2 = new superCharge(3,2);
         a2.add(supBar2);
         add(card2);
 
@@ -225,7 +225,7 @@ public class GBattleScreen2 extends JFrame{
         a3.add(atks.get(5));
         atks.get(5).setBackground(Color.white);
         atks.get(5).addActionListener(new act());
-        supBar3 = new superCharge(2);
+        supBar3 = new superCharge(3,3);
         a3.add(supBar3);
 
         //left side
@@ -301,7 +301,7 @@ public class GBattleScreen2 extends JFrame{
         a4.add(atks.get(7));
         atks.get(7).setBackground(Color.white);
         atks.get(7).addActionListener(new act());
-        supBar4 = new superCharge(1);
+        supBar4 = new superCharge(3,4);
         a4.add(supBar4);
         add(card4);
 
@@ -309,43 +309,46 @@ public class GBattleScreen2 extends JFrame{
     }
 
     public void selColor(int ind, int h){
-        int type = ind-h*2+1;
         atks.get(ind).setBackground(Color.green);
-            if (prevSel!=null&&prevSel!=selected){
-                atks.get(atks.indexOf(prevSel)).setBackground(Color.white);
-            }
-            // index/2 is one less than card number. Ex) index 0 and 1 are card 1.
-            if (h==0&&!confirms.containsKey(1)){
-                //Key number is the card number
-                confirms.put(1,new JButton("Confirm"));
-                a1.add(confirms.get(1));
-                confirms.get(1).setBackground(Color.white);
-                confirms.get(1).addActionListener(new Confirms(1,type));
-                
-            }
-            else if (h==1&&!confirms.containsKey(2)){
-                confirms.put(2,new JButton("Confirm"));
-                a2.add(confirms.get(2));
-                confirms.get(2).setBackground(Color.white);
-                confirms.get(2).addActionListener(new Confirms(2,type));
+        if (prevSel!=null&&prevSel!=selected){
+            atks.get(atks.indexOf(prevSel)).setBackground(Color.white);
+        }
+        addConfirm(ind, h);
+    }
+    public void addConfirm(int ind, int h){
+        int type = ind-h*2+1;
+        // index/2 is one less than card number. Ex) index 0 and 1 are card 1.
+        if (h==0&&!confirms.containsKey(1)){
+            //Key number is the card number
+            confirms.put(1,new JButton("Confirm"));
+            a1.add(confirms.get(1));
+            confirms.get(1).setBackground(Color.white);
+            confirms.get(1).addActionListener(new Confirms(1,type));
+            
+        }
+        else if (h==1&&!confirms.containsKey(2)){
+            confirms.put(2,new JButton("Confirm"));
+            a2.add(confirms.get(2));
+            confirms.get(2).setBackground(Color.white);
+            confirms.get(2).addActionListener(new Confirms(2,type));
 
-            }
-            else if (h==2&&!confirms.containsKey(3)){
-                confirms.put(3,new JButton("Confirm"));
-                a3.add(confirms.get(3));
-                confirms.get(3).setBackground(Color.white);
-                confirms.get(3).addActionListener(new Confirms(3,type));
+        }
+        else if (h==2&&!confirms.containsKey(3)){
+            confirms.put(3,new JButton("Confirm"));
+            a3.add(confirms.get(3));
+            confirms.get(3).setBackground(Color.white);
+            confirms.get(3).addActionListener(new Confirms(3,type));
 
-            }
-            else if (h==3&&!confirms.containsKey(4)){
-                confirms.put(4,new JButton("Confirm"));
-                a4.add(confirms.get(4));
-                confirms.get(4).setBackground(Color.white);
-                confirms.get(4).addActionListener(new Confirms(4,type));
-            }
-            prevSel = selected;
-            revalidate();
-            repaint();
+        }
+        else if (h==3&&!confirms.containsKey(4)){
+            confirms.put(4,new JButton("Confirm"));
+            a4.add(confirms.get(4));
+            confirms.get(4).setBackground(Color.white);
+            confirms.get(4).addActionListener(new Confirms(4,type));
+        }
+        prevSel = selected;
+        revalidate();
+        repaint();
     }
     class act implements ActionListener{
         public void actionPerformed(ActionEvent e){
@@ -357,24 +360,40 @@ public class GBattleScreen2 extends JFrame{
                     selColor(ind,h);
                 }
                 D1.setText(field.get(0).getDesc(ind-h*2+1));
+                supBar1.setBorC(Color.black);
+                supBar2.setBorC(Color.black);
+                supBar3.setBorC(Color.black);
+                supBar4.setBorC(Color.black);
             }
             else if (h==1&&turn>4){
                 if (turn%4==2){
                     selColor(ind,h);
                 }
                 D2.setText(field.get(0).getDesc(ind-h*2+1));
+                supBar1.setBorC(Color.black);
+                supBar2.setBorC(Color.black);
+                supBar3.setBorC(Color.black);
+                supBar4.setBorC(Color.black);
             }
             else if (h==2&&turn>4){
                 if (turn%4==3){
                     selColor(ind,h);
                 }
                 D3.setText(field.get(0).getDesc(ind-h*2+1));
+                supBar1.setBorC(Color.black);
+                supBar2.setBorC(Color.black);
+                supBar3.setBorC(Color.black);
+                supBar4.setBorC(Color.black);
             }
             else if (h==3&&turn>4){
                 if (turn%4==0){
                     selColor(ind,h);
                 }
                 D4.setText(field.get(0).getDesc(ind-h*2+1));
+                supBar1.setBorC(Color.black);
+                supBar2.setBorC(Color.black);
+                supBar3.setBorC(Color.black);
+                supBar4.setBorC(Color.black);
             }
             else{
                 selected = prevSel;
@@ -426,6 +445,9 @@ public class GBattleScreen2 extends JFrame{
                 else if (t==2){
                     supBar1.useBar(1);
                 }
+                else if (t==3){
+                    supBar1.useBar(2);
+                }
             }
             else if (cardNum==2){
                 a2.remove(confirms.get(cardNum));
@@ -469,14 +491,16 @@ public class GBattleScreen2 extends JFrame{
         private ArrayList<JPanel> panels = new ArrayList<>();
         private int barCount = 0;
         private int maxBars;
-        superCharge(int ba){
+        private String text="";
+        private int cNum;
+        superCharge(int ba, int num){
             super();
             maxBars = ba;
+            cNum = num;
             setLayout(new GridLayout(1,3));
             Border border = new LineBorder(Color.black,3,true);
             setBorder(border);
             setPreferredSize(new Dimension(50,50));
-            setBackground(Color.black);
             
             for (int i=0; i<ba; i++){
                 panels.add(new JPanel());
@@ -485,6 +509,23 @@ public class GBattleScreen2 extends JFrame{
             }
 
             addMouseListener(new click());
+        }
+
+        public void setBorC(Color c){
+            Border border = new LineBorder(c,3,true);
+            setBorder(border);
+        }
+        public void setMB(int ba){
+            for (int i=maxBars-1; i>=0; i--){
+                remove(panels.remove(i));
+            }
+            maxBars = ba;
+            setLayout(new GridLayout(1,maxBars));
+            for (int i=0; i<maxBars; i++){
+                panels.add(new JPanel());
+                panels.get(i).setBackground(Color.white);
+                add(panels.get(i));
+            }
         }
 
         public void fillBar(){
@@ -533,9 +574,27 @@ public class GBattleScreen2 extends JFrame{
             repaint();
         }
 
+        public void setT(String ta){
+            text = ta;
+        }
+
         class click extends MouseAdapter{
             public void mousePressed(MouseEvent m) {
-                System.out.println("hi");
+                if (cNum==1){
+                    D1.setText(text);
+                }
+                else if (cNum==2){
+                    D2.setText(text);
+                }
+                else if (cNum==3){
+                    D3.setText(text);
+                }
+                else if (cNum==4){
+                    D4.setText(text);
+                }
+                if ((cNum==turn%4||cNum==turn%4+4)&&turn>4){
+                    setBorC(Color.green);
+                }
             }
         }
     }
@@ -614,6 +673,8 @@ public class GBattleScreen2 extends JFrame{
                 atks.get(1).setText(car.getBName());
                 currH.get(0).setText("  "+car.getHealth());
                 currA.get(0).setText(""+car.getAtk()+"  ");
+                supBar1.setMB(car.getSupReq());
+                supBar1.setT(car.getDesc(3));
             }
             else if(i==2){
                 p2.remove(confirms.get(2));
@@ -625,6 +686,8 @@ public class GBattleScreen2 extends JFrame{
                 atks.get(3).setText(car.getBName());
                 currH.get(1).setText("  "+car.getHealth());
                 currA.get(1).setText(""+car.getAtk()+"  ");
+                supBar2.setMB(car.getSupReq());
+                supBar2.setT(car.getDesc(3));
             }
             else if (i==3){
                 p3.remove(confirms.get(3));
@@ -636,6 +699,8 @@ public class GBattleScreen2 extends JFrame{
                 atks.get(5).setText(car.getBName());
                 currH.get(2).setText("  "+car.getHealth());
                 currA.get(2).setText(""+car.getAtk()+"  ");
+                supBar3.setMB(car.getSupReq());
+                supBar3.setT(car.getDesc(3));
             }
             else if (i==4){
                 p4.remove(confirms.get(4));
@@ -647,6 +712,8 @@ public class GBattleScreen2 extends JFrame{
                 atks.get(7).setText(car.getBName());
                 currH.get(3).setText("  "+car.getHealth());
                 currA.get(3).setText(""+car.getAtk()+"  ");
+                supBar4.setMB(car.getSupReq());
+                supBar4.setT(car.getDesc(3));
             }
             turn++;
             System.out.println(field);
