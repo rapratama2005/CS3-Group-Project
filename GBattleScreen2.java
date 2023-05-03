@@ -355,6 +355,12 @@ public class GBattleScreen2 extends JFrame{
             selected = (JButton)e.getSource();
             int ind = atks.indexOf(selected);
             int h = ind/2;
+            supBar1.fillBar();
+            supBar1.fillBar();
+            supBar1.fillBar();
+            supBar1.fillBar();
+            supBar1.fillBar();
+            supBar1.fillBar();
             if (h==0&&turn>4){
                 if (turn%4==1){
                     selColor(ind,h);
@@ -457,6 +463,9 @@ public class GBattleScreen2 extends JFrame{
                 else if (t==2){
                     supBar2.useBar(1);
                 }
+                else if (t==3){
+                    supBar2.useBar(2);
+                }
             }
             else if (cardNum==3){
                 a3.remove(confirms.get(cardNum));
@@ -466,6 +475,9 @@ public class GBattleScreen2 extends JFrame{
                 else if (t==2){
                     supBar3.useBar(1);
                 }
+                else if (t==3){
+                    supBar3.useBar(2);
+                }
             }
             else if (cardNum==4){
                 a4.remove(confirms.get(cardNum));
@@ -474,6 +486,9 @@ public class GBattleScreen2 extends JFrame{
                 }
                 else if (t==2){
                     supBar4.useBar(1);
+                }
+                else if (t==3){
+                    supBar4.useBar(2);
                 }
             }
             D1.setText("");
@@ -558,11 +573,14 @@ public class GBattleScreen2 extends JFrame{
                     for (int i = maxBars-1; i>barCount-2; i--){
                         panels.get(i).setBackground(Color.white);
                     }
+                    for (int i=0; i<barCount; i++){
+                        panels.get(i).setBackground(Color.orange);
+                    }
                 }
                 barCount--;
             }
             else if (type==2){
-                if (barCount==3){
+                if (barCount==maxBars){
                     for (int i=0; i<maxBars; i++){
                         panels.get(i).setBackground(Color.white);
                     }
@@ -593,7 +611,40 @@ public class GBattleScreen2 extends JFrame{
                     D4.setText(text);
                 }
                 if ((cNum==turn%4||cNum==turn%4+4)&&turn>4){
-                    setBorC(Color.green);
+                    if (barCount==maxBars){
+                        setBorC(Color.green);
+                        if (prevSel!=null){
+                            atks.get(atks.indexOf(prevSel)).setBackground(Color.white);
+                        }
+                        if (cNum==1){
+                            a1.remove(confirms.remove(cNum));
+                            confirms.put(cNum,new JButton("Confirm"));
+                            confirms.get(cNum).setBackground(Color.white);
+                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
+                            a1.add(confirms.get(cNum));
+                        }
+                        else if (cNum==2){
+                            a2.remove(confirms.remove(cNum));
+                            confirms.put(cNum,new JButton("Confirm"));
+                            confirms.get(cNum).setBackground(Color.white);
+                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
+                            a2.add(confirms.get(cNum));
+                        }
+                        else if (cNum==3){
+                            a3.remove(confirms.remove(cNum));
+                            confirms.put(cNum,new JButton("Confirm"));
+                            confirms.get(cNum).setBackground(Color.white);
+                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
+                            a3.add(confirms.get(cNum));
+                        }
+                        else if (cNum==4){
+                            a4.remove(confirms.remove(cNum));
+                            confirms.put(cNum,new JButton("Confirm"));
+                            confirms.get(cNum).setBackground(Color.white);
+                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
+                            a4.add(confirms.get(cNum));
+                        }
+                    }
                 }
             }
         }
