@@ -7,7 +7,7 @@ public class DCardMadScientist extends DsuperCard{
     int initB = 8;
     String[] moveSet = {"Laser Gun", "Funny Chemicals", "Mutantinator 9001"};
     int[] applicability = {1, 1, 0};
-    String image = "Ivy.jpg";
+    String image = "ICards/MadScientist.png";
     String[] desc = {
         "Don't let your lack of degree or ethics stop you from making scientific contributions", 
         "Pew Pew Pew! Deals base damage.", 

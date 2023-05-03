@@ -9,7 +9,7 @@ public class DCardPunchingBag extends DsuperCard{
     int absorbedDamage = 0;
     String[] moveSet = {"Light Jab","Absorb Hit", "Equal and Opposite Reaction"};
     int[] applicability = {1, 0, 1};
-    String image = "Ivy.jpg";
+    String image = "ICards/PunchingBag.png";
     String[] desc = {
         "Is it a bag FOR punching or a bag THAT punches?", 
         "Don't ask me how. Deals base damage.", 
