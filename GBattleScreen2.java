@@ -324,14 +324,12 @@ public class GBattleScreen2 extends JFrame{
             a1.add(confirms.get(1));
             confirms.get(1).setBackground(Color.white);
             confirms.get(1).addActionListener(new Confirms(1,type));
-            
         }
         else if (h==1&&!confirms.containsKey(2)){
             confirms.put(2,new JButton("Confirm"));
             a2.add(confirms.get(2));
             confirms.get(2).setBackground(Color.white);
             confirms.get(2).addActionListener(new Confirms(2,type));
-
         }
         else if (h==2&&!confirms.containsKey(3)){
             confirms.put(3,new JButton("Confirm"));
@@ -346,7 +344,43 @@ public class GBattleScreen2 extends JFrame{
             confirms.get(4).setBackground(Color.white);
             confirms.get(4).addActionListener(new Confirms(4,type));
         }
+        else{
+            ((Confirms)confirms.get(h+1).getActionListeners()[0]).setTy(type);
+        }
         prevSel = selected;
+        revalidate();
+        repaint();
+    }
+    public void addConfirm(int cN, int type, int sup){
+        if (cN==1&&!confirms.containsKey(1)){
+            //Key number is the card number
+            confirms.put(1,new JButton("Confirm"));
+            a1.add(confirms.get(1));
+            confirms.get(1).setBackground(Color.white);
+            confirms.get(1).addActionListener(new Confirms(1,type));
+        }
+        else if (cN==2&&!confirms.containsKey(2)){
+            confirms.put(2,new JButton("Confirm"));
+            a2.add(confirms.get(2));
+            confirms.get(2).setBackground(Color.white);
+            confirms.get(2).addActionListener(new Confirms(2,type));
+        }
+        else if (cN==3&&!confirms.containsKey(3)){
+            confirms.put(3,new JButton("Confirm"));
+            a3.add(confirms.get(3));
+            confirms.get(3).setBackground(Color.white);
+            confirms.get(3).addActionListener(new Confirms(3,type));
+
+        }
+        else if (cN==4&&!confirms.containsKey(4)){
+            confirms.put(4,new JButton("Confirm"));
+            a4.add(confirms.get(4));
+            confirms.get(4).setBackground(Color.white);
+            confirms.get(4).addActionListener(new Confirms(4,type));
+        }
+        else{
+            ((Confirms)confirms.get(cN).getActionListeners()[0]).setTy(type);
+        }
         revalidate();
         repaint();
     }
@@ -442,17 +476,23 @@ public class GBattleScreen2 extends JFrame{
             this.cardNum = cardNum;
             t = type;
         }
+        public void setTy(int ty){
+            t=ty;
+        }
         public void actionPerformed(ActionEvent e){
             if (cardNum==1){
                 a1.remove(confirms.get(cardNum));
                 if (t==1){
                     supBar1.fillBar();
+                    System.out.println("1");
                 }
                 else if (t==2){
                     supBar1.useBar(1);
+                    System.out.println("2");
                 }
                 else if (t==3){
                     supBar1.useBar(2);
+                    System.out.println("3");
                 }
             }
             else if (cardNum==2){
@@ -580,14 +620,19 @@ public class GBattleScreen2 extends JFrame{
                 barCount--;
             }
             else if (type==2){
+                System.out.println("hi");
                 if (barCount==maxBars){
+                    System.out.println("wowo");
                     for (int i=0; i<maxBars; i++){
                         panels.get(i).setBackground(Color.white);
+                        System.out.println("gaa");
                     }
+                    System.out.println("wowo");
                     barCount=0;
                     //add code for the super function
                 }
             }
+            System.out.println(type);
             revalidate();
             repaint();
         }
@@ -616,34 +661,9 @@ public class GBattleScreen2 extends JFrame{
                         if (prevSel!=null){
                             atks.get(atks.indexOf(prevSel)).setBackground(Color.white);
                         }
-                        if (cNum==1){
-                            a1.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm"));
-                            confirms.get(cNum).setBackground(Color.white);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a1.add(confirms.get(cNum));
-                        }
-                        else if (cNum==2){
-                            a2.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm"));
-                            confirms.get(cNum).setBackground(Color.white);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a2.add(confirms.get(cNum));
-                        }
-                        else if (cNum==3){
-                            a3.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm"));
-                            confirms.get(cNum).setBackground(Color.white);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a3.add(confirms.get(cNum));
-                        }
-                        else if (cNum==4){
-                            a4.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm"));
-                            confirms.get(cNum).setBackground(Color.white);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a4.add(confirms.get(cNum));
-                        }
+                        selected = null;
+                        //sup Num doesn't matter
+                        addConfirm(cNum,3,1);
                     }
                 }
             }
