@@ -7,7 +7,7 @@ public class DCardDrunkenSailor extends DsuperCard{
     int initB = 5;
     String[] moveSet = {"Bottle","'Synchronized' Singing", "Alcoholic Resistance"};
     int[] applicability = {1, 1, 0};
-    String image = "Ivy.jpg";
+    String image = "ICards/DrunkenSailor.png";
     String[] desc = {
         "What do we do with the Drunken Sailor?", 
         "A Simple Bottle Attack. Deals the base damage of " + initAtk + " on an enemy.", 

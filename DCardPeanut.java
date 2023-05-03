@@ -7,7 +7,7 @@ public class DCardPeanut extends DsuperCard{
     int initB = 6;
     String[] moveSet = {"Tap","Blink", "Neck Snap!"};
     int[] applicability = {1, 1, 1};
-    String image = "Ivy.jpg";
+    String image = "ICards/Peanut.png";
     String[] desc = {"173", "Atk Desc", "B Atk Desc", "S Atk Desc"};
 
     public DCardPeanut() {
