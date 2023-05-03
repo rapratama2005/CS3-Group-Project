@@ -322,37 +322,46 @@ public class GBattleScreen2 extends JFrame{
     }
     public void addConfirm(int ind, int h){
         int type = ind-h*2+1;
+        Border border = new LineBorder(new Color(139, 0, 0),3,true);
         // index/2 is one less than card number. Ex) index 0 and 1 are card 1.
         if (h==0&&!confirms.containsKey(1)){
             //Key number is the card number
             confirms.put(1,new JButton("Confirm"));
             a1.add(confirms.get(1));
-            confirms.get(1).setBackground(Color.white);
-            confirms.get(1).setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+            confirms.get(1).setBackground(Color.darkGray);
+            confirms.get(1).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+            confirms.get(1).setForeground(Color.green);
+            confirms.get(1).setBorder(border);
             confirms.get(1).addActionListener(new Confirms(1,type));
             
         }
         else if (h==1&&!confirms.containsKey(2)){
             confirms.put(2,new JButton("Confirm"));
             a2.add(confirms.get(2));
-            confirms.get(2).setBackground(Color.white);
-            confirms.get(2).setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+            confirms.get(2).setBackground(Color.darkGray);
+            confirms.get(2).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+            confirms.get(2).setForeground(Color.green);
+            confirms.get(2).setBorder(border);
             confirms.get(2).addActionListener(new Confirms(2,type));
 
         }
         else if (h==2&&!confirms.containsKey(3)){
             confirms.put(3,new JButton("Confirm"));
             a3.add(confirms.get(3));
-            confirms.get(3).setBackground(Color.white);
-            confirms.get(3).setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+            confirms.get(3).setBackground(Color.darkGray);
+            confirms.get(3).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+            confirms.get(3).setForeground(Color.green);
+            confirms.get(3).setBorder(border);
             confirms.get(3).addActionListener(new Confirms(3,type));
 
         }
         else if (h==3&&!confirms.containsKey(4)){
             confirms.put(4,new JButton("Confirm"));
             a4.add(confirms.get(4));
-            confirms.get(4).setBackground(Color.white);
-            confirms.get(4).setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+            confirms.get(4).setBackground(Color.darkGray);
+            confirms.get(4).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+            confirms.get(4).setForeground(Color.green);
+            confirms.get(4).setBorder(border);
             confirms.get(4).addActionListener(new Confirms(4,type));
         }
         prevSel = selected;
@@ -606,6 +615,7 @@ public class GBattleScreen2 extends JFrame{
         }
 
         class click extends MouseAdapter{
+            Border border = new LineBorder(Color.blue,3,true);
             public void mousePressed(MouseEvent m) {
                 if (cNum==1){
                     D1.setText(text);
@@ -627,29 +637,41 @@ public class GBattleScreen2 extends JFrame{
                         }
                         if (cNum==1){
                             a1.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm"));
-                            confirms.get(cNum).setBackground(Color.white);
+                            confirms.put(cNum,new JButton("Confirm!"));
+                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+                            confirms.get(cNum).setForeground(Color.red);
+                            confirms.get(cNum).setBorder(border);
+                            confirms.get(cNum).setBackground(Color.black);
                             confirms.get(cNum).addActionListener(new Confirms(cNum,2));
                             a1.add(confirms.get(cNum));
                         }
                         else if (cNum==2){
                             a2.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm"));
-                            confirms.get(cNum).setBackground(Color.white);
+                            confirms.put(cNum,new JButton("Confirm!"));
+                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+                            confirms.get(cNum).setForeground(Color.red);
+                            confirms.get(cNum).setBorder(border);
+                            confirms.get(cNum).setBackground(Color.black);
                             confirms.get(cNum).addActionListener(new Confirms(cNum,2));
                             a2.add(confirms.get(cNum));
                         }
                         else if (cNum==3){
                             a3.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm"));
-                            confirms.get(cNum).setBackground(Color.white);
+                            confirms.put(cNum,new JButton("Confirm!"));
+                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+                            confirms.get(cNum).setForeground(Color.red);
+                            confirms.get(cNum).setBorder(border);
+                            confirms.get(cNum).setBackground(Color.black);
                             confirms.get(cNum).addActionListener(new Confirms(cNum,2));
                             a3.add(confirms.get(cNum));
                         }
                         else if (cNum==4){
                             a4.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm"));
-                            confirms.get(cNum).setBackground(Color.white);
+                            confirms.put(cNum,new JButton("Confirm!"));
+                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+                            confirms.get(cNum).setForeground(Color.red);
+                            confirms.get(cNum).setBorder(border);
+                            confirms.get(cNum).setBackground(Color.black);
                             confirms.get(cNum).addActionListener(new Confirms(cNum,2));
                             a4.add(confirms.get(cNum));
                         }
@@ -665,11 +687,15 @@ public class GBattleScreen2 extends JFrame{
             cN=num;
         }
         public void actionPerformed(ActionEvent e){
+            Border border = new LineBorder(Color.green,3,true);
             String selected = (String)((JComboBox)e.getSource()).getSelectedItem();
             if (cN==1&&turn==1){
                 if (!confirms.containsKey(1)){
                     confirms.put(1,new JButton("Confirm"));
-                    confirms.get(1).setBackground(Color.white);
+                    confirms.get(1).setBackground(Color.gray);
+                    confirms.get(1).setFont(new Font("Comic Sans MS", Font.BOLD, 24));
+                    confirms.get(1).setForeground(Color.yellow);
+                    confirms.get(1).setBorder(border);
                     confirms.get(1).addActionListener(new confirmCard(selected,1));
                     p1.add(confirms.get(1));
                 }
@@ -679,7 +705,10 @@ public class GBattleScreen2 extends JFrame{
             if (cN==2&&turn==2){
                 if (!confirms.containsKey(2)){
                     confirms.put(2,new JButton("Confirm"));
-                    confirms.get(2).setBackground(Color.white);
+                    confirms.get(2).setBackground(Color.gray);
+                    confirms.get(2).setFont(new Font("Comic Sans MS", Font.BOLD, 24));
+                    confirms.get(2).setForeground(Color.yellow);
+                    confirms.get(2).setBorder(border);
                     confirms.get(2).addActionListener(new confirmCard(selected,2));
                     p2.add(confirms.get(2));
                 }
@@ -689,7 +718,10 @@ public class GBattleScreen2 extends JFrame{
             if (cN==3&&turn==3){
                 if (!confirms.containsKey(3)){
                     confirms.put(3,new JButton("Confirm"));
-                    confirms.get(3).setBackground(Color.white);
+                    confirms.get(3).setBackground(Color.gray);
+                    confirms.get(3).setFont(new Font("Comic Sans MS", Font.BOLD, 24));
+                    confirms.get(3).setForeground(Color.yellow);
+                    confirms.get(3).setBorder(border);
                     confirms.get(3).addActionListener(new confirmCard(selected,3));
                     p3.add(confirms.get(3));
                 }
@@ -699,7 +731,10 @@ public class GBattleScreen2 extends JFrame{
             if (cN==4&&turn==4){
                 if (!confirms.containsKey(4)){
                     confirms.put(4,new JButton("Confirm"));
-                    confirms.get(4).setBackground(Color.white);
+                    confirms.get(4).setBackground(Color.gray);
+                    confirms.get(4).setFont(new Font("Comic Sans MS", Font.BOLD, 24));
+                    confirms.get(4).setForeground(Color.yellow);
+                    confirms.get(4).setBorder(border);
                     confirms.get(4).addActionListener(new confirmCard(selected,4));
                     p4.add(confirms.get(4));
                 }
