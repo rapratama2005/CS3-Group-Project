@@ -58,6 +58,8 @@ public class GBattleScreen2 extends JFrame{
 
         card1 = new JPanel();
         card1.setLayout(new GridLayout(1,2));
+        Border border = new LineBorder(Color.black,3,true);
+        card1.setBorder(border);
         
         //right side
         a1 = new JPanel();
@@ -140,6 +142,7 @@ public class GBattleScreen2 extends JFrame{
 
         card2 = new JPanel();
         card2.setLayout(new GridLayout(1,2));
+        card2.setBorder(border);
         //left side
         c2 = new JPanel();
         c2.setLayout(new GridLayout(2,1));
@@ -196,6 +199,7 @@ public class GBattleScreen2 extends JFrame{
 
         card3 = new JPanel();
         card3.setLayout(new GridLayout(1,2));
+        card3.setBorder(border);
         //right side
         a3 = new JPanel();
         a3.setLayout(new GridLayout(5,1));
@@ -252,6 +256,7 @@ public class GBattleScreen2 extends JFrame{
         
         card4 = new JPanel();
         card4.setLayout(new GridLayout(1,2));
+        card4.setBorder(border);
         //left side
         c4 = new JPanel();
         c4.setLayout(new GridLayout(2,1));
@@ -323,18 +328,21 @@ public class GBattleScreen2 extends JFrame{
             confirms.put(1,new JButton("Confirm"));
             a1.add(confirms.get(1));
             confirms.get(1).setBackground(Color.white);
+            confirms.get(1).setFont(new Font("Comic Sans MS", Font.BOLD, 14));
             confirms.get(1).addActionListener(new Confirms(1,type));
         }
         else if (h==1&&!confirms.containsKey(2)){
             confirms.put(2,new JButton("Confirm"));
             a2.add(confirms.get(2));
             confirms.get(2).setBackground(Color.white);
+            confirms.get(2).setFont(new Font("Comic Sans MS", Font.BOLD, 14));
             confirms.get(2).addActionListener(new Confirms(2,type));
         }
         else if (h==2&&!confirms.containsKey(3)){
             confirms.put(3,new JButton("Confirm"));
             a3.add(confirms.get(3));
             confirms.get(3).setBackground(Color.white);
+            confirms.get(3).setFont(new Font("Comic Sans MS", Font.BOLD, 14));
             confirms.get(3).addActionListener(new Confirms(3,type));
 
         }
@@ -342,6 +350,7 @@ public class GBattleScreen2 extends JFrame{
             confirms.put(4,new JButton("Confirm"));
             a4.add(confirms.get(4));
             confirms.get(4).setBackground(Color.white);
+            confirms.get(4).setFont(new Font("Comic Sans MS", Font.BOLD, 14));
             confirms.get(4).addActionListener(new Confirms(4,type));
         }
         else{
