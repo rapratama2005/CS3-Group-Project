@@ -603,7 +603,7 @@ public class GBattleScreen2 extends JFrame{
                     panels.get(i).setBackground(Color.orange);
                 }
             }
-            //barCount==3
+            //barCount==maxBars
             else{
                 barCount--;
             }
@@ -616,17 +616,19 @@ public class GBattleScreen2 extends JFrame{
             //change out numbers in accordance to risky code
             if (type==1){ 
                 if (barCount==0){
-                    barCount++;
                 }
                 else{
+                    System.out.println(maxBars-1);
+                    System.out.println(barCount-2);
                     for (int i = maxBars-1; i>barCount-2; i--){
                         panels.get(i).setBackground(Color.white);
                     }
-                    for (int i=0; i<barCount; i++){
+                    for (int i=0; i<barCount-1; i++){
                         panels.get(i).setBackground(Color.orange);
                     }
+                    barCount--;
                 }
-                barCount--;
+                
             }
             else if (type==2){
                 System.out.println("hi");
