@@ -497,11 +497,13 @@ public class GBattleScreen2 extends JFrame{
         public void setTy(int ty){
             t=ty;
         }
+        //Attack and super functions
         public void actionPerformed(ActionEvent e){
             if (cardNum==1){
                 a1.remove(confirms.get(cardNum));
                 if (t==1){
                     supBar1.fillBar();
+
                     System.out.println("1");
                 }
                 else if (t==2){
@@ -588,6 +590,7 @@ public class GBattleScreen2 extends JFrame{
             Border border = new LineBorder(c,3,true);
             setBorder(border);
         }
+
         public void setMB(int ba){
             for (int i=maxBars-1; i>=0; i--){
                 remove(panels.remove(i));
@@ -682,52 +685,9 @@ public class GBattleScreen2 extends JFrame{
                         if (prevSel!=null){
                             atks.get(atks.indexOf(prevSel)).setBackground(Color.white);
                         }
-<<<<<<< HEAD
-                        if (cNum==1){
-                            a1.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm!"));
-                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
-                            confirms.get(cNum).setForeground(Color.red);
-                            confirms.get(cNum).setBorder(border);
-                            confirms.get(cNum).setBackground(Color.black);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a1.add(confirms.get(cNum));
-                        }
-                        else if (cNum==2){
-                            a2.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm!"));
-                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
-                            confirms.get(cNum).setForeground(Color.red);
-                            confirms.get(cNum).setBorder(border);
-                            confirms.get(cNum).setBackground(Color.black);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a2.add(confirms.get(cNum));
-                        }
-                        else if (cNum==3){
-                            a3.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm!"));
-                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
-                            confirms.get(cNum).setForeground(Color.red);
-                            confirms.get(cNum).setBorder(border);
-                            confirms.get(cNum).setBackground(Color.black);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a3.add(confirms.get(cNum));
-                        }
-                        else if (cNum==4){
-                            a4.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm!"));
-                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
-                            confirms.get(cNum).setForeground(Color.red);
-                            confirms.get(cNum).setBorder(border);
-                            confirms.get(cNum).setBackground(Color.black);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a4.add(confirms.get(cNum));
-                        }
-=======
                         selected = null;
                         //sup Num doesn't matter
                         addConfirm(cNum,3,1);
->>>>>>> 4cc80de3ab98442ff74e5f3fffd070e66a10cbce
                     }
                 }
             }
@@ -739,6 +699,7 @@ public class GBattleScreen2 extends JFrame{
         public boxes(int num){
             cN=num;
         }
+        // This is for the super
         public void actionPerformed(ActionEvent e){
             Border border = new LineBorder(Color.green,3,true);
             String selected = (String)((JComboBox)e.getSource()).getSelectedItem();
@@ -752,7 +713,7 @@ public class GBattleScreen2 extends JFrame{
                     confirms.get(1).addActionListener(new confirmCard(selected,1));
                     p1.add(confirms.get(1));
                 }
-                confirms.get(1).getActionListeners()[0] = new confirmCard(selected,1);
+                ((confirmCard)confirms.get(cN).getActionListeners()[0]).setS(selected);
                 D1.setText(deck.cardID(selected).getDesc(0));
             }
             if (cN==2&&turn==2){
@@ -809,6 +770,7 @@ public class GBattleScreen2 extends JFrame{
             sel = s;
         }
         public void actionPerformed(ActionEvent e){
+            
             DsuperCard car = deck.cardID(sel);
             field.add(car);
             if (i==1){
