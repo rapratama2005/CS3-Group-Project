@@ -682,52 +682,9 @@ public class GBattleScreen2 extends JFrame{
                         if (prevSel!=null){
                             atks.get(atks.indexOf(prevSel)).setBackground(Color.white);
                         }
-<<<<<<< HEAD
-                        if (cNum==1){
-                            a1.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm!"));
-                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
-                            confirms.get(cNum).setForeground(Color.red);
-                            confirms.get(cNum).setBorder(border);
-                            confirms.get(cNum).setBackground(Color.black);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a1.add(confirms.get(cNum));
-                        }
-                        else if (cNum==2){
-                            a2.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm!"));
-                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
-                            confirms.get(cNum).setForeground(Color.red);
-                            confirms.get(cNum).setBorder(border);
-                            confirms.get(cNum).setBackground(Color.black);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a2.add(confirms.get(cNum));
-                        }
-                        else if (cNum==3){
-                            a3.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm!"));
-                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
-                            confirms.get(cNum).setForeground(Color.red);
-                            confirms.get(cNum).setBorder(border);
-                            confirms.get(cNum).setBackground(Color.black);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a3.add(confirms.get(cNum));
-                        }
-                        else if (cNum==4){
-                            a4.remove(confirms.remove(cNum));
-                            confirms.put(cNum,new JButton("Confirm!"));
-                            confirms.get(cNum).setFont(new Font("Comic Sans MS", Font.BOLD, 48));
-                            confirms.get(cNum).setForeground(Color.red);
-                            confirms.get(cNum).setBorder(border);
-                            confirms.get(cNum).setBackground(Color.black);
-                            confirms.get(cNum).addActionListener(new Confirms(cNum,2));
-                            a4.add(confirms.get(cNum));
-                        }
-=======
                         selected = null;
                         //sup Num doesn't matter
                         addConfirm(cNum,3,1);
->>>>>>> 4cc80de3ab98442ff74e5f3fffd070e66a10cbce
                     }
                 }
             }
