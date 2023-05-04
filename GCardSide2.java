@@ -13,7 +13,7 @@ public class GCardSide2 extends GPanel{
     private JLabel pic;
     private JTextArea tex = new JTextArea(10,15);
     private DsuperCard card;
-    private JButton confirm;
+    private JButton confirm = null;
     DDeck deck = new DDeck();
 
     GCardSide2() {
