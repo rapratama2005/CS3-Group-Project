@@ -1,7 +1,10 @@
 import java.awt.Color;
 
 public class GCard extends GPanel{
-    DsuperCard x;
+    DsuperCard x; //0
+    DsuperCard ally; //2
+    DsuperCard[] enemy; //1
+    DsuperCard[] allyAndSelf; //3
     GCard(boolean left) {
         super(WIDTH, HEIGHT / 2, 1, 2, Color.white);
         GCardSide1 atksSide = new GCardSide1();
@@ -26,7 +29,7 @@ public class GCard extends GPanel{
     }
 
     void updateCard(){
-        
+
     }
     
 }
