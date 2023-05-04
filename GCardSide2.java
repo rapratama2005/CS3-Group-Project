@@ -19,7 +19,7 @@ public class GCardSide2 extends GPanel{
     GCardSide2() {
         super(WIDTH, HEIGHT, 2, 1, Color.white);
         
-        
+        //adds cards from deck to JComboBox
         box.addItem(deck.draw().getName());
         box.addItem(deck.draw().getName());
         box.addItem(deck.draw().getName());
