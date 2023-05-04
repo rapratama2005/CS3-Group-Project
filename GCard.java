@@ -5,7 +5,8 @@ public class GCard extends GPanel{
     DsuperCard ally; //2
     DsuperCard[] enemy; //1
     DsuperCard[] allyAndSelf; //3
-    GCard(boolean left) {
+    private int cardNum;
+    GCard(boolean left, int c) {
         super(WIDTH, HEIGHT / 2, 1, 2, Color.white);
         GCardSide1 atksSide = new GCardSide1();
         GCardSide2 descSide = new GCardSide2();
@@ -16,7 +17,7 @@ public class GCard extends GPanel{
             add(descSide);
             add(atksSide);
         }
-        //TODO Auto-generated constructor stub
+        cardNum = c;
     }
 
     DsuperCard setCard(DsuperCard y){

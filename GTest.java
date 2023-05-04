@@ -10,7 +10,7 @@ public class GTest extends JFrame{
         super();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(1,1));
-        GCard card = new GCard(false);
+        GCard card = new GCard(false,1);
         add(card);
         
         setVisible(true);
