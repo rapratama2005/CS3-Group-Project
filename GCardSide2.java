@@ -88,4 +88,7 @@ public class GCardSide2 extends GPanel{
     public DsuperCard getCard(){
         return card;
     }
+    public void setT(String t){
+        tex.setText(t);
+    }
 }
