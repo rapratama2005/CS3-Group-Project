@@ -106,6 +106,19 @@ public abstract class DsuperCard {
     public String[] getAllDesc(){
         return desc;
     }
+    public boolean canBAtk(){
+        return bReq <= supProg;
+    }
+    public boolean canSAtk(){
+        return supReq <= supProg;
+    }
+    public boolean canBSatk(int i){
+        if(i==0){
+            return canBAtk();
+        } else {
+            return canSAtk();
+        }
+    }
     /*
     //when ready
     public Srting getImageSource(){
