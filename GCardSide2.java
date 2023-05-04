@@ -55,6 +55,8 @@ public class GCardSide2 extends GPanel{
                 confirm.addActionListener(new confirmCard(selected));
             }
             tex.setText(deck.cardID(selected).getDesc(0));
+            revalidate();
+            repaint();
         }
     }
 
