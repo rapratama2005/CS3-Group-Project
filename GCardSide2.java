@@ -30,7 +30,7 @@ public class GCardSide2 extends GPanel{
 
         tex.setEditable(false);
         JScrollPane s1 = new JScrollPane(tex);
-        add(tex);
+        add(s1);
 
     }
 
