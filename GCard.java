@@ -1,4 +1,7 @@
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class GCard extends GPanel{
     DsuperCard x; //0
@@ -7,9 +10,14 @@ public class GCard extends GPanel{
     DsuperCard[] allyAndSelf; //3
     private int cardNum;
     GCard(boolean left, int c) {
+    int initative;
+    ArrayList<DsuperCard> dropDownArrayList = new ArrayList<>();
+    boolean isEnabled;
+    GCardSide1 atksSide = new GCardSide1();
+    GCardSide2 descSide = new GCardSide2();
+    GCard(boolean left, int initative2) {
         super(WIDTH, HEIGHT / 2, 1, 2, Color.white);
-        GCardSide1 atksSide = new GCardSide1();
-        GCardSide2 descSide = new GCardSide2();
+        initative = initative2;
         if(left){
             add(atksSide);
             add(descSide);
@@ -18,6 +26,27 @@ public class GCard extends GPanel{
             add(atksSide);
         }
         cardNum = c;
+        //atksSide.setVisible(false);
+        //descSide.setVisible(false);
+        //TODO Auto-generated constructor stub
+
+        ActionListener atk = new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                //throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+            }
+            
+        };
+    }
+
+    void onRound0(){
+        descSide.setVisible(true);
+    }
+
+    void onTurn(){
+        isEnabled = true;
     }
 
     DsuperCard setCard(DsuperCard y){
@@ -27,6 +56,11 @@ public class GCard extends GPanel{
 
     DsuperCard getCard(){
         return x;
+    }
+
+    int setInitiative(int x){
+        initative = x;
+        return initative;
     }
 
     void updateCard(){
