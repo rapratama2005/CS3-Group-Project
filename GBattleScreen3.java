@@ -3,11 +3,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.spec.EncodedKeySpec;
 import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.*;
+
 public class GBattleScreen3 extends JFrame{
     String BattleLog = "";
     int round = 0;
@@ -72,6 +72,15 @@ public class GBattleScreen3 extends JFrame{
                 add(imgPlace);
                 c = colorB;
             }
+            DsuperCard temp;
+                if (aNotB){
+                    temp = sideA[slot];
+                } else {
+                    temp = sideB[slot];
+                }
+            ImageIcon a = new ImageIcon(temp.getImgSource());
+            JLabel pic = new JLabel(a);
+            imgPlace.add(pic);
             modCombo m = new modCombo();
             toNext n = new toNext();
             boxIndex b = new boxIndex();
