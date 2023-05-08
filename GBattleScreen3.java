@@ -462,7 +462,7 @@ public class GBattleScreen3 extends JFrame{
             GButtonBAtk batk = new GButtonBAtk();
             GButtonSAtk satk = new GButtonSAtk();
             GLabel hpAndAtk = new GLabel("HP || ATK");
-            superCharge tempChargeBar;//Replace with actual bar later
+            superCharge tempChargeBar;
             GCardMid(Color color) {
                 super(WIDTH, HEIGHT, 5, 1, color);
                 DsuperCard temp;
