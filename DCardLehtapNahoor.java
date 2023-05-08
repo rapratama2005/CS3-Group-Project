@@ -1,12 +1,12 @@
-//R 4/11: Sample Card to test
-public class DCardTemplate extends DsuperCard{
+//R 4/11: Sample Card to test //Tank
+public class DCardLehtapNahoor extends DsuperCard{
     String initName = "Template Man";
-    int initHP = 10;
+    int initHP = 20;
     int initAtk = 2;
-    int initSup = 6;
+    int initSup = 8;
     int initB = 2;
-    String[] moveSet = {"Sample Attack","Sample Poison Attack", "Sample Super Attack"};
-    int[] applicability = {1, 1, 1};//0 is self, 1 is enemy, 2 is ally, 3 is ally and self
+    String[] moveSet = {"Sample Attack","Sample Poison Attack", "WHHAAATTTT"};
+    int[] applicability = {1, 1, 1};
     String image = "Ivy.jpg";
     String[] desc = {
         "Character Desc", 
@@ -15,7 +15,7 @@ public class DCardTemplate extends DsuperCard{
         "S Atk Desc"
     };
 
-    public DCardTemplate() {
+    public DCardLehtapNahoor() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
         super.setName(initName);
         super.setHealth(initHP);
@@ -55,6 +55,7 @@ public class DCardTemplate extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
+            
             return(super.bAtk(target));
         }
     }

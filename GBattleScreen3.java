@@ -93,18 +93,22 @@ public class GBattleScreen3 extends JFrame{
         }
 
         void checkAllEnabled(){
+            DsuperCard temp;
+            if (aNotB){
+                temp = sideA[slot];
+            } else {
+                temp = sideB[slot];
+            }
+            isDead=temp.isDead();            
+
             mid.atk.checkEnabled();
             mid.batk.checkEnabled();
             mid.satk.checkEnabled();
             descAndConf.con.checkEnabled();
-            DsuperCard temp;
-                if (aNotB){
-                    temp = sideA[slot];
-                } else {
-                    temp = sideB[slot];
-                }
             mid.hpAndAtk.setText("HP: " + temp.getHealth() + "/" + temp.getMaxH() + " | ATK: " + temp.getAtk());            
             mid.tempChargeBar.updateBar(temp.getSupProg());
+            //mid.cond.setText("COND:" + temp.getConditions());
+
         }
 
         public class modCombo implements ActionListener{
@@ -198,6 +202,9 @@ public class GBattleScreen3 extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 if(e.getSource().equals(descAndConf.con.button)&&descAndConf.con.enabled){
+                    if(isDead){
+                        desiredAction=0;
+                    }
                     if(desiredAction==0){
 
                     } if(desiredAction==1){
@@ -239,7 +246,7 @@ public class GBattleScreen3 extends JFrame{
                             }
                         }
                     }
-                    
+
                     if(currentSideA){
                         currentSideA = false;
                     } else {
@@ -249,6 +256,8 @@ public class GBattleScreen3 extends JFrame{
                     if(turn>=perSide){
                         turn=0;
                     }
+
+
                     System.out.println(""+turn+currentSideA);
                     
                     revalidate();
@@ -462,6 +471,7 @@ public class GBattleScreen3 extends JFrame{
             GButtonBAtk batk = new GButtonBAtk();
             GButtonSAtk satk = new GButtonSAtk();
             GLabel hpAndAtk = new GLabel("HP || ATK");
+            //GLabel cond = new GLabel("Cond");
             superCharge tempChargeBar;//Replace with actual bar later
             GCardMid(Color color) {
                 super(WIDTH, HEIGHT, 5, 1, color);
@@ -472,8 +482,10 @@ public class GBattleScreen3 extends JFrame{
                     temp = sideB[slot];
                 }
                 hpAndAtk.setText("HP: " + temp.getHealth() + "/" + temp.getMaxH() + " | ATK: " + temp.getAtk());
+                //cond.setText("COND:" + temp.getConditions());
                 tempChargeBar = new superCharge(temp.getSupReq());
                 add(hpAndAtk);
+                //add(cond);
                 add(atk);
                 add(batk);
                 add(satk);
