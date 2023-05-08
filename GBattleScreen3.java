@@ -103,9 +103,8 @@ public class GBattleScreen3 extends JFrame{
                 } else {
                     temp = sideB[slot];
                 }
-            mid.hpAndAtk.setText("HP: " + temp.getHealth() + "/" + temp.getMaxH() + " | ATK: " + temp.getAtk());
-            mid.tempChargeBar.setText("CHARGE: " + temp.getSupProg() + "/" + temp.getBReq() + "/" + temp.getSupReq());
-            
+            mid.hpAndAtk.setText("HP: " + temp.getHealth() + "/" + temp.getMaxH() + " | ATK: " + temp.getAtk());            
+            mid.tempChargeBar.updateBar(temp.getSupProg());
         }
 
         public class modCombo implements ActionListener{
@@ -399,12 +398,71 @@ public class GBattleScreen3 extends JFrame{
             }
         }
 
+        class superCharge extends JPanel{
+            private ArrayList<JPanel> panels = new ArrayList<>();
+            private int barCount = 0;
+            private int maxBars;
+            private String text="";
+            superCharge(int ba){
+                super();
+                maxBars = ba;
+                setLayout(new GridLayout(1,3));
+                Border border = new LineBorder(Color.black,3,true);
+                setBorder(border);
+                setPreferredSize(new Dimension(50,50));
+                
+                for (int i=0; i<ba; i++){
+                    panels.add(new JPanel());
+                    panels.get(i).setBackground(Color.white);
+                    add(panels.get(i));
+                }
+            }
+    
+            public void setBorC(Color c){
+                Border border = new LineBorder(c,3,true);
+                setBorder(border);
+            }
+    
+            public void setMB(int ba){
+                for (int i=maxBars-1; i>=0; i--){
+                    remove(panels.remove(i));
+                }
+                maxBars = ba;
+                setLayout(new GridLayout(1,maxBars));
+                for (int i=0; i<maxBars; i++){
+                    panels.add(new JPanel());
+                    panels.get(i).setBackground(Color.white);
+                    add(panels.get(i));
+                }
+            }
+    
+            public void updateBar(int currBar){
+                if (currBar>=maxBars){
+                    for (int i=0; i<currBar; i++){
+                        panels.get(i).setBackground(Color.red);
+                    }
+                }
+                else{
+                    for (int i=0; i<currBar; i++){
+                        panels.get(i).setBackground(Color.orange);
+                    }
+                    for (int i=currBar; i<maxBars; i++){
+                        panels.get(i).setBackground(Color.white);
+                    }
+                }
+            }
+    
+            public void setT(String ta){
+                text = ta;
+            }
+        }
+
         public class GCardMid extends GPanel{
             GButtonAtk atk = new GButtonAtk();
             GButtonBAtk batk = new GButtonBAtk();
             GButtonSAtk satk = new GButtonSAtk();
             GLabel hpAndAtk = new GLabel("HP || ATK");
-            GLabel tempChargeBar = new GLabel("a");//Replace with actual bar later
+            superCharge tempChargeBar;//Replace with actual bar later
             GCardMid(Color color) {
                 super(WIDTH, HEIGHT, 5, 1, color);
                 DsuperCard temp;
@@ -414,18 +472,17 @@ public class GBattleScreen3 extends JFrame{
                     temp = sideB[slot];
                 }
                 hpAndAtk.setText("HP: " + temp.getHealth() + "/" + temp.getMaxH() + " | ATK: " + temp.getAtk());
-                tempChargeBar.setText("CHARGE: " + temp.getSupProg() + "/" + temp.getBReq() + "/" + temp.getSupReq());
+                tempChargeBar = new superCharge(temp.getSupReq());
                 add(hpAndAtk);
                 add(atk);
                 add(batk);
                 add(satk);
                 add(tempChargeBar);
             }
-            
         }
         
         public class GCardDescAndConf extends GPanel{
-            private JComboBox box = new JComboBox(); 
+            private JComboBox box = new JComboBox();
             GButtonConfirm con = new GButtonConfirm();
             private JTextArea tex = new JTextArea(10,15);
 
