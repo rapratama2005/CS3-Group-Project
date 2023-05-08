@@ -238,7 +238,7 @@ public class GBattleScreen3 extends JFrame{
                         turn++;
                         currentSideA = true;
                     }
-                    if(turn>=3){
+                    if(turn>=perSide){
                         turn=0;
                     }
                     System.out.println(""+turn+currentSideA);

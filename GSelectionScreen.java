@@ -14,7 +14,7 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
 public class GSelectionScreen extends JFrame{
-    int perSide = 3;
+    int perSide = 2;
     int totalCards = perSide*2;
     DsuperCard[] sideA = new DsuperCard[perSide];
     DsuperCard[] sideB = new DsuperCard[perSide];
