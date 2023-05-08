@@ -304,10 +304,13 @@ public class GBattleScreen3 extends JFrame{
     
             void whenEnabled(){
                 button.setBackground(enabledColor);
+                setBackground(enabledColor);
             }
     
             void whenDisabled(){
                 button.setBackground(disabledColor);
+                setBackground(disabledColor);
+
             }
         }
     
