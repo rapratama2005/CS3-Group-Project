@@ -24,10 +24,6 @@ public class GSelectionScreen extends JFrame{
     DDeck cardIDs = new DDeck();
     int selectable = 0;
 
-    public static void main(String args[]){
-        GSelectionScreen s = new GSelectionScreen();
-    }
-
     public class Selection extends GPanel{
         private JComboBox box = new JComboBox();
         private GPanel pan = new GPanel(WIDTH, HEIGHT, 2, 1, Color.white);
