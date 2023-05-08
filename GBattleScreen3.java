@@ -570,6 +570,7 @@ public class GBattleScreen3 extends JFrame{
             
         }
         
+        
     }
 }
 
