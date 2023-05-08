@@ -22,12 +22,20 @@ public class DDeck {
     }
     
     public DsuperCard draw(){
-        int r = (int) Math.random()*deck.size();
+        int r = (int) (Math.random()*deck.size());
         return deck.remove(r);
     }
 
     public DsuperCard cardID (String i){
         return cardIDs.get(i);
+    }
+
+    public ArrayList<DsuperCard> getDeck(){
+        return deck;
+    }
+
+    public DsuperCard getCard(int i){
+        return deck.get(i);
     }
 
 }

@@ -8,9 +8,10 @@ public class GTest extends JFrame{
 
     GTest(){
         super();
+        setSize(new Dimension(1920, 1080));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(1,1));
-        GCard card = new GCard(false,1);
+        GCard card = new GCard(false,1, 1);
         add(card);
         
         setVisible(true);

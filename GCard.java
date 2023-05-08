@@ -9,13 +9,12 @@ public class GCard extends GPanel{
     DsuperCard[] enemy; //1
     DsuperCard[] allyAndSelf; //3
     private int cardNum;
-    GCard(boolean left, int c) {
     int initative;
     ArrayList<DsuperCard> dropDownArrayList = new ArrayList<>();
     boolean isEnabled;
     GCardSide1 atksSide = new GCardSide1();
     GCardSide2 descSide = new GCardSide2();
-    GCard(boolean left, int initative2) {
+    GCard(boolean left, int initative2, int c) {
         super(WIDTH, HEIGHT / 2, 1, 2, Color.white);
         initative = initative2;
         if(left){
