@@ -4,12 +4,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
@@ -28,6 +23,8 @@ public class GSelectionScreen extends JFrame{
         private JComboBox box = new JComboBox();
         private GPanel pan = new GPanel(WIDTH, HEIGHT, 2, 1, Color.white);
         GPanel imgPlace = new GPanel(WIDTH,HEIGHT,1,1,Color.white);
+        private ImageIcon a = null;
+        private JLabel pic;
         //TODO add image logic for this box
         private JTextArea tex = new JTextArea(10,15);
         int slot;
@@ -49,8 +46,10 @@ public class GSelectionScreen extends JFrame{
                 if(i==0){
                     if(aNotB){
                         sideA[slot] = cardIDs.cardID(drawn);
+                        a = new ImageIcon(sideA[slot].getImgSource());
                     } else {
                         sideB[slot] = cardIDs.cardID(drawn);
+                        a = new ImageIcon(sideB[slot].getImgSource());
                     }
                 }
             }
@@ -61,6 +60,9 @@ public class GSelectionScreen extends JFrame{
             JScrollPane s1 = new JScrollPane(tex);
 
             pan.add(s1);
+
+            pic = new JLabel(a);
+            imgPlace.add(pic);
             add(imgPlace);
             add(pan);
         } 
@@ -72,10 +74,14 @@ public class GSelectionScreen extends JFrame{
                 String selected = (String)((JComboBox)e.getSource()).getSelectedItem();
                 if(aNotB){
                     sideA[slot] = cardIDs.cardID(selected);
+                    a = new ImageIcon(sideA[slot].getImgSource());
                 } else {
                     sideB[slot] = cardIDs.cardID(selected);
+                    a = new ImageIcon(sideB[slot].getImgSource());
                 }
                 printSelected();
+                revalidate();
+                repaint();
             }
             
         }

@@ -226,7 +226,6 @@ public class GBattleScreen3 extends JFrame{
                                 BattleLog += sideB[turn].bAtk(sideA[target]) + "\n";
                             } else {
                                 BattleLog += sideB[turn].bAtk(sideB[target]) + "\n";
-
                             }
                         }
                     } if(desiredAction==3){
@@ -235,26 +234,26 @@ public class GBattleScreen3 extends JFrame{
                                 BattleLog += sideA[turn].sAtk(sideB[target])+ "\n";
                             } else {
                                 BattleLog += sideA[turn].sAtk(sideA[target])+ "\n";
-
                             }
                         } else {
                             if(sideB[turn].getSAtkApplicability()==1){
                                 BattleLog += sideB[turn].sAtk(sideA[target])+ "\n";
                             } else {
                                 BattleLog += sideB[turn].sAtk(sideB[target])+ "\n";
-
                             }
                         }
                     }
 
                     if(currentSideA){
                         currentSideA = false;
+                        sideB[turn].checkConditions();
                     } else {
                         turn++;
                         currentSideA = true;
-                    }
-                    if(turn>=perSide){
-                        turn=0;
+                        if(turn>=perSide){
+                            turn=0;
+                        }
+                        sideA[turn].checkConditions();
                     }
 
 
@@ -409,9 +408,7 @@ public class GBattleScreen3 extends JFrame{
 
         class superCharge extends JPanel{
             private ArrayList<JPanel> panels = new ArrayList<>();
-            private int barCount = 0;
             private int maxBars;
-            private String text="";
             superCharge(int ba){
                 super();
                 maxBars = ba;
@@ -447,7 +444,7 @@ public class GBattleScreen3 extends JFrame{
     
             public void updateBar(int currBar){
                 if (currBar>=maxBars){
-                    for (int i=0; i<currBar; i++){
+                    for (int i=0; i<maxBars; i++){
                         panels.get(i).setBackground(Color.red);
                     }
                 }
@@ -460,10 +457,6 @@ public class GBattleScreen3 extends JFrame{
                     }
                 }
             }
-    
-            public void setT(String ta){
-                text = ta;
-            }
         }
 
         public class GCardMid extends GPanel{
@@ -471,8 +464,7 @@ public class GBattleScreen3 extends JFrame{
             GButtonBAtk batk = new GButtonBAtk();
             GButtonSAtk satk = new GButtonSAtk();
             GLabel hpAndAtk = new GLabel("HP || ATK");
-            //GLabel cond = new GLabel("Cond");
-            superCharge tempChargeBar;//Replace with actual bar later
+            superCharge tempChargeBar;
             GCardMid(Color color) {
                 super(WIDTH, HEIGHT, 5, 1, color);
                 DsuperCard temp;
