@@ -276,10 +276,7 @@ public class GBattleScreen3 extends JFrame{
                 //style shit
                 button.setBackground(disabledColor);
                 button.setVisible(true);
-                    // button.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
-                    // Border border = new LineBorder(Color.green,3,true);
-                    // button.setForeground(Color.yellow);
-                    // button.setBorder(border);
+                    //UI - UPDATE STYLE HERE
                 //end style shit
                 add(button);
             }
