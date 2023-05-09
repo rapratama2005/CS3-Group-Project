@@ -212,6 +212,24 @@ public class GBattleScreen3 extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 if(e.getSource().equals(descAndConf.con.button)&&descAndConf.con.enabled){
+                    String index = descAndConf.box.getSelectedItem().toString();
+                    //target = index;
+                    System.out.println("nnn" + index);
+                    if(currentSideA){
+                        for (int i = 0; i < sideA.length; i++){
+                            if(sideA[i].getName().equals(index)){
+                                target=i;
+                            }
+                        }
+                    } else {
+                        {
+                            for (int i = 0; i < sideB.length; i++){
+                                if(sideB[i].getName().equals(index)){
+                                    target=i;
+                                }
+                            }
+                        }
+                    }
                     if(isDead){
                         desiredAction=0;
                     }
@@ -219,9 +237,9 @@ public class GBattleScreen3 extends JFrame{
 
                     } if(desiredAction==1){
                         if(currentSideA){
-                            BattleLog += sideA[turn].atk(sideB[target]);
+                            BattleLog += sideA[turn].atk(sideB[target])+ "\n";
                         } else {
-                            BattleLog += sideB[turn].atk(sideA[target]);
+                            BattleLog += sideB[turn].atk(sideA[target])+ "\n";
                         }
                     } if(desiredAction==2){
                         if(currentSideA){
@@ -275,8 +293,9 @@ public class GBattleScreen3 extends JFrame{
                     for (int i = 0; i < cardList.length; i++){
                         cardList[i].checkAllEnabled();
                     }
-
+                    
                     System.out.println(BattleLog);
+                    checkWin();
                 }
             }
             
@@ -589,10 +608,34 @@ public class GBattleScreen3 extends JFrame{
             midd.log.setText(BattleLog);
             revalidate();
             repaint();
-            
+            checkWin();
         }
         
-        
+
+    }
+
+    public void checkWin(){
+        boolean anyRedAlive = false;
+        boolean anyBlueAlive = false;
+        for(DsuperCard a: sideA){
+            if(!a.isDead()){
+                anyRedAlive=true;
+            }
+        }
+        for(DsuperCard a: sideB){
+            if(!a.isDead()){
+                anyBlueAlive=true;
+            }
+        }
+        System.out.println(anyRedAlive);
+        System.out.println(anyBlueAlive);
+        if(!anyRedAlive){
+            GVictoryScreen a = new GVictoryScreen(true);
+            setVisible(false);
+        } if(!anyBlueAlive){
+            GVictoryScreen a = new GVictoryScreen(false);
+            setVisible(false);
+        }
     }
 }
 
