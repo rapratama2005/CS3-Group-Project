@@ -213,22 +213,22 @@ public abstract class DsuperCard {
     }
     //Abstract Func
     public String atk(DsuperCard target){
-        return (this.getName() + " used " + this.getAName() + " (main attack) on " + target.getName() + ".");
+        return (this.getName() + " used " + this.getAName() + " (main attack) on " + target.getName() + ".\n");
     }
     public String bAtk(DsuperCard target){
         if(!checkB()){
-            return this.getName() + " invalid use " + this.getBName() + " (alternate attack) on " + target.getName() + ".";
+            return this.getName() + " invalid use " + this.getBName() + " (alternate attack) on " + target.getName() + ".\n";
         } else {
             supProg -= bReq;
-            return (this.getName() + " used " + this.getBName() + " (alternate attack) on " + target.getName() + ".");
+            return (this.getName() + " used " + this.getBName() + " (alternate attack) on " + target.getName() + ".\n");
         }
     }
     public String sAtk(DsuperCard target){
         if (!checkSup()){
-            return this.getName() + " invalid use " + this.getSName() + " (special attack) on " + target.getName();
+            return this.getName() + " invalid use " + this.getSName() + " (special attack) on " + target.getName()+ ".\n";
         } else {
             supProg = 0;
-            return this.getName() + " used " + this.getSName() + " (special attack) on " + target.getName();
+            return this.getName() + " used " + this.getSName() + " (special attack) on " + target.getName()+ ".\n";
         }
     }
     //Essentials

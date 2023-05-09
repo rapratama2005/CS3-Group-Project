@@ -57,6 +57,8 @@ public class GSelectionScreen extends JFrame{
             pan.add(box);
 
             tex.setEditable(false);
+            tex.setLineWrap(true);
+            tex.setWrapStyleWord(true);
             JScrollPane s1 = new JScrollPane(tex);
 
             pan.add(s1);
@@ -72,13 +74,20 @@ public class GSelectionScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selected = (String)((JComboBox)e.getSource()).getSelectedItem();
+                DsuperCard temp;
                 if(aNotB){
                     sideA[slot] = cardIDs.cardID(selected);
                     a = new ImageIcon(sideA[slot].getImgSource());
+                    temp = sideA[slot];
                 } else {
                     sideB[slot] = cardIDs.cardID(selected);
                     a = new ImageIcon(sideB[slot].getImgSource());
+                    temp = sideB[slot];
                 }
+                tex.setText(temp.getDesc(0));
+                pic = new JLabel(a);
+                imgPlace.removeAll();
+                imgPlace.add(pic);
                 printSelected();
                 revalidate();
                 repaint();

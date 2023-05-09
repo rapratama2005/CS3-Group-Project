@@ -25,6 +25,7 @@ public class GBattleScreen3 extends JFrame{
     GCard2[] cardList;
     Color colorA;
     Color colorB;
+    GMid midd;
 
     public class GLabel extends JLabel{
         GLabel(String text){
@@ -41,8 +42,16 @@ public class GBattleScreen3 extends JFrame{
     }
 
     public class GMid extends GSide{
+        JTextArea log = new JTextArea(10,15);
+        JPanel placeholder = new JPanel();
         GMid(){
             super(Color.white, false);
+            log.setEditable(false);
+            log.setLineWrap(true);
+            log.setWrapStyleWord(true);
+            JScrollPane s2 = new JScrollPane(log);
+            add(placeholder);
+            add(s2);
         }
     }
 
@@ -107,6 +116,7 @@ public class GBattleScreen3 extends JFrame{
             descAndConf.con.checkEnabled();
             mid.hpAndAtk.setText("HP: " + temp.getHealth() + "/" + temp.getMaxH() + " | ATK: " + temp.getAtk());            
             mid.tempChargeBar.updateBar(temp.getSupProg());
+            mid.cond.setText(temp.getConditions().toString());
             //mid.cond.setText("COND:" + temp.getConditions());
 
         }
@@ -465,8 +475,9 @@ public class GBattleScreen3 extends JFrame{
             GButtonSAtk satk = new GButtonSAtk();
             GLabel hpAndAtk = new GLabel("HP || ATK");
             superCharge tempChargeBar;
+            JTextArea cond = new JTextArea(10,15);
             GCardMid(Color color) {
-                super(WIDTH, HEIGHT, 5, 1, color);
+                super(WIDTH, HEIGHT, 6, 1, color);
                 DsuperCard temp;
                 if (aNotB){
                     temp = sideA[slot];
@@ -476,8 +487,13 @@ public class GBattleScreen3 extends JFrame{
                 hpAndAtk.setText("HP: " + temp.getHealth() + "/" + temp.getMaxH() + " | ATK: " + temp.getAtk());
                 //cond.setText("COND:" + temp.getConditions());
                 tempChargeBar = new superCharge(temp.getSupReq());
+                cond.setEditable(false);
+                cond.setLineWrap(true);
+                cond.setWrapStyleWord(true);
+                JScrollPane s2 = new JScrollPane(cond);
+
                 add(hpAndAtk);
-                //add(cond);
+                add(s2);
                 add(atk);
                 add(batk);
                 add(satk);
@@ -489,16 +505,20 @@ public class GBattleScreen3 extends JFrame{
             private JComboBox box = new JComboBox();
             GButtonConfirm con = new GButtonConfirm();
             private JTextArea tex = new JTextArea(10,15);
+            JTextArea cond = new JTextArea(10,15);
+
 
             GCardDescAndConf(Color color) {
                 super(WIDTH, HEIGHT, 3, 1, color);
-                add(box);
-                add(con);
                 con.checkEnabled();
                 tex.setEditable(false);
+                tex.setLineWrap(true);
+                tex.setWrapStyleWord(true);
                 JScrollPane s1 = new JScrollPane(tex);
-
+                add(box);
+                add(con);
                 add(s1);
+                
                 //TODO Auto-generated constructor stub
             }
         }
@@ -533,9 +553,9 @@ public class GBattleScreen3 extends JFrame{
         setLayout(new GridLayout(1,3));
         GSide AGSide = new GSide(colorA, true);
         GSide BGSide = new GSide(colorB, false);
-        GMid mid = new GMid();
+        midd = new GMid();
         add(AGSide);
-        add(mid);
+        add(midd);
         add(BGSide);
         toNext2 tn2 = new toNext2();
         for (int i = 0; i < perSide; i++){
@@ -565,6 +585,8 @@ public class GBattleScreen3 extends JFrame{
             for (int i = 0; i < cardList.length; i++){
                 cardList[i].checkAllEnabled();
             }
+            System.out.println(BattleLog);
+            midd.log.setText(BattleLog);
             revalidate();
             repaint();
             
