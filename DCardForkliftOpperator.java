@@ -1,7 +1,7 @@
 //R 4/11: Forklift Opperator - Support-DPS hybrid
 public class DCardForkliftOpperator extends DsuperCard{
     String initName = "Forklift Opperator";
-    int initHP = 17;
+    int initHP = 19;
     int initAtk = 3;
     int initSup = 9;
     int initB = 4;
