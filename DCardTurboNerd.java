@@ -7,7 +7,7 @@ public class DCardTurboNerd extends DsuperCard{
     int initB = 2;
     String[] moveSet = {"Umm Ackshually","The Quadratic Equation", "The power of GOD and ANIME on my side"};
     int[] applicability = {1, 0, 0};
-    String image = "Ivy.jpg";
+    String image = "ICards/TurboNerd.png";
     String[] desc = {
         "Be careful who you make fun of in school. Actually, don't. It's way funnier this way.",
         "*insert nerdy rant here*. Deals base damage.", 

@@ -1,4 +1,9 @@
+package Unused;
 //R 4/11: Sample Card to test
+
+import DConditionPoison;
+import DsuperCard;
+
 public class DSampleCard extends DsuperCard{
     String initName = "Sample Man";
     int initHP = 10;

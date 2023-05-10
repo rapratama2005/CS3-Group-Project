@@ -1,3 +1,4 @@
+package Unused;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -6,6 +7,9 @@ import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.border.*;
 import javax.swing.event.*;
+
+import DDeck;
+import DsuperCard;
 // Dropdown box chooses card. It will give a description of the card and what it's attacks do
 // Confirm button changes all of the graphics, removes the dropdown and confirm button and 
 // add in the picture.

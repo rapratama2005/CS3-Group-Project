@@ -1,6 +1,9 @@
+package Unused;
 import java.awt.Color;
 
 import javax.swing.JLabel;
+
+import GPanel;
 
 public class GCardStats extends GPanel{
     String name;

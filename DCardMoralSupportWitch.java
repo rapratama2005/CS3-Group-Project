@@ -7,7 +7,7 @@ public class DCardMoralSupportWitch extends DsuperCard{
     int initB = 2;
     String[] moveSet = {"Minor Electric Bolt","Thaumaturgical Support", "Fulfilling the Prophecy"};
     int[] applicability = {1, 2, 3};
-    String image = "Ivy.jpg";
+    String image = "ICards/MoralSupportWitch.png";
     String[] desc = {
         "You can do it!", 
         "A SHOCKING revelation! Deals base damage.", 

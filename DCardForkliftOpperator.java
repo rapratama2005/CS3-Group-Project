@@ -1,21 +1,21 @@
-//R 4/11: Peanut - DPS
-public class DCardPeanut extends DsuperCard{
-    String initName = "The Peanut";
-    int initHP = 8;
-    int initAtk = 4;
-    int initSup = 15;
-    int initB = 6;
-    String[] moveSet = {"Tap","Blink", "Neck Snap!"};
-    int[] applicability = {1, 1, 1};
-    String image = "ICards/Peanut.png";
+//R 4/11: Forklift Opperator - Support-DPS hybrid
+public class DCardForkliftOpperator extends DsuperCard{
+    String initName = "Forklift Opperator";
+    int initHP = 12;
+    int initAtk = 3;
+    int initSup = 9;
+    int initB = 4;
+    String[] moveSet = {"Ramming Forks","Safety Requirments", "Heavy Lifting"};
+    int[] applicability = {1, 2, 0};//0 is self, 1 is enemy, 2 is ally, 3 is ally and self
+    String image = "ICards/ForkliftOpperator.png";
     String[] desc = {
-        "'Item SCP-173 is to be kept in a locked container at all times'-https://scp-wiki.wikidot.com/scp-173", 
-        "Deals base damage.", 
-        "'At all times, two persons must maintain direct eye contact with SCP-173 until all personnel have vacated and relocked the container.' Inflicts weakness effect of magnitude 2 duration 3 on an enemy", 
-        "'Object is reported to attack by snapping the neck at the base of the skull, or by strangulation.' Inflicts 3x base damage on an enemy."
+        "What matters is that I'm forklift certified, and you're not", 
+        "Strong but slow. Deals base damage.", 
+        "Safety Always comes first. Grants self and one ally a magnitude 2 resistance effect for duration 3.", 
+        "Steady... Steady... Grants self a magnitude 4 duration 2 strength effect."
     };
 
-    public DCardPeanut() {
+    public DCardForkliftOpperator() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
         super.setName(initName);
         super.setHealth(initHP);
@@ -31,15 +31,15 @@ public class DCardPeanut extends DsuperCard{
         super.setAtkApplicability(applicability[0]);
         super.setBAtkApplicability(applicability[1]);
         super.setSAtkApplicability(applicability[2]);
-        super.setApplicabilityArray(applicability);
         super.setDesc(desc);
+        super.setApplicabilityArray(applicability);
     }
 
     @Override
     public String atk(DsuperCard target) {
         /*
          * Attack Desc
-         * Tap on the shoulder
+         * 
          */
         target.hurt(super.getAtk());
         progSup(super.getAtk());
@@ -55,8 +55,9 @@ public class DCardPeanut extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
-            DCondition s = new DConditionWeakness(3, "Blink", 2);
-            target.addConditions(s);
+            DConditionResistance s = new DConditionResistance(3, "Safety Requirments", 2);
+            inflictCondition(target, s);
+            inflictCondition(this, s);
             return(super.bAtk(target));
         }
     }
@@ -70,7 +71,8 @@ public class DCardPeanut extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            target.hurt(super.getAtk()*3);
+            DConditionStrength s = new DConditionStrength(2, "Heavy Lifting", 4);
+            inflictCondition(target, s);
             return(super.sAtk(target));
         }
     }

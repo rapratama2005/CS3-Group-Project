@@ -1,3 +1,4 @@
+package Unused;
 import java.awt.Color;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,6 +8,8 @@ import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.border.*;
 import javax.swing.event.*;
+
+import GPanel;
 //disable function
 public class GCardSide1 extends GPanel{
     GCardStats hp = new GCardStats("Health", 1);

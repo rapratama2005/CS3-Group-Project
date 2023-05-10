@@ -1,3 +1,4 @@
+package Unused;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -6,6 +7,10 @@ import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.border.*;
 import javax.swing.event.*;
+
+import DDeck;
+import DsuperCard;
+import GPanel;
 
 public class GCardSide2 extends GPanel{
     private JComboBox box = new JComboBox();

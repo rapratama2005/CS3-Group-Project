@@ -12,7 +12,7 @@ public class DCardDrunkenSailor extends DsuperCard{
         "What do we do with the Drunken Sailor?", 
         "A Simple Bottle Attack. Deals the base damage of " + initAtk + " on an enemy.", 
         "The... 'Quality' of the voice is effective in weakening your enemy for a period of time. Inflicts a weakness effect with a duration of 3 and a magnitude of 2.", 
-        "Years of drinking have strengthened your resolve. Grants strength for a duration of 3 and a magnitude of 3."
+        "Years of drinking have strengthened your resolve. Grants resistance for a duration of 3 and a magnitude of 3."
     };
 
     public DCardDrunkenSailor() {
