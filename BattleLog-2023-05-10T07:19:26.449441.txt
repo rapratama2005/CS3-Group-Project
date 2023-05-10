@@ -1,0 +1,18 @@
+Punching Bag used Light Jab on Mad Scientist for 2 damage.
+Mad Scientist used Laser Gun on Forklift Opperator for 5 damage.
+Forklift Opperator used Ramming Forks on Mad Scientist for 3 damage.
+The Game Development Team used Bad GUI on Forklift Opperator for 2 damage.
+Punching Bag used Light Jab on Mad Scientist for 2 damage.
+Mad Scientist used Laser Gun on Forklift Opperator for 5 damage.
+The Game Development Team used Bad GUI on Punching Bag for 2 damage.
+Punching Bag used Light Jab on Mad Scientist for 2 damage.
+Mad Scientist used Funny Chemicals (alternate attack) on Punching Bag
+The Game Development Team used Bad GUI on Punching Bag for 2 damage.
+Punching Bag used Absorb Hit (alternate attack) on Punching Bag
+Mad Scientist used Laser Gun on Punching Bag for 5 damage.
+The Game Development Team used Bad GUI on Punching Bag for 2 damage.
+Punching Bag used Absorb Hit (alternate attack) on Punching Bag
+Mad Scientist used Laser Gun on Punching Bag for 5 damage.
+The Game Development Team used Bad GUI on Punching Bag for 2 damage.
+Punching Bag used Light Jab on Mad Scientist for 2 damage.
+The Game Development Team used Bad GUI on Punching Bag for 2 damage.
