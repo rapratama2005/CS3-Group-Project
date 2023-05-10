@@ -78,8 +78,8 @@ public class DCardMadScientist extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            DCondition s = new DConditionResistance(3, "Mutant Resistance", 8);
-            DCondition s2 = new DConditionStrength(3, "Mutant Strength", 5);
+            DCondition s = new DConditionResistance(1, "Mutant Resistance", 8);
+            DCondition s2 = new DConditionStrength(1, "Mutant Strength", 5);
             target.setHealth(1);
             inflictCondition(target, s);
             inflictCondition(target, s2);

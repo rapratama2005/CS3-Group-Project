@@ -55,7 +55,7 @@ public class DCardTurboNerd extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
-            DCondition s = new DConditionResistance(3, "Quadratic Equation", 3);
+            DCondition s = new DConditionResistance(3, "Quadratic Equation", 1);
             target.addConditions(s);
             return(super.bAtk(target));
         }

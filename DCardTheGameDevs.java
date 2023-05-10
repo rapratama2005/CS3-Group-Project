@@ -55,7 +55,7 @@ public class DCardTheGameDevs extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
-            DConditionResistance s = new DConditionResistance(2, "Late Night Grinding", 2);
+            DConditionResistance s = new DConditionResistance(3, "Late Night Grinding", 1);
             inflictCondition(target, s);
             return(super.bAtk(target));
         }

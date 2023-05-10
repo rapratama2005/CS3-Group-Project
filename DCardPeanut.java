@@ -55,7 +55,7 @@ public class DCardPeanut extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
-            DCondition s = new DConditionWeakness(3, "Blink", 2);
+            DCondition s = new DConditionWeakness(3, "Blink", 1);
             target.addConditions(s);
             return(super.bAtk(target));
         }

@@ -55,7 +55,7 @@ public class DCardDrunkenSailor extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
-            DCondition s = new DConditionWeakness(3, "Synchronized Singing", 2);
+            DCondition s = new DConditionWeakness(3, "Synchronized Singing", 1);
             inflictCondition(target, s);
             return(super.bAtk(target));
         }
@@ -70,7 +70,7 @@ public class DCardDrunkenSailor extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            DCondition s = new DConditionResistance(3, "Alcoholic Resistance", 3);
+            DCondition s = new DConditionResistance(3, "Alcoholic Resistance", 2);
             inflictCondition(target, s);
             return(super.sAtk(target));
         }
