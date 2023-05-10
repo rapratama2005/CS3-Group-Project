@@ -6,12 +6,12 @@ public class DCardMoralSupportWitch extends DsuperCard{
     int initSup = 8;
     int initB = 2;
     String[] moveSet = {"Minor Electric Bolt","Thaumaturgical Support", "Fulfilling the Prophecy"};
-    int[] applicability = {1, 2, 3};
+    int[] applicability = {1, 3, 3};
     String image = "ICards/MoralSupportWitch.png";
     String[] desc = {
         "You can do it!", 
         "A SHOCKING revelation! Deals base damage.", 
-        "Keep Going! Grants a magnitude 2 resistance effect for duration 3.", 
+        "Keep Going! Grants a magnitude 1 resistance effect for duration 3.", 
         "Sending you my energy! Grants an ally a magnitude 5 strength effect for duration 3."};
 
     public DCardMoralSupportWitch() {

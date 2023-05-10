@@ -11,7 +11,7 @@ public class DCardTurboNerd extends DsuperCard{
     String[] desc = {
         "Be careful who you make fun of in school. Actually, don't. It's way funnier this way.",
         "*insert nerdy rant here*. Deals base damage.", 
-        "'Negative B plus or minus the square root of B squared minus 4 A C all over 2 A'. Grants a resistance effect of duration 3 and magnitude 3", 
+        "'Negative B plus or minus the square root of B squared minus 4 A C all over 2 A'. Grants a resistance effect of duration 3 and magnitude 1", 
         "*I don't watch anime, pretend there's a cool catchphrase here*. Grants a regeneration effect of duration 2 and magnitude 5."
     };
 

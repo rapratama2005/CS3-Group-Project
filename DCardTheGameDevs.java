@@ -11,7 +11,7 @@ public class DCardTheGameDevs extends DsuperCard{
     String[] desc = {
         "Look at these losers bro", 
         "[meta joke here]. Deals base damage.", 
-        "AAAAHHHHHH. Grants magnitude 2 duration 2 resistance effect on self.", 
+        "AAAAHHHHHH. Grants magnitude 1 duration 2 resistance effect on self.", 
         "I don't know how to break the fourth wall. Grants magnitude 4 duration 2 regeneration effect on self."
     };
 
