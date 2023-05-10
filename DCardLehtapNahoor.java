@@ -1,7 +1,7 @@
 //R 4/11: Sample Card to test //Attack
 public class DCardLehtapNahoor extends DsuperCard{
     String initName = "LehtapNahoor";
-    int initHP = 10;
+    int initHP = 15;
     int initAtk = 4;
     int initSup = 16;
     int initB = 4;
@@ -11,7 +11,7 @@ public class DCardLehtapNahoor extends DsuperCard{
     String[] desc = {
         "The most op card", 
         "Uses the power of AI. Deals base damage", 
-        "Lags the opponent. Grants a weakness effect of magnitude 2 for 2 turns", 
+        "Lags the opponent. Grants a weakness effect of magnitude 1 for 2 turns", 
         "Uses the power of his voice to reduce all incoming damage. Grants a resistance effect of magnitude 3 for 3 turns. Then increases attack by 2 for 3 turns"
     };
 
@@ -55,7 +55,7 @@ public class DCardLehtapNahoor extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
-            target.addConditions(new DConditionWeakness(2, "Stumble Guys", 2));
+            target.addConditions(new DConditionWeakness(2, "Stumble Guys", 1));
             return(super.bAtk(target));
         }
     }

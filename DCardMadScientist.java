@@ -1,7 +1,7 @@
 //R 4/11: Mad Scientist Card - DPS
 public class DCardMadScientist extends DsuperCard{
     String initName = "Mad Scientist";
-    int initHP = 10;
+    int initHP = 15;
     int initAtk = 5;
     int initSup = 15;
     int initB = 8;

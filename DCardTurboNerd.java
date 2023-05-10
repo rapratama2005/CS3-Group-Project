@@ -1,7 +1,7 @@
 //R 4/11: Turbo Nerd - Tank
 public class DCardTurboNerd extends DsuperCard{
     String initName = "Turbo Nerd";
-    int initHP = 20;
+    int initHP = 23;
     int initAtk = 2;
     int initSup = 8;
     int initB = 2;
@@ -12,7 +12,7 @@ public class DCardTurboNerd extends DsuperCard{
         "Be careful who you make fun of in school. Actually, don't. It's way funnier this way.",
         "*insert nerdy rant here*. Deals base damage.", 
         "'Negative B plus or minus the square root of B squared minus 4 A C all over 2 A'. Grants a resistance effect of duration 3 and magnitude 1", 
-        "*I don't watch anime, pretend there's a cool catchphrase here*. Grants a regeneration effect of duration 2 and magnitude 5."
+        "*I don't watch anime, pretend there's a cool catchphrase here*. Grants a regeneration effect of duration 2 and magnitude 3."
     };
 
     public DCardTurboNerd() {
@@ -70,7 +70,7 @@ public class DCardTurboNerd extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            DCondition s = new DConditionRegen(2, "The Power of GOD and ANIME", 5);
+            DCondition s = new DConditionRegen(2, "The Power of GOD and ANIME", 3);
             target.addConditions(s);
             return(super.sAtk(target));
         }

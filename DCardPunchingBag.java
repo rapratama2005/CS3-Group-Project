@@ -1,7 +1,7 @@
 //R 4/11: Punching Bag - Tank and test bot
 public class DCardPunchingBag extends DsuperCard{
     String initName = "Punching Bag";
-    int initHP = 20;
+    int initHP = 30;
     int initAtk = 2;
     int initSup = 4;
     int initB = 2;
@@ -13,7 +13,7 @@ public class DCardPunchingBag extends DsuperCard{
     String[] desc = {
         "Is it a bag FOR punching or a bag THAT punches?", 
         "Don't ask me how. Deals base damage.", 
-        "Adds the amount of damage from the last hit to a Super Attack", 
+        "Adds the amount of damage from the last hit to a Super Attack. Then heals 2 health", 
         "Thanks, Newton! Deals stored damage from 'Absorb Hit'"};
 
     public DCardPunchingBag() {
@@ -56,7 +56,8 @@ public class DCardPunchingBag extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
-            absorbedDamage = lastHit;
+            absorbedDamage += lastHit;
+            heal(2);
             return(super.bAtk(target));
         }
     }

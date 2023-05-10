@@ -1,7 +1,7 @@
 //R 4/11: Peanut - DPS
 public class DCardPeanut extends DsuperCard{
     String initName = "The Peanut";
-    int initHP = 8;
+    int initHP = 15;
     int initAtk = 4;
     int initSup = 15;
     int initB = 6;

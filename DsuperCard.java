@@ -259,6 +259,9 @@ public abstract class DsuperCard {
     }
 
     public int progSup(int pS){
+        if(pS==0){
+            pS=1;
+        }
         supProg += pS;
         return supProg;
     }

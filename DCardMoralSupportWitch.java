@@ -1,7 +1,7 @@
 //R 4/11: Moral Support Witch - Support
 public class DCardMoralSupportWitch extends DsuperCard{
     String initName = "Moral Support Witch";
-    int initHP = 15;
+    int initHP = 20;
     int initAtk = 2;
     int initSup = 8;
     int initB = 2;

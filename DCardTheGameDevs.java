@@ -1,7 +1,7 @@
 //R 4/11: Stupid Card: tank
 public class DCardTheGameDevs extends DsuperCard{
     String initName = "The Game Development Team";
-    int initHP = 18;
+    int initHP = 20;
     int initAtk = 2;
     int initSup = 10;
     int initB = 4;
@@ -12,7 +12,7 @@ public class DCardTheGameDevs extends DsuperCard{
         "Look at these losers bro", 
         "[meta joke here]. Deals base damage.", 
         "AAAAHHHHHH. Grants magnitude 1 duration 2 resistance effect on self.", 
-        "I don't know how to break the fourth wall. Grants magnitude 4 duration 2 regeneration effect on self."
+        "I don't know how to break the fourth wall. Grants magnitude 3 duration 2 regeneration effect on self."
     };
 
     public DCardTheGameDevs() {
@@ -70,7 +70,7 @@ public class DCardTheGameDevs extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            DConditionRegen s = new DConditionRegen(2, "Intentionally Placed Bug", 4);
+            DConditionRegen s = new DConditionRegen(2, "Intentionally Placed Bug", 3);
             inflictCondition(target, s);
             return(super.sAtk(target));
         }

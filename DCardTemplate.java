@@ -1,7 +1,7 @@
 //R 4/11: Sample Card to test
 public class DCardTemplate extends DsuperCard{
     String initName = "Template Man";
-    int initHP = 10;
+    int initHP = 15;
     int initAtk = 2;
     int initSup = 6;
     int initB = 2;

@@ -1,7 +1,7 @@
 //Drunken Sailor - Tank card
 public class DCardDrunkenSailor extends DsuperCard{
     String initName = "Drunken Sailor";
-    int initHP = 18;
+    int initHP = 23;
     int initAtk = 3;
     int initSup = 8;
     int initB = 5;
@@ -70,7 +70,7 @@ public class DCardDrunkenSailor extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            DCondition s = new DConditionResistance(3, "Alcoholic Resistance", 2);
+            DCondition s = new DConditionResistance(3, "Alcoholic Resistance", 1);
             inflictCondition(target, s);
             return(super.sAtk(target));
         }
