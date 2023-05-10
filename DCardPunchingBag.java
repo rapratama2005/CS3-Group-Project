@@ -14,7 +14,7 @@ public class DCardPunchingBag extends DsuperCard{
         "Is it a bag FOR punching or a bag THAT punches?", 
         "Don't ask me how. Deals base damage.", 
         "Adds the amount of damage from the last hit to a Super Attack. Then heals 2 health", 
-        "Thanks, Newton! Deals stored damage from 'Absorb Hit'"};
+        "Thanks, Newton! Deals stored damage from 'Absorb Hit'. Heals 3 health"};
 
     public DCardPunchingBag() {
         super(10, 2, 10, 2, "Sample Man", "Sample Attack", "Sample Super Attack", "Sample Poison Attack", 6, 1, 1, 1, 2, "Ivy.jpg");
@@ -72,6 +72,7 @@ public class DCardPunchingBag extends DsuperCard{
             return(super.sAtk(target));
         } else {
             target.hurt(absorbedDamage);
+            heal(3);
             return(super.sAtk(target));
         }
     }
