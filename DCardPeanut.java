@@ -11,7 +11,7 @@ public class DCardPeanut extends DsuperCard{
     String[] desc = {
         "'Item SCP-173 is to be kept in a locked container at all times'-https://scp-wiki.wikidot.com/scp-173", 
         "Deals base damage.", 
-        "'At all times, two persons must maintain direct eye contact with SCP-173 until all personnel have vacated and relocked the container.' Inflicts weakness effect of magnitude 2 duration 3 on an enemy", 
+        "'At all times, two persons must maintain direct eye contact with SCP-173 until all personnel have vacated and relocked the container.' Inflicts weakness effect of magnitude 1 duration 3 on an enemy", 
         "'Object is reported to attack by snapping the neck at the base of the skull, or by strangulation.' Inflicts 3x base damage on an enemy."
     };
 
