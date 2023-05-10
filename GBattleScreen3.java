@@ -42,16 +42,35 @@ public class GBattleScreen3 extends JFrame{
     }
 
     public class GMid extends GSide{
-        JTextArea log = new JTextArea(10,15);
-        JPanel placeholder = new JPanel();
+        GPanel placeholder = new GPanel(WIDTH,HEIGHT,1,1,Color.white);
+        GPanel imgPlace = new GPanel(WIDTH,HEIGHT,1,1,Color.white);
+        private JLabel pic;
+        private ImageIcon a = null;
+        JTextArea log = new JTextArea(25,50);
         GMid(){
             super(Color.white, false);
             log.setEditable(false);
             log.setLineWrap(true);
             log.setWrapStyleWord(true);
+            log.setText("a");
+            //log.setText("aa");
             JScrollPane s2 = new JScrollPane(log);
+            a = new ImageIcon("vs.png");
+            pic = new JLabel(a);
+            imgPlace.add(pic);
+
+            add(imgPlace);
             add(placeholder);
-            add(s2);
+            placeholder.setVisible(true);
+            placeholder.add(s2);
+            log.setVisible(true);
+            s2.setVisible(true);
+        }
+
+        void updateLog(){
+            log.setText(""+BattleLog);
+            revalidate();
+            repaint();
         }
     }
 
@@ -109,7 +128,12 @@ public class GBattleScreen3 extends JFrame{
                 temp = sideB[slot];
             }
             isDead=temp.isDead();            
-
+            if(isDead){
+                ImageIcon a = new ImageIcon("ICards/dead.png");
+                JLabel pic = new JLabel(a);
+                imgPlace.removeAll();
+                imgPlace.add(pic);
+            }
             mid.atk.checkEnabled();
             mid.batk.checkEnabled();
             mid.satk.checkEnabled();
@@ -164,23 +188,27 @@ public class GBattleScreen3 extends JFrame{
                 } else if (applyTo == 1){
                     if(aNotB){
                         for(DsuperCard i: sideB){
-                            x.add(i.getName());
+                            if(!i.isDead()){
+                                x.add(i.getName());
+                            }
                         }
                     } else {
                         for(DsuperCard i: sideA){
-                            x.add(i.getName());
+                            if(!i.isDead()){
+                                x.add(i.getName());
+                            }
                         } 
                     }
                 } else if (applyTo == 2){
                     if(!aNotB){
                         for(int i = 0; i < sideB.length; i++){
-                            if(i!=slot){
+                            if(i!=slot && !sideB[i].isDead()){
                                 x.add(sideB[i].getName());
                             }
                         }
                     } else {
                         for(int i = 0; i < sideA.length; i++){
-                            if(i!=slot){
+                            if(i!=slot && !sideA[i].isDead()){
                                 x.add(sideA[i].getName());
                             }
                         }
@@ -188,11 +216,15 @@ public class GBattleScreen3 extends JFrame{
                 } else if (applyTo == 3){
                     if(!aNotB){
                         for(DsuperCard i: sideB){
-                            x.add(i.getName());
+                            if(!i.isDead()){
+                                x.add(i.getName());
+                            }
                         }
                     } else {
                         for(DsuperCard i: sideA){
-                            x.add(i.getName());
+                            if(!i.isDead()){
+                                x.add(i.getName());
+                            }
                         } 
                     }
                 }
@@ -295,6 +327,7 @@ public class GBattleScreen3 extends JFrame{
                     }
                     
                     System.out.println(BattleLog);
+                    midd.updateLog();
                     checkWin();
                 }
             }
@@ -605,7 +638,7 @@ public class GBattleScreen3 extends JFrame{
                 cardList[i].checkAllEnabled();
             }
             System.out.println(BattleLog);
-            midd.log.setText(BattleLog);
+            midd.updateLog();
             revalidate();
             repaint();
             checkWin();

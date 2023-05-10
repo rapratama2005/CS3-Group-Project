@@ -12,7 +12,7 @@ public class GVictoryScreen extends JFrame{
         setSize(new Dimension(800, 800));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(1,1));
-        if(redWin){
+        if(!redWin){
             a = new ImageIcon("redwins.png");
         } else {
             a = new ImageIcon("bluewins.png");
