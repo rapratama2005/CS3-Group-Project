@@ -13,6 +13,7 @@ public class DDeck {
     DsuperCard TurboNerd = new DCardTurboNerd();
     DsuperCard Forklift = new DCardForkliftOpperator();
     DsuperCard GameDev = new DCardTheGameDevs();
+    DsuperCard letapNahor = new DCardLehtapNahoor();
     
     public DDeck (){
         deck.add(DrunkenSailor);
@@ -23,6 +24,7 @@ public class DDeck {
         deck.add(TurboNerd);
         deck.add(Forklift);
         deck.add(GameDev);
+        deck.add(letapNahor);
 
         for(DsuperCard x: deck){
             cardIDs.put(x.getName(), x);

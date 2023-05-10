@@ -61,8 +61,8 @@ public class GMainScreen extends JFrame {
     }
     public class o implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            GSelectionScreen gg = new GSelectionScreen();
             setVisible(false);
+            GSelectionScreen gg = new GSelectionScreen();
         }   
     }   
 }

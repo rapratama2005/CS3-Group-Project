@@ -1,18 +1,18 @@
-//R 4/11: Sample Card to test //Tank
+//R 4/11: Sample Card to test //Attack
 public class DCardLehtapNahoor extends DsuperCard{
-    String initName = "Template Man";
-    int initHP = 20;
-    int initAtk = 2;
-    int initSup = 8;
-    int initB = 2;
-    String[] moveSet = {"Sample Attack","Sample Poison Attack", "WHHAAATTTT"};
-    int[] applicability = {1, 1, 1};
+    String initName = "LehtapNahoor";
+    int initHP = 10;
+    int initAtk = 4;
+    int initSup = 16;
+    int initB = 4;
+    String[] moveSet = {"AI","Stumble Guys", "WHHAAATTTT"};
+    int[] applicability = {1, 1, 0};
     String image = "Ivy.jpg";
     String[] desc = {
-        "Character Desc", 
-        "Atk Desc", 
-        "B Atk Desc", 
-        "S Atk Desc"
+        "The most op card", 
+        "Uses the power of AI. Deals base damage", 
+        "Lags the opponent. Grants a weakness effect of magnitude 2 for 2 turns", 
+        "Uses the power of his voice to reduce all incoming damage. Grants a resistance effect of magnitude 3 for 3 turns. Then increases attack by 2 for 3 turns"
     };
 
     public DCardLehtapNahoor() {
@@ -55,7 +55,7 @@ public class DCardLehtapNahoor extends DsuperCard{
         if (!super.checkB()){
             return(super.bAtk(target));
         } else {
-            
+            target.addConditions(new DConditionWeakness(2, "Stumble Guys", 2));
             return(super.bAtk(target));
         }
     }
@@ -69,7 +69,8 @@ public class DCardLehtapNahoor extends DsuperCard{
         if (!super.checkSup()){
             return(super.sAtk(target));
         } else {
-            target.hurt(super.getAtk()*3);
+            target.addConditions(new DConditionStrength(2, "WHHAAATTTT", 3));
+            target.addConditions(new DConditionResistance(3, "WHHAAATTTT", 3));
             return(super.sAtk(target));
         }
     }
