@@ -26,4 +26,7 @@ public abstract class DCondition{
     public void effect(DsuperCard card){
         duration--;
     };
+    public String toString(){
+        return name + " (" + duration + ")";
+    }
 }

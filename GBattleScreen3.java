@@ -1,9 +1,14 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.spec.EncodedKeySpec;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import javax.swing.JFrame;
+import java.util.Date;
+
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.*;
@@ -185,14 +190,21 @@ public class GBattleScreen3 extends JFrame{
 
                 } if (applyTo == 0){
                     x.add(temp.getName());
+                    if(aNotB){
+                        targetSideA=true;
+                    } else {
+                        targetSideA=false;
+                    }
                 } else if (applyTo == 1){
                     if(aNotB){
+                        targetSideA=false;
                         for(DsuperCard i: sideB){
                             if(!i.isDead()){
                                 x.add(i.getName());
                             }
                         }
                     } else {
+                        targetSideA=true;
                         for(DsuperCard i: sideA){
                             if(!i.isDead()){
                                 x.add(i.getName());
@@ -201,12 +213,14 @@ public class GBattleScreen3 extends JFrame{
                     }
                 } else if (applyTo == 2){
                     if(!aNotB){
+                        targetSideA=false;
                         for(int i = 0; i < sideB.length; i++){
                             if(i!=slot && !sideB[i].isDead()){
                                 x.add(sideB[i].getName());
                             }
                         }
                     } else {
+                        targetSideA=true;
                         for(int i = 0; i < sideA.length; i++){
                             if(i!=slot && !sideA[i].isDead()){
                                 x.add(sideA[i].getName());
@@ -215,12 +229,14 @@ public class GBattleScreen3 extends JFrame{
                     }
                 } else if (applyTo == 3){
                     if(!aNotB){
+                        targetSideA=false;
                         for(DsuperCard i: sideB){
                             if(!i.isDead()){
                                 x.add(i.getName());
                             }
                         }
                     } else {
+                        targetSideA=true;
                         for(DsuperCard i: sideA){
                             if(!i.isDead()){
                                 x.add(i.getName());
@@ -245,9 +261,7 @@ public class GBattleScreen3 extends JFrame{
                 // TODO Auto-generated method stub
                 if(e.getSource().equals(descAndConf.con.button)&&descAndConf.con.enabled){
                     String index = descAndConf.box.getSelectedItem().toString();
-                    //target = index;
-                    System.out.println("nnn" + index);
-                    if(currentSideA){
+                    if(targetSideA){
                         for (int i = 0; i < sideA.length; i++){
                             if(sideA[i].getName().equals(index)){
                                 target=i;
@@ -664,9 +678,25 @@ public class GBattleScreen3 extends JFrame{
         System.out.println(anyBlueAlive);
         if(!anyRedAlive){
             GVictoryScreen a = new GVictoryScreen(true);
-            setVisible(false);
         } if(!anyBlueAlive){
             GVictoryScreen a = new GVictoryScreen(false);
+        }
+        if(!anyRedAlive||!anyBlueAlive){
+
+            String filename = "BattleLog-" + java.time.LocalDateTime.now() +".txt";
+            try {
+                File myObj = new File(filename);
+                if (myObj.createNewFile()) {
+                    System.out.println("File created: " + myObj.getName());
+                  } else {
+                    System.out.println("File already exists.");
+                  }
+                FileWriter myWriter = new FileWriter(filename);
+                myWriter.write(BattleLog);
+                myWriter.close();
+              } catch (IOException e) {
+                e.printStackTrace();
+              }
             setVisible(false);
         }
     }

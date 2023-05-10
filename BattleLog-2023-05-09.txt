@@ -1,0 +1,17 @@
+Mad Scientist used Laser Gun on Moral Support Witch for 5 damage.
+Moral Support Witch used Minor Electric Bolt on Mad Scientist for 2 damage.
+The Peanut used Tap on Moral Support Witch for 4 damage.
+Punching Bag used Light Jab on Mad Scientist for 2 damage.
+Mad Scientist used Laser Gun on Moral Support Witch for 5 damage.
+The Peanut used Tap on Punching Bag for 4 damage.
+Punching Bag used Absorb Hit (alternate attack) on Punching Bag.
+
+Mad Scientist used Laser Gun on Punching Bag for 5 damage.
+The Peanut used Tap on Punching Bag for 4 damage.
+Punching Bag used Light Jab on Mad Scientist for 2 damage.
+Mad Scientist used Mutantinator 9001 (special attack) on Mad Scientist.
+
+The Peanut used Tap on Punching Bag for 4 damage.
+Punching Bag used Absorb Hit (alternate attack) on Punching Bag.
+
+Mad Scientist used Laser Gun on Punching Bag for 10 damage.
