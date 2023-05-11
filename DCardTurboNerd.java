@@ -6,13 +6,13 @@ public class DCardTurboNerd extends DsuperCard{
     int initSup = 8;
     int initB = 2;
     String[] moveSet = {"Umm Ackshually","The Quadratic Equation", "The power of GOD and ANIME on my side"};
-    int[] applicability = {1, 0, 0};
+    int[] applicability = {1, 0, 1};
     String image = "ICards/TurboNerd.png";
     String[] desc = {
         "Be careful who you make fun of in school. Actually, don't. It's way funnier this way.",
         "*insert nerdy rant here*. Deals base damage.", 
         "'Negative B plus or minus the square root of B squared minus 4 A C all over 2 A'. Grants a resistance effect of duration 3 and magnitude 1", 
-        "*I don't watch anime, pretend there's a cool catchphrase here*. Grants a regeneration effect of duration 2 and magnitude 3."
+        "*I don't watch anime, pretend there's a cool catchphrase here*. Grants a regeneration effect of duration 2 and magnitude 3 on self. Then deals 6 damage to an enemy"
     };
 
     public DCardTurboNerd() {
@@ -71,7 +71,8 @@ public class DCardTurboNerd extends DsuperCard{
             return(super.sAtk(target));
         } else {
             DCondition s = new DConditionRegen(2, "The Power of GOD and ANIME", 3);
-            target.addConditions(s);
+            addConditions(s);
+            target.hurt(5);
             return(super.sAtk(target));
         }
     }

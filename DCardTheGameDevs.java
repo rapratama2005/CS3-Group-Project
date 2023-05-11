@@ -4,14 +4,14 @@ public class DCardTheGameDevs extends DsuperCard{
     int initHP = 20;
     int initAtk = 2;
     int initSup = 10;
-    int initB = 4;
+    int initB = 2;
     String[] moveSet = {"Bad GUI","Late Night Grinding", "Intentionally Placed Bug"};
-    int[] applicability = {1, 0, 0};//0 is self, 1 is enemy, 2 is ally, 3 is ally and self
+    int[] applicability = {1, 3, 0};//0 is self, 1 is enemy, 2 is ally, 3 is ally and self
     String image = "ICards/GameDevs.png";
     String[] desc = {
         "Look at these losers bro", 
         "[meta joke here]. Deals base damage.", 
-        "AAAAHHHHHH. Grants magnitude 1 duration 2 resistance effect on self.", 
+        "AAAAHHHHHH. Grants magnitude 1 duration 2 resistance effect on an ally.", 
         "I don't know how to break the fourth wall. Grants magnitude 3 duration 2 regeneration effect on self."
     };
 
